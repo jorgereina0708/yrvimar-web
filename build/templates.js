@@ -159,9 +159,6 @@ function header(lang, active, alternates) {
       <a href="mailto:${SITE.emailSales}" aria-label="Email">${I.mail}</a>
     </div>
   </div>
-  <div class="mti-row2">
-    <a href="tel:${SITE.phoneRaw}">${I.phone}<span>${SITE.phone}</span></a>
-  </div>
 </div>
 <header class="site-header" id="site-header">
   <div class="container nav">
@@ -208,7 +205,8 @@ function header(lang, active, alternates) {
       <a class="btn btn--ghost btn--block" href="${alternates[other]}" hreflang="${other}">${I.globe}<span>${t.langSwitch}</span></a>
     </div>
   </div>
-</header>`;
+</header>
+<a class="m-phonebar" href="tel:${SITE.phoneRaw}">${I.phone}<span>${L ? 'Llámanos' : 'Call us'}: <b>${SITE.phone}</b></span></a>`;
 }
 
 // ---------- Footer ----------
