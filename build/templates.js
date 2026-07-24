@@ -54,8 +54,9 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const abs = (path) => SITE.baseUrl + path;
 
 // ---------- <head> ----------
-function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, robots }) {
+function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, robots, ver }) {
   const t = T[lang];
+  const v = ver ? `?v=${ver}` : '';
   const other = lang === 'es' ? 'en' : 'es';
   const canonical = abs(path);
   const og = abs(ogImage || img('og-image.jpg'));
@@ -105,7 +106,7 @@ function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, ro
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="${img('hero.webp')}" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${ASSET}/css/style.css">
+  <link rel="stylesheet" href="${ASSET}/css/style.css${v}">
   ${ld}
 </head>`;
 }

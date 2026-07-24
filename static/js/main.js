@@ -109,6 +109,7 @@
   var heroDone = false;
   function setupHero() {
     if (heroDone || reduce || !window.gsap) return;
+    if (!doc.querySelector('.hero .hero-copy')) return; // solo en páginas con hero (home)
     heroDone = true;
     var g = window.gsap;
     var tl = g.timeline({ defaults: { ease: 'power3.out' } });

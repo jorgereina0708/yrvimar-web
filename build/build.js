@@ -31,8 +31,12 @@ function copyDir(src, dest) {
   }
 }
 
+// ---------- versión de assets (cache-busting) ----------
+const VER = Date.now().toString(36);
+
 // ---------- shell ----------
 function shell({ lang, active, meta, main }) {
+  meta.ver = VER;
   return `${head(meta)}
 <body>
 ${header(lang, active, meta.alternates)}
@@ -43,7 +47,7 @@ ${footer(lang)}
 ${widgets(lang)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=${VER}" defer></script>
 </body>
 </html>`;
 }
@@ -671,6 +675,56 @@ Allow: /
 Sitemap: ${SITE.baseUrl}/sitemap.xml`;
 }
 
+function htaccess() {
+  return `# ============================================================
+#  YRVIMAR — configuración del servidor (Apache/LiteSpeed)
+# ============================================================
+Options -Indexes
+DirectoryIndex index.html
+
+# Página 404 personalizada
+ErrorDocument 404 /404.html
+
+# --- Cabeceras de seguridad ---
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+</IfModule>
+
+# --- Bloquear archivos ocultos y sensibles ---
+<FilesMatch "(^\\.|\\.(bak|config|sql|ini|log|sh|inc|env)$)">
+  Require all denied
+</FilesMatch>
+
+# --- Compresión ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Caché de estáticos ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(webp|jpg|jpeg|png|ico|svg|css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+</IfModule>
+`;
+}
+
 function manifest() {
   return JSON.stringify({
     name: SITE.name, short_name: SITE.shortName, start_url: '/es/', display: 'standalone',
@@ -759,6 +813,7 @@ function build() {
   write('robots.txt', robots());
   write('sitemap.xml', sitemap());
   write('site.webmanifest', manifest());
+  write('.htaccess', htaccess());
 
   console.log(`✓ Generadas ${count} páginas HTML + root/404/robots/sitemap/manifest`);
   console.log(`✓ Salida: ${DIST}`);
