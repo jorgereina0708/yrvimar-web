@@ -29,6 +29,10 @@ const I = {
   target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>',
   eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
   layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"/></svg>',
+  chevDown: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
+  chevLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
+  chevRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>',
+  box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>',
 };
 const catIcon = { hose: I.hose, gauge: I.gauge, coupling: I.coupling, valve: I.valve, shield: I.shield };
 
@@ -54,7 +58,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const abs = (path) => SITE.baseUrl + path;
 
 // ---------- <head> ----------
-function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, robots, ver }) {
+function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, robots, ver, preload }) {
   const t = T[lang];
   const v = ver ? `?v=${ver}` : '';
   const other = lang === 'es' ? 'en' : 'es';
@@ -104,7 +108,7 @@ function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, ro
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="${img('hero.webp')}" fetchpriority="high">
+  ${preload ? `<link rel="preload" as="image" href="${preload}" fetchpriority="high">` : ''}
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${ASSET}/css/style.css${v}">
   ${ld}
@@ -116,16 +120,55 @@ function header(lang, active, alternates) {
   const t = T[lang];
   const other = lang === 'es' ? 'en' : 'es';
   const n = t.nav;
+  const L = lang === 'es';
   const link = (href, label, key) => `<a href="${href}"${active === key ? ' aria-current="page"' : ''}>${label}</a>`;
   const mlink = (href, label) => `<a href="${href}">${label} <span class="arw">${I.arrowR}</span></a>`;
+
+  const megaLinks = CATEGORIES.map((c) => `<a class="mega-link" href="${U.category(lang, c.slug[lang])}">
+        <span class="mi">${catIcon[c.icon] || I.box}</span>
+        <span><h4>${c.name[lang]}</h4><p>${c.tagline[lang]}</p></span>
+      </a>`).join('\n      ');
+  const mCatLinks = CATEGORIES.map((c) => `<a href="${U.category(lang, c.slug[lang])}">${catIcon[c.icon] || I.box}<span>${c.name[lang]}</span></a>`).join('\n      ');
+
   return `<a class="skip-link" href="#main">${t.skipToContent}</a>
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:${SITE.phoneRaw}">${I.phone}<span>${SITE.phone}</span></a>
+      <span class="sep hide-sm"></span>
+      <a class="hide-sm" href="mailto:${SITE.emailSales}">${I.mail}<span>${SITE.emailSales}</span></a>
+      <span class="sep hide-sm"></span>
+      <span class="hide-xs" style="display:inline-flex;gap:7px;align-items:center">${I.pin}<span>${SITE.city}, ${SITE.countryName[lang]}</span></span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-social">
+        <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+        <a href="${wa(L ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
+      </div>
+      <span class="sep"></span>
+      <a href="${alternates[other]}" hreflang="${other}">${I.globe}<span>${t.langSwitchShort}</span></a>
+    </div>
+  </div>
+</div>
 <header class="site-header" id="site-header">
   <div class="container nav">
     <a class="brand" href="${U.home(lang)}" aria-label="${esc(SITE.name)}">
-      <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="150" height="34">
+      <img src="${logo('yrvimar-dark.png')}" alt="${esc(SITE.name)}" width="90" height="41">
     </a>
-    <nav class="nav-links" aria-label="${lang === 'es' ? 'Principal' : 'Main'}">
+    <nav class="nav-links" aria-label="${L ? 'Principal' : 'Main'}">
       ${link(U.home(lang), n.home, 'home')}
+      <div class="nav-item">
+        <button aria-haspopup="true" aria-expanded="false">${n.categories} <span class="chev">${I.chevDown}</span></button>
+        <div class="mega">
+          <div class="mega-grid">
+      ${megaLinks}
+          </div>
+          <div class="mega-foot">
+            <span style="font-size:.85rem;color:var(--mute)">${L ? 'Precios bajo cotización' : 'Prices upon request'}</span>
+            <a href="${U.products(lang)}">${t.cta.viewCatalog} ${I.arrowR}</a>
+          </div>
+        </div>
+      </div>
       ${link(U.products(lang), n.products, 'products')}
       ${link(U.about(lang), n.about, 'about')}
       ${link(U.blog(lang), n.blog, 'blog')}
@@ -133,18 +176,22 @@ function header(lang, active, alternates) {
     </nav>
     <div class="nav-actions">
       <a class="lang-switch lang-desktop" href="${alternates[other]}" hreflang="${other}" aria-label="${t.langSwitch}">${I.globe}<span>${t.langSwitchShort}</span></a>
-      <a class="btn btn--primary lang-desktop" href="${wa(lang === 'es' ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="${lang === 'es' ? 'Abrir menú' : 'Open menu'}" aria-expanded="false" aria-controls="nav-mobile"><span></span></button>
+      <a class="btn btn--primary lang-desktop" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="${L ? 'Abrir menú' : 'Open menu'}" aria-expanded="false" aria-controls="nav-mobile"><span></span></button>
     </div>
   </div>
   <div class="nav-mobile" id="nav-mobile">
     ${mlink(U.home(lang), n.home)}
+    <button class="m-cat-toggle" id="m-cat-toggle" aria-expanded="false">${n.categories} <span class="chev">${I.chevDown}</span></button>
+    <div class="m-cat-panel" id="m-cat-panel">
+      ${mCatLinks}
+    </div>
     ${mlink(U.products(lang), n.products)}
     ${mlink(U.about(lang), n.about)}
     ${mlink(U.blog(lang), n.blog)}
     ${mlink(U.contact(lang), n.contact)}
     <div class="nav-mobile-cta">
-      <a class="btn btn--primary btn--block" href="${wa(lang === 'es' ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
+      <a class="btn btn--primary btn--block" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
       <a class="btn btn--ghost btn--block" href="${alternates[other]}" hreflang="${other}">${I.globe}<span>${t.langSwitch}</span></a>
     </div>
   </div>
@@ -160,7 +207,7 @@ function footer(lang) {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="180" height="40">
+        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="112" height="51">
         <p>${f.tagline}</p>
         <div class="footer-social">
           <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>

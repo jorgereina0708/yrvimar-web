@@ -7,7 +7,7 @@ const path = require('path');
 const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS } = require('./site');
 const { ARTICLES } = require('./articles');
 const Tpl = require('./templates');
-const { I, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, postCard, fmtDate, sectionHead } = Tpl;
+const { I, catIcon, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, postCard, fmtDate, sectionHead } = Tpl;
 
 const ROOT = path.join(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -149,33 +149,52 @@ function pageHome(lang) {
   const marqueeItems = [...CATEGORIES.map((x) => x.name[lang]), lang === 'es' ? 'Envíos a todo Panamá' : 'Shipping across Panama', 'SAE 100 R2', '1000 WOG', 'Camlock', 'Chicago'];
   const marquee = marqueeItems.concat(marqueeItems).map((m) => `<span class="marquee-item"><span>${m}</span></span>`).join('');
 
+  const L = lang === 'es';
+  const catBy = (id) => CATEGORIES.find((x) => x.id === id);
+  const heroSlides = [
+    { img: 'banner-1.webp', eye: c.eyebrow,
+      h1: `${c.h1a}<span class="gold">${c.h1b}</span>${c.h1c}`, p: c.sub,
+      c1: { href: U.products(lang), label: t.cta.viewCatalog, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },
+    { img: 'banner-2.webp', eye: L ? 'Conexiones · Válvulas · Acoples' : 'Fittings · Valves · Couplings',
+      h1: L ? `Conexiones y válvulas para <span class="gold">cada estándar</span>.` : `Fittings and valves for <span class="gold">every standard</span>.`,
+      p: L ? 'Bronce, acero inoxidable y aluminio: Camlock, Chicago, JIC, NPT y válvulas de bola 1000 WOG.' : 'Brass, stainless steel and aluminum: Camlock, Chicago, JIC, NPT and 1000 WOG ball valves.',
+      c1: { href: U.category(lang, catBy('conexiones-acoples').slug[lang]), label: t.cta.explore, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },
+    { img: 'banner-3.webp', eye: L ? 'Existencias locales · Panamá' : 'Local stock · Panama',
+      h1: L ? `Tu operación, <span class="gold">siempre abastecida</span>.` : `Your operation, <span class="gold">always supplied</span>.`,
+      p: L ? 'Inventario local y asesoría técnica para reducir tus tiempos de paro de días a horas.' : 'Local inventory and technical advice to cut your downtime from days to hours.',
+      c1: { href: U.about(lang), label: t.nav.about, cls: 'btn--primary' }, c2: { href: U.contact(lang), label: t.cta.contactUs } },
+  ];
+  const slideHtml = heroSlides.map((s, i) => `
+    <div class="slide${i === 0 ? ' active' : ''}" data-slide="${i}">
+      <div class="slide__img"><img src="${img(s.img)}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="1600" height="900"></div>
+      <div class="container"><div class="slide__content">
+        <span class="eyebrow" data-num=""><span class="tick"></span>${s.eye}</span>
+        <h1>${s.h1}</h1>
+        <p>${s.p}</p>
+        <div class="slide__cta">
+          <a class="btn ${s.c1.cls} btn--lg" href="${s.c1.href}">${s.c1.label} ${I.arrowR}</a>
+          ${s.c2.wa
+            ? `<a class="btn btn--wa btn--lg" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa} ${s.c2.label}</a>`
+            : `<a class="btn btn--ghost-light btn--lg" href="${s.c2.href}">${s.c2.label} ${I.arrowR}</a>`}
+        </div>
+      </div></div>
+    </div>`).join('');
+
   const main = `
-<section class="hero ticked">
-  <div class="techgrid"></div>
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow hero-eyebrow" data-num="">${I.shield}&nbsp; ${c.eyebrow}</span>
-      <h1>${c.h1a}<span class="gold">${c.h1b}</span>${c.h1c}</h1>
-      <p class="hero-sub">${c.sub}</p>
-      <div class="hero-cta">
-        <a class="btn btn--primary btn--lg" href="${U.products(lang)}">${t.cta.viewCatalog} ${I.arrowR}</a>
-        <a class="btn btn--ghost btn--lg" href="${wa(lang === 'es' ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa} ${t.cta.quote}</a>
-      </div>
-      <div class="hero-meta">
-        <div class="item"><div class="n">+500</div><div class="l">${lang === 'es' ? 'Referencias' : 'References'}</div></div>
-        <div class="item"><div class="n">5</div><div class="l">${lang === 'es' ? 'Líneas' : 'Lines'}</div></div>
-        <div class="item"><div class="n">${lang === 'es' ? 'Nacional' : 'Nationwide'}</div><div class="l">${lang === 'es' ? 'Cobertura' : 'Coverage'}</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-orbit"><svg viewBox="0 0 100 100"><ellipse class="ring" cx="50" cy="50" rx="52" ry="30" transform="rotate(-24 50 50)"/></svg></div>
-      <div class="glow"></div>
-      <div class="frame"><img src="${img('hero.webp')}" alt="${lang === 'es' ? 'Mangueras y conexiones industriales YRVIMAR' : 'YRVIMAR industrial hoses and fittings'}" width="900" height="900" fetchpriority="high"></div>
-      <div class="hero-chip hero-chip--a"><span class="dot"></span><span class="tx"><b>${c.chipA}</b>${c.chipAsub}</span></div>
-      <div class="hero-chip hero-chip--b"><span class="dot"></span><span class="tx"><b>${c.chipB}</b>${c.chipBsub}</span></div>
+<section class="hero">
+  <div class="hero-carousel" id="hero-carousel" aria-roledescription="carousel">
+    ${slideHtml}
+    <button class="carousel-arrow prev" id="hero-prev" aria-label="${L ? 'Anterior' : 'Previous'}">${I.chevLeft}</button>
+    <button class="carousel-arrow next" id="hero-next" aria-label="${L ? 'Siguiente' : 'Next'}">${I.chevRight}</button>
+    <div class="carousel-dots" id="hero-dots">
+      ${heroSlides.map((_, i) => `<button data-dot="${i}" class="${i === 0 ? 'active' : ''}" aria-label="${L ? 'Ir al banner' : 'Go to slide'} ${i + 1}"></button>`).join('')}
     </div>
   </div>
 </section>
+
+<div class="cat-strip"><div class="container"><div class="inner">
+  ${CATEGORIES.map((cat) => `<a href="${U.category(lang, cat.slug[lang])}"><span class="ic">${catIcon[cat.icon] || I.box}</span><span class="lb">${cat.name[lang]}</span></a>`).join('\n  ')}
+</div></div></div>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track">${marquee}</div></div>
 
@@ -254,7 +273,7 @@ function pageHome(lang) {
 
   return shell({
     lang, active: 'home',
-    meta: { lang, title, desc, path: U.home(lang), alternates: alts(U.home('es'), U.home('en')), ogType: 'website', jsonld: [ldOrg(), ldWebsite(lang)] },
+    meta: { lang, title, desc, path: U.home(lang), alternates: alts(U.home('es'), U.home('en')), ogType: 'website', preload: img('banner-1.webp'), jsonld: [ldOrg(), ldWebsite(lang)] },
     main,
   });
 }

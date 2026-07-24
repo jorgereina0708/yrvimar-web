@@ -33,6 +33,55 @@
     });
   }
 
+  /* ---------- Mega-menú de categorías (móvil) ---------- */
+  var mCatToggle = doc.getElementById('m-cat-toggle');
+  var mCatPanel = doc.getElementById('m-cat-panel');
+  if (mCatToggle && mCatPanel) {
+    mCatToggle.addEventListener('click', function () {
+      var open = mCatPanel.classList.toggle('open');
+      mCatToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var chev = mCatToggle.querySelector('.chev');
+      if (chev) chev.style.transform = open ? 'rotate(180deg)' : '';
+    });
+  }
+
+  /* ---------- Hero carousel ---------- */
+  (function heroCarousel() {
+    var root = doc.getElementById('hero-carousel');
+    if (!root) return;
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.slide'));
+    if (slides.length < 2) return;
+    var dots = Array.prototype.slice.call(root.querySelectorAll('#hero-dots button'));
+    var idx = 0, timer = null, DELAY = 6000;
+    function go(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+    }
+    function next() { go(idx + 1); }
+    function prev() { go(idx - 1); }
+    function start() { if (!reduce) { stop(); timer = setInterval(next, DELAY); } }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    var nextBtn = doc.getElementById('hero-next');
+    var prevBtn = doc.getElementById('hero-prev');
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); start(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); start(); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); start(); }); });
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    // swipe táctil
+    var x0 = null;
+    root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+      x0 = null; start();
+    }, { passive: true });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    start();
+  })();
+
   /* ---------- Back to top ---------- */
   var backTop = doc.getElementById('back-top');
   if (backTop) {
