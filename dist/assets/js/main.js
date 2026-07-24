@@ -20,10 +20,15 @@
 
   /* ---------- Mobile nav ---------- */
   var toggle = doc.getElementById('nav-toggle');
+  var navMobileEl = doc.getElementById('nav-mobile');
   if (toggle) {
     toggle.addEventListener('click', function () {
       var open = body.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      // alinear el drawer justo debajo de la cabecera (varía según el scroll)
+      if (open && navMobileEl && header) {
+        navMobileEl.style.top = Math.max(0, header.getBoundingClientRect().bottom) + 'px';
+      }
     });
     doc.querySelectorAll('#nav-mobile a').forEach(function (a) {
       a.addEventListener('click', function () {

@@ -50,7 +50,8 @@
   --ff-body: "Inter", system-ui, sans-serif;
   --ff-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --header-h: 74px;
+  --header-h: 92px;
+  --header-h-sm: 66px;
   --topbar-h: 40px;
 }
 
@@ -172,10 +173,12 @@ strong { color: var(--ink); font-weight: 600; }
 
 /* ---------- Header ---------- */
 .site-header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--line); transition: box-shadow .3s var(--ease); }
-.site-header.scrolled { box-shadow: var(--shadow-sm); }
-.nav { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 24px; }
+.site-header.scrolled { box-shadow: var(--shadow); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 24px; transition: height .35s var(--ease); }
+.site-header.scrolled .nav { height: var(--header-h-sm); }
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
-.brand img { height: 38px; width: auto; }
+.brand img { height: 62px; width: auto; transition: height .35s var(--ease); }
+.site-header.scrolled .brand img { height: 44px; }
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links > a, .nav-item > button, .nav-item > a {
   font-size: 0.94rem; font-weight: 500; color: var(--ink-2);
@@ -222,6 +225,9 @@ strong { color: var(--ink); font-weight: 600; }
 body.nav-open .nav-toggle span { background: transparent; }
 body.nav-open .nav-toggle span::before { top: 0; transform: rotate(45deg); }
 body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
+
+/* Mobile info bar (arriba del header, se va con el scroll) */
+.m-topinfo { display: none; }
 
 /* Mobile nav */
 .nav-mobile { display: none; }
@@ -515,7 +521,25 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
   .nav-links, .nav-actions .lang-desktop { display: none; }
   .nav-toggle { display: flex; }
   .topbar-left .hide-sm { display: none; }
-  .nav-mobile { display: flex; position: fixed; inset: calc(var(--header-h)) 0 0 0; z-index: 99; background: #fff; flex-direction: column; padding: 24px var(--gutter) 40px; gap: 2px; transform: translateX(100%); transition: transform .4s var(--ease); overflow-y: auto; }
+  /* Logo más grande en móvil; el header no encoge (lo hace la barra de info al desplazarse) */
+  .nav { height: 68px; }
+  .site-header.scrolled .nav { height: 68px; }
+  .brand img { height: 50px; }
+  .site-header.scrolled .brand img { height: 50px; }
+  /* Barra de info superior (móvil) */
+  .m-topinfo { display: block; background: var(--navy); color: #b6bfca; padding: 9px var(--gutter) 10px; font-size: 0.8rem; }
+  .m-topinfo .mti-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .m-topinfo .mti-loc { display: inline-flex; align-items: center; gap: 7px; color: #c3ccd6; min-width: 0; }
+  .m-topinfo .mti-loc span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-topinfo .mti-loc svg { color: var(--gold); width: 15px; height: 15px; flex-shrink: 0; }
+  .m-topinfo .mti-social { display: flex; gap: 15px; flex-shrink: 0; }
+  .m-topinfo .mti-social a { color: #c3ccd6; transition: color .2s; }
+  .m-topinfo .mti-social a:hover { color: var(--gold); }
+  .m-topinfo .mti-social a svg { width: 17px; height: 17px; }
+  .m-topinfo .mti-row2 { margin-top: 6px; }
+  .m-topinfo .mti-row2 a { display: inline-flex; align-items: center; gap: 7px; color: #c3ccd6; font-weight: 500; }
+  .m-topinfo .mti-row2 a svg { color: var(--gold); width: 15px; height: 15px; }
+  .nav-mobile { display: flex; position: fixed; inset: 68px 0 0 0; z-index: 99; background: #fff; flex-direction: column; padding: 24px var(--gutter) 40px; gap: 2px; transform: translateX(100%); transition: transform .4s var(--ease); overflow-y: auto; }
   body.nav-open .nav-mobile { transform: translateX(0); }
   body.nav-open { overflow: hidden; }
   .nav-mobile > a, .nav-mobile .m-cat-toggle { font-family: var(--ff-display); font-size: 1.4rem; color: var(--ink); padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; width: 100%; }

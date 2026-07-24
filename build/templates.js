@@ -150,6 +150,19 @@ function header(lang, active, alternates) {
     </div>
   </div>
 </div>
+<div class="m-topinfo">
+  <div class="mti-row">
+    <a class="mti-loc" href="${SITE.mapUrl}" target="_blank" rel="noopener">${I.pin}<span>Parque Lefevre, ${SITE.countryName[lang]}</span></a>
+    <div class="mti-social">
+      <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+      <a href="${wa(L ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
+      <a href="mailto:${SITE.emailSales}" aria-label="Email">${I.mail}</a>
+    </div>
+  </div>
+  <div class="mti-row2">
+    <a href="tel:${SITE.phoneRaw}">${I.phone}<span>${SITE.phone}</span></a>
+  </div>
+</div>
 <header class="site-header" id="site-header">
   <div class="container nav">
     <a class="brand" href="${U.home(lang)}" aria-label="${esc(SITE.name)}">

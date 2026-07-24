@@ -23,6 +23,7 @@ const SITE = {
   geo: { lat: 9.0009, lng: -79.4859 }, // Parque Lefevre approx
   instagram: 'https://www.instagram.com/yrvimar_inc/',
   instagramHandle: '@yrvimar_inc',
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Parque Lefevre, Av. 1B Sur, Edificio Joritza, Local 1, Ciudad de Panamá'),
   founded: '2019',
   hours: {
     es: 'Lun–Vie 8:00–17:00 · Sáb 8:00–12:00',
