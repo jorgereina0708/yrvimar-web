@@ -163,10 +163,14 @@ function pageHome(lang) {
       h1: L ? `Tu operación, <span class="gold">siempre abastecida</span>.` : `Your operation, <span class="gold">always supplied</span>.`,
       p: L ? 'Inventario local y asesoría técnica para reducir tus tiempos de paro de días a horas.' : 'Local inventory and technical advice to cut your downtime from days to hours.',
       c1: { href: U.about(lang), label: t.nav.about, cls: 'btn--primary' }, c2: { href: U.contact(lang), label: t.cta.contactUs } },
+    { img: 'team-field.webp', pos: 'center 20%', eye: L ? 'Servicio en terreno' : 'Field service',
+      h1: L ? `Un equipo que <span class="gold">conoce tu operación</span>.` : `A team that <span class="gold">knows your operation</span>.`,
+      p: L ? 'Asesoría técnica y ensamblaje a la medida, respaldando tu producción día a día.' : 'Technical advice and custom assembly, backing your production day after day.',
+      c1: { href: U.about(lang), label: t.nav.about, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },
   ];
   const slideHtml = heroSlides.map((s, i) => `
     <div class="slide${i === 0 ? ' active' : ''}" data-slide="${i}">
-      <div class="slide__img"><img src="${img(s.img)}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="1600" height="900"></div>
+      <div class="slide__img"><img src="${img(s.img)}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}${s.pos ? ` style="object-position:${s.pos}"` : ''} width="1600" height="900"></div>
       <div class="container"><div class="slide__content">
         <span class="eyebrow" data-num=""><span class="tick"></span>${s.eye}</span>
         <h1>${s.h1}</h1>
@@ -483,6 +487,7 @@ const ABOUT = {
 };
 function pageAbout(lang) {
   const t = T[lang]; const a = ABOUT[lang];
+  const L = lang === 'es';
   const icons = { shield: I.shield, wrench: I.wrench, truck: I.truck };
   const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: t.nav.about, url: U.about(lang) }];
   const main = `
@@ -505,7 +510,17 @@ function pageAbout(lang) {
     </div>
   </div>
 </section>
-<section class="section bg-carbon">
+<section class="section bg-soft">
+  <div class="container">
+    ${sectionHead({ num: '', eyebrow: L ? 'Nuestro equipo' : 'Our team', title: L ? 'En terreno, junto a tu operación' : 'In the field, alongside your operation', lead: L ? 'Personas reales detrás de cada solución: asesoría, servicio y presencia en Panamá.' : 'Real people behind every solution: advice, service and presence in Panama.' })}
+    <div class="team-gallery" data-reveal-stagger>
+      <figure><img src="${img('team-field.webp')}" alt="${L ? 'Técnico de YRVIMAR con bomba hidráulica en campo' : 'YRVIMAR technician with hydraulic pump in the field'}" loading="lazy" width="1000" height="1331"></figure>
+      <figure><img src="${img('team-port.webp')}" alt="${L ? 'Equipo YRVIMAR en operación portuaria' : 'YRVIMAR team at a port operation'}" loading="lazy" width="1000" height="1333"></figure>
+      <figure><img src="${img('team-desk.webp')}" alt="${L ? 'Atención y asesoría YRVIMAR' : 'YRVIMAR customer service and advice'}" loading="lazy" width="1000" height="1773"></figure>
+    </div>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     ${sectionHead({ num: '', eyebrow: a.valuesEye, title: a.valuesTitle })}
     <div class="value-grid" data-reveal-stagger>
