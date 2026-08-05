@@ -255,7 +255,7 @@ function footer(lang) {
     </div>
     <div class="footer-bottom">
       <p>© ${'2026'} ${esc(SITE.name)}. ${f.rights}</p>
-      <p class="disc">${f.disclaimer}</p>
+      <p class="disc">${lang === 'es' ? 'Desarrollado por' : 'Developed by'}: <a href="https://nayitapubmark.com/" target="_blank" rel="noopener">Nayitapubmark</a></p>
     </div>
   </div>
 </footer>`;
@@ -296,13 +296,17 @@ function productCard(p, lang) {
 
 function categoryCard(c, lang, idx) {
   const url = U.category(lang, c.slug[lang]);
-  return `<a class="cat-card${idx === 0 ? ' cat-card--wide' : ''}" href="${url}">
-  <div class="cat-card__img"><img src="${img(c.image)}" alt="${esc(c.name[lang])}" loading="lazy" width="800" height="600"></div>
-  <span class="idx">0${idx + 1} / ${String(CATEGORIES.length).padStart(2, '0')}</span>
-  <div class="ic">${catIcon[c.icon] || I.box}</div>
-  <h3>${c.name[lang]}</h3>
-  <div class="tl">${c.tagline[lang]}</div>
-  <span class="go">${T[lang].cta.explore} <span class="arw">${I.arrowR}</span></span>
+  return `<a class="cat-card" href="${url}">
+  <div class="cat-card__media">
+    <img src="${img(c.image)}" alt="${esc(c.name[lang])}" loading="lazy" width="800" height="640">
+    <span class="idx">0${idx + 1} / ${String(CATEGORIES.length).padStart(2, '0')}</span>
+  </div>
+  <div class="cat-card__body">
+    <div class="ic">${catIcon[c.icon] || I.box}</div>
+    <h3>${c.name[lang]}</h3>
+    <div class="tl">${c.tagline[lang]}</div>
+    <span class="go">${T[lang].cta.explore} <span class="arw">${I.arrowR}</span></span>
+  </div>
 </a>`;
 }
 

@@ -8,7 +8,7 @@ const ARTICLES = [
     id: 'elegir-manguera-hidraulica',
     slug: { es: 'como-elegir-manguera-hidraulica-correcta', en: 'how-to-choose-the-right-hydraulic-hose' },
     date: '2026-07-10',
-    image: 'cat-hidraulicas.webp',
+    image: 'img-hidraulica.webp',
     cat: 'mangueras-hidraulicas',
     readMin: 6,
     keywords: {
@@ -72,7 +72,7 @@ const ARTICLES = [
     id: 'succion-descarga-guia',
     slug: { es: 'mangueras-succion-descarga-guia-completa', en: 'suction-discharge-hoses-complete-guide' },
     date: '2026-06-28',
-    image: 'prod-succion-espiral.webp',
+    image: 'img-pvc.webp',
     cat: 'mangueras-industriales',
     readMin: 5,
     keywords: {
@@ -124,7 +124,7 @@ const ARTICLES = [
     id: 'camlock-vs-chicago',
     slug: { es: 'acoples-camlock-vs-chicago-cual-elegir', en: 'camlock-vs-chicago-couplings-which-to-choose' },
     date: '2026-06-15',
-    image: 'prod-camlock.webp',
+    image: 'img-camlock.webp',
     cat: 'conexiones-acoples',
     readMin: 5,
     keywords: {
@@ -176,7 +176,7 @@ const ARTICLES = [
     id: 'valvulas-inox-vs-bronce',
     slug: { es: 'valvulas-bola-inoxidable-vs-bronce', en: 'ball-valves-stainless-vs-bronze' },
     date: '2026-05-30',
-    image: 'cat-valvulas.webp',
+    image: 'img-valvula-inox.webp',
     cat: 'valvulas',
     readMin: 4,
     keywords: {
@@ -236,7 +236,7 @@ const ARTICLES = [
     id: 'mantenimiento-mangueras',
     slug: { es: 'mantenimiento-preventivo-mangueras-industriales', en: 'preventive-maintenance-industrial-hoses' },
     date: '2026-05-18',
-    image: 'hero.webp',
+    image: 'img-hidraulica.webp',
     cat: 'mangueras-hidraulicas',
     readMin: 5,
     keywords: {
@@ -294,7 +294,7 @@ const ARTICLES = [
     id: 'whip-check-seguridad',
     slug: { es: 'whip-check-seguridad-lineas-aire-agua', en: 'whip-check-safety-air-water-lines' },
     date: '2026-05-05',
-    image: 'cat-accesorios.webp',
+    image: 'img-cable.webp',
     cat: 'accesorios-seguridad',
     readMin: 4,
     keywords: {
@@ -342,7 +342,7 @@ const ARTICLES = [
     id: 'presion-trabajo-wog-psi',
     slug: { es: 'entender-presion-de-trabajo-wog-psi-sae', en: 'understanding-working-pressure-wog-psi-sae' },
     date: '2026-04-20',
-    image: 'prod-jic.webp',
+    image: 'img-jic.webp',
     cat: 'conexiones-acoples',
     readMin: 5,
     keywords: {
@@ -388,7 +388,7 @@ const ARTICLES = [
     id: 'layflat-construccion-mineria',
     slug: { es: 'manguera-layflat-construccion-mineria', en: 'layflat-hose-construction-mining' },
     date: '2026-04-08',
-    image: 'prod-layflat.webp',
+    image: 'img-layflat.webp',
     cat: 'mangueras-industriales',
     readMin: 4,
     keywords: {
@@ -436,7 +436,7 @@ const ARTICLES = [
     id: 'reparar-fugas-abrazaderas',
     slug: { es: 'reparar-fugas-tuberia-con-abrazaderas', en: 'repair-pipe-leaks-with-clamps' },
     date: '2026-03-22',
-    image: 'prod-abrazadera.webp',
+    image: 'img-reparacion.webp',
     cat: 'accesorios-seguridad',
     readMin: 4,
     keywords: {
@@ -496,7 +496,7 @@ const ARTICLES = [
     id: 'comprar-suministros-panama',
     slug: { es: 'guia-comprar-suministros-industriales-panama', en: 'guide-buying-industrial-supplies-panama' },
     date: '2026-03-05',
-    image: 'about-warehouse.webp',
+    image: 'team-field.webp',
     cat: 'mangueras-industriales',
     readMin: 5,
     keywords: {

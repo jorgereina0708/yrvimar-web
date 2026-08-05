@@ -276,24 +276,23 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .cat-strip .ic svg { width: 30px; height: 30px; }
 .cat-strip .lb { font-size: 0.82rem; font-weight: 600; color: var(--ink-2); line-height: 1.25; }
 
-/* ---------- Category cards ---------- */
+/* ---------- Category cards (claras) ---------- */
 .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.cat-card { position: relative; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--navy); min-height: 320px; display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; transition: box-shadow .4s var(--ease), transform .4s var(--ease); box-shadow: var(--shadow-sm); }
-.cat-card__img { position: absolute; inset: 0; z-index: 0; }
-.cat-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .7s var(--ease); opacity: .82; }
-.cat-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(15,23,34,.10) 0%, rgba(15,23,34,.55) 55%, rgba(15,23,34,.94) 100%); }
-.cat-card > * { position: relative; z-index: 2; }
+.cat-card { position: relative; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; transition: box-shadow .4s var(--ease), transform .4s var(--ease); box-shadow: var(--shadow-sm); }
 .cat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
-.cat-card:hover .cat-card__img img { transform: scale(1.07); }
-.cat-card .idx { font-family: var(--ff-mono); font-size: 0.72rem; color: var(--gold-lite); letter-spacing: 0.1em; margin-bottom: auto; }
-.cat-card .ic { width: 40px; height: 40px; color: var(--gold-lite); margin-bottom: 12px; }
+.cat-card__media { position: relative; aspect-ratio: 5 / 4; background: #f2f4f7; overflow: hidden; }
+.cat-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .7s var(--ease); }
+.cat-card:hover .cat-card__media img { transform: scale(1.06); }
+.cat-card .idx { position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 0.66rem; color: var(--gold-deep); background: rgba(255,255,255,.92); border: 1px solid var(--line); padding: 4px 8px; border-radius: 4px; letter-spacing: 0.08em; backdrop-filter: blur(4px); }
+.cat-card__body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+.cat-card .ic { width: 38px; height: 38px; color: var(--gold-deep); margin-bottom: 12px; }
 .cat-card .ic svg { width: 100%; height: 100%; }
-.cat-card h3 { color: #fff; }
-.cat-card .tl { color: #c3ccd6; font-size: 0.9rem; margin-top: 6px; font-family: var(--ff-mono); }
-.cat-card .go { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-family: var(--ff-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: .06em; color: #fff; }
-.cat-card .go .arw { color: var(--gold-lite); transition: transform .3s var(--ease); }
+.cat-card h3 { color: var(--ink); }
+.cat-card .tl { color: var(--mute); font-size: 0.9rem; margin-top: 6px; font-family: var(--ff-mono); }
+.cat-card .go { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-family: var(--ff-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); font-weight: 600; }
+.cat-card .go .arw { color: var(--gold-deep); transition: transform .3s var(--ease); }
 .cat-card:hover .go .arw { transform: translateX(6px); }
-.cat-card--wide { grid-column: span 2; }
+.cat-card--wide { grid-column: span 1; }
 
 /* ---------- Product cards ---------- */
 .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -477,6 +476,8 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 26px; flex-wrap: wrap; }
 .footer-bottom p { font-size: 0.82rem; color: #6f7b89; }
 .footer-bottom .disc { max-width: 60ch; }
+.footer-bottom .disc a { color: var(--gold); font-weight: 600; transition: color .2s; }
+.footer-bottom .disc a:hover { color: var(--gold-lite); text-decoration: underline; }
 
 /* ---------- Floating widgets ---------- */
 .fab-wa { position: fixed; right: 22px; bottom: 22px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px -8px rgba(37,211,102,.55); transition: transform .3s var(--ease); }

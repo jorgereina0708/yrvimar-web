@@ -222,7 +222,7 @@ function pageHome(lang) {
 
 <section class="section">
   <div class="container split">
-    <div class="split__media ticked" data-reveal><img src="${img('about-warehouse.webp')}" alt="${lang === 'es' ? 'Almacén de suministros industriales YRVIMAR' : 'YRVIMAR industrial supply warehouse'}" width="900" height="620"></div>
+    <div class="split__media ticked" data-reveal><img src="${img('team-field.webp')}" alt="${lang === 'es' ? 'Técnico de YRVIMAR en servicio de campo' : 'YRVIMAR technician on field service'}" width="900" height="620" style="object-position:center 22%"></div>
     <div data-reveal>
       <span class="eyebrow" data-num="03"><span class="tick"></span>${c.whyEye}</span>
       <h2 style="margin-top:16px">${c.whyTitle}</h2>
@@ -502,7 +502,7 @@ function pageAbout(lang) {
 </section>
 <section class="section">
   <div class="container split" style="align-items:center">
-    <div class="split__media ticked" data-reveal><img src="${img('about-warehouse.webp')}" alt="${lang === 'es' ? 'Instalaciones YRVIMAR' : 'YRVIMAR facilities'}" width="900" height="620"></div>
+    <div class="split__media ticked" data-reveal><img src="${img('team-port.webp')}" alt="${lang === 'es' ? 'Equipo YRVIMAR en operación' : 'YRVIMAR team in operation'}" width="900" height="620" style="object-position:center 30%"></div>
     <div data-reveal>
       <span class="eyebrow" data-num=""><span class="tick"></span>${a.historyEye}</span>
       <h2 style="margin-top:16px">${a.historyTitle}</h2>
