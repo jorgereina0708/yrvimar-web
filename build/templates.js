@@ -310,6 +310,37 @@ function categoryCard(c, lang, idx) {
 </a>`;
 }
 
+// ---------- Category tile (estilo genpar: foto + emblema circular) ----------
+const CAT_SEALS = {
+  'mangueras-industriales': { es: 'INDUSTRIALES', en: 'INDUSTRIAL' },
+  'mangueras-hidraulicas': { es: 'HIDRÁULICAS', en: 'HYDRAULIC' },
+  'conexiones-acoples': { es: 'ACOPLES', en: 'COUPLINGS' },
+  'valvulas': { es: 'VÁLVULAS', en: 'VALVES' },
+  'accesorios-seguridad': { es: 'SEGURIDAD', en: 'SAFETY' },
+};
+function mainCatTile(c, lang, idx, big) {
+  const url = U.category(lang, c.slug[lang]);
+  const name = c.name[lang];
+  const seal = (CAT_SEALS[c.id] && CAT_SEALS[c.id][lang]) || name.toUpperCase();
+  const arcId = 'arc-' + c.id;
+  return `<a class="mc-tile${big ? ' mc-tile--big' : ''}" href="${url}">
+  <div class="mc-bg"><img src="${img(c.bg)}" alt="${esc(name)}" loading="lazy" width="900" height="900"></div>
+  <div class="mc-top">
+    <span class="mc-idx">0${idx + 1}</span>
+    <span class="mc-name">${name}</span>
+    <span class="mc-more">${lang === 'es' ? 'Ver más' : 'See more'} <span class="arw">${I.arrowR}</span></span>
+  </div>
+  <div class="mc-emblem" aria-hidden="true">
+    <svg class="mc-ring" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="64"/>
+      <path id="${arcId}" fill="none" d="M 14 70 A 56 56 0 0 0 126 70"/>
+      <text class="mc-arc-text"><textPath href="#${arcId}" startOffset="50%">${esc(seal)}</textPath></text>
+    </svg>
+    <span class="mc-ic">${catIcon[c.icon] || I.box}</span>
+  </div>
+</a>`;
+}
+
 function postCard(a, lang, feat) {
   const cat = CATEGORIES.find((c) => c.id === a.cat);
   const url = U.article(lang, a.slug[lang]);
@@ -347,4 +378,4 @@ function sectionHead({ num, eyebrow, title, lead, split }) {
   </div>`;
 }
 
-module.exports = { I, catIcon, ASSET, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, postCard, fmtDate, sectionHead };
+module.exports = { I, catIcon, ASSET, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, mainCatTile, postCard, fmtDate, sectionHead };

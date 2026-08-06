@@ -97,6 +97,7 @@ const CATEGORIES = [
     name: { es: 'Mangueras Industriales', en: 'Industrial Hoses' },
     tagline: { es: 'Succión, descarga y multiuso', en: 'Suction, discharge & multipurpose' },
     icon: 'hose',
+    bg: 'catbg-industriales.webp',
     image: 'img-pvc.webp',
     desc: {
       es: 'Mangueras industriales para conducción de agua, aire, líquidos y aplicaciones de servicio pesado. Modelos de succión y descarga, layflat y multiuso reforzadas para riego, drenaje, construcción y minería.',
@@ -109,6 +110,7 @@ const CATEGORIES = [
     name: { es: 'Mangueras Hidráulicas', en: 'Hydraulic Hoses' },
     tagline: { es: 'Alta presión R1 · R2 · 4SP', en: 'High pressure R1 · R2 · 4SP' },
     icon: 'gauge',
+    bg: 'catbg-hidraulicas.webp',
     image: 'img-hidraulica.webp',
     desc: {
       es: 'Mangueras hidráulicas de alta presión con refuerzo de acero trenzado para maquinaria pesada, equipos móviles y sistemas oleohidráulicos. Ensamblaje con conexiones prensadas a la medida.',
@@ -121,6 +123,7 @@ const CATEGORIES = [
     name: { es: 'Conexiones y Acoples', en: 'Fittings & Couplings' },
     tagline: { es: 'Chicago, Camlock, JIC, NPT', en: 'Chicago, Camlock, JIC, NPT' },
     icon: 'coupling',
+    bg: 'catbg-conexiones.webp',
     image: 'img-camlock.webp',
     desc: {
       es: 'Amplia línea de conexiones y acoples en bronce, aluminio y acero galvanizado: acoples rápidos Chicago, Camlock cam-and-groove, espigas, adaptadores JIC/NPT y uniones para cada estándar.',
@@ -133,6 +136,7 @@ const CATEGORIES = [
     name: { es: 'Válvulas', en: 'Valves' },
     tagline: { es: 'Bola en inoxidable y bronce', en: 'Stainless & bronze ball valves' },
     icon: 'valve',
+    bg: 'catbg-valvulas.webp',
     image: 'img-valvula-inox.webp',
     desc: {
       es: 'Válvulas de bola en acero inoxidable 304 y bronce, rango 1/4" a 4", rating 1000 WOG. Control de flujo confiable para agua, aire, vapor y aplicaciones industriales y marinas.',
@@ -145,6 +149,7 @@ const CATEGORIES = [
     name: { es: 'Accesorios y Seguridad', en: 'Accessories & Safety' },
     tagline: { es: 'Abrazaderas, whip check, reparación', en: 'Clamps, whip check, repair' },
     icon: 'shield',
+    bg: 'catbg-accesorios.webp',
     image: 'img-cable.webp',
     desc: {
       es: 'Accesorios y elementos de seguridad para líneas de manguera: abrazaderas sinfín inoxidables, cables de seguridad whip check y abrazaderas de reparación de tubería para fugas y grietas.',

@@ -7,7 +7,7 @@ const path = require('path');
 const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS } = require('./site');
 const { ARTICLES } = require('./articles');
 const Tpl = require('./templates');
-const { I, catIcon, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, postCard, fmtDate, sectionHead } = Tpl;
+const { I, catIcon, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, mainCatTile, postCard, fmtDate, sectionHead } = Tpl;
 
 const ROOT = path.join(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -204,9 +204,9 @@ function pageHome(lang) {
 
 <section class="section" id="categorias">
   <div class="container">
-    ${sectionHead({ num: '01', eyebrow: c.catEye, title: c.catTitle, lead: c.catLead })}
-    <div class="cat-grid" data-reveal-stagger>
-      ${CATEGORIES.map((cat, i) => categoryCard(cat, lang, i)).join('\n      ')}
+    ${sectionHead({ num: '01', eyebrow: c.catEye, title: c.catTitle, split: `<a class="btn btn--dark" href="${U.products(lang)}">${t.cta.viewAll} ${I.arrowR}</a>` })}
+    <div class="maincat-grid" data-reveal-stagger>
+      ${CATEGORIES.map((cat, i) => mainCatTile(cat, lang, i, i === 0)).join('\n      ')}
     </div>
   </div>
 </section>
