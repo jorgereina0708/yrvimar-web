@@ -47,16 +47,17 @@ function img(name) { return `${ASSET}/img/${name}`; }
 function logo(name) { return `${ASSET}/logo/${name}`; }
 
 // URL builders (absolutas desde raíz)
+// URLs limpias (sin .html). El .htaccess sirve el archivo .html correspondiente.
 const U = {
   home: (l) => `/${l}/`,
-  products: (l) => `/${l}/${PATHS[l].products}.html`,
-  category: (l, slug) => `/${l}/${PATHS[l].category}/${slug}.html`,
-  product: (l, slug) => `/${l}/${PATHS[l].product}/${slug}.html`,
-  about: (l) => `/${l}/${PATHS[l].about}.html`,
-  contact: (l) => `/${l}/${PATHS[l].contact}.html`,
-  blog: (l) => `/${l}/${PATHS[l].blog}.html`,
-  article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}.html`,
-  projects: (l) => `/${l}/${PATHS[l].projects}.html`,
+  products: (l) => `/${l}/${PATHS[l].products}`,
+  category: (l, slug) => `/${l}/${PATHS[l].category}/${slug}`,
+  product: (l, slug) => `/${l}/${PATHS[l].product}/${slug}`,
+  about: (l) => `/${l}/${PATHS[l].about}`,
+  contact: (l) => `/${l}/${PATHS[l].contact}`,
+  blog: (l) => `/${l}/${PATHS[l].blog}`,
+  article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}`,
+  projects: (l) => `/${l}/${PATHS[l].projects}`,
 };
 
 function wa(text) { return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`; }
@@ -186,13 +187,11 @@ function header(lang, active, alternates) {
         </div>
       </div>
       ${link(U.products(lang), n.products, 'products')}
-      ${link(U.projects(lang), n.projects, 'projects')}
       ${link(U.about(lang), n.about, 'about')}
       ${link(U.blog(lang), n.blog, 'blog')}
       ${link(U.contact(lang), n.contact, 'contact')}
     </nav>
     <div class="nav-actions">
-      <a class="lang-switch lang-desktop" href="${alternates[other]}" hreflang="${other}" aria-label="${t.langSwitch}">${I.globe}<span>${t.langSwitchShort}</span></a>
       <a class="btn btn--primary lang-desktop" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
       <button class="nav-toggle" id="nav-toggle" aria-label="${L ? 'Abrir menú' : 'Open menu'}" aria-expanded="false" aria-controls="nav-mobile"><span></span></button>
     </div>
@@ -204,7 +203,6 @@ function header(lang, active, alternates) {
       ${mCatLinks}
     </div>
     ${mlink(U.products(lang), n.products)}
-    ${mlink(U.projects(lang), n.projects)}
     ${mlink(U.about(lang), n.about)}
     ${mlink(U.blog(lang), n.blog)}
     ${mlink(U.contact(lang), n.contact)}
@@ -285,10 +283,12 @@ function productCard(p, lang) {
   const url = U.product(lang, p.slug[lang]);
   const msg = (lang === 'es' ? `Hola YRVIMAR, me interesa: ${p.name.es}. ¿Me pueden dar más información?` : `Hello YRVIMAR, I'm interested in: ${p.name.en}. Could you send more info?`);
   return `<article class="prod-card">
-  <div class="prod-card__media">
+  <div class="prod-card__media${p.image ? '' : ' is-noimg'}">
     <span class="prod-card__tag">${cat.name[lang]}</span>
     ${p.featured ? `<span class="prod-card__star">${I.star}</span>` : ''}
-    <img src="${img(p.image)}" alt="${esc(p.name[lang])}" loading="lazy" width="600" height="600">
+    ${p.image
+      ? `<img src="${img(p.image)}" alt="${esc(p.name[lang])}" loading="lazy" width="600" height="600">`
+      : `<div class="noimg"><span class="noimg-ic">${catIcon[cat.icon] || I.box}</span><span class="noimg-t">${lang === 'es' ? 'Imagen próximamente' : 'Image coming soon'}</span></div>`}
   </div>
   <div class="prod-card__body">
     <h3>${p.name[lang]}</h3>

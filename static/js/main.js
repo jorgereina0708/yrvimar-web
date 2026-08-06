@@ -134,6 +134,20 @@
     });
   }
 
+  /* ---------- Modal ficha técnica ---------- */
+  (function () {
+    var openBtn = doc.getElementById('open-ficha');
+    var modal = doc.getElementById('ficha-modal');
+    if (!openBtn || !modal) return;
+    var closeBtn = doc.getElementById('close-ficha');
+    function show() { modal.hidden = false; body.style.overflow = 'hidden'; }
+    function hide() { modal.hidden = true; body.style.overflow = ''; }
+    openBtn.addEventListener('click', show);
+    if (closeBtn) closeBtn.addEventListener('click', hide);
+    modal.addEventListener('click', function (e) { if (e.target === modal) hide(); });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) hide(); });
+  })();
+
   /* ---------- Reveal on scroll (IntersectionObserver) ---------- */
   function setupReveal() {
     var singles = doc.querySelectorAll('[data-reveal]');

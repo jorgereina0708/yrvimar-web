@@ -76,7 +76,7 @@ function ldProduct(p, lang) {
   const cat = CATEGORIES.find((c) => c.id === p.cat);
   return {
     '@context': 'https://schema.org', '@type': 'Product',
-    name: p.name[lang], description: p.short[lang], image: abs(img(p.image)),
+    name: p.name[lang], description: p.short[lang], image: abs(img(p.image || 'og-image.jpg')),
     category: cat.name[lang], sku: p.id.toUpperCase(),
     brand: { '@type': 'Brand', name: SITE.shortName },
     manufacturer: { '@type': 'Organization', name: SITE.name },
@@ -211,7 +211,7 @@ function pageHome(lang) {
   </div>
 </section>
 
-<section class="section bg-carbon">
+<section class="section bg-soft">
   <div class="container">
     ${sectionHead({ num: '02', eyebrow: c.prodEye, title: c.prodTitle, split: `<a class="btn btn--dark" href="${U.products(lang)}">${t.cta.viewAll} ${I.arrowR}</a>` })}
     <div class="prod-grid" data-reveal-stagger>
@@ -220,9 +220,21 @@ function pageHome(lang) {
   </div>
 </section>
 
+<section class="section--tight" id="marcas">
+  <div class="container center">
+    <span class="eyebrow eyebrow--plain" data-num="">${t.words.brands}</span>
+    <h2 style="margin-top:12px;font-size:clamp(1.5rem,3vw,2.2rem)">${L ? 'Marcas que respaldan tu operación' : 'Brands that back your operation'}</h2>
+  </div>
+  <div class="brands-marquee" aria-hidden="true">
+    <div class="brands-track">
+      ${BRANDS.concat(BRANDS, BRANDS).map((b) => `<div class="brand-logo"><img src="${img(b.img)}" alt="${esc(b.name)}" loading="lazy"></div>`).join('')}
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container split">
-    <div class="split__media ticked" data-reveal><img src="${img('team-field.webp')}" alt="${lang === 'es' ? 'Técnico de YRVIMAR en servicio de campo' : 'YRVIMAR technician on field service'}" width="900" height="620" style="object-position:center 22%"></div>
+    <div class="split__media ticked" data-reveal><img src="${img('proyecto/proj-2.webp')}" alt="${lang === 'es' ? 'Equipo YRVIMAR en proyecto industrial' : 'YRVIMAR team on an industrial project'}" width="900" height="620" style="object-position:center 40%"></div>
     <div data-reveal>
       <span class="eyebrow" data-num="03"><span class="tick"></span>${c.whyEye}</span>
       <h2 style="margin-top:16px">${c.whyTitle}</h2>
@@ -246,21 +258,9 @@ function pageHome(lang) {
 
 <section class="section" id="proyectos">
   <div class="container">
-    ${sectionHead({ num: '04', eyebrow: t.words.projects, title: L ? 'Proyectos que respaldan nuestra experiencia' : 'Projects that back our experience', split: `<a class="btn btn--dark" href="${U.projects(lang)}">${t.cta.viewProjects} ${I.arrowR}</a>` })}
+    ${sectionHead({ num: '04', eyebrow: t.words.projects, title: L ? 'Proyectos que respaldan nuestra experiencia' : 'Projects that back our experience', split: `<a class="btn btn--dark" href="${U.about(lang)}">${t.cta.viewProjects} ${I.arrowR}</a>` })}
     <div class="proj-grid proj-grid--preview" data-reveal-stagger>
-      ${PROJECTS.slice(0, 6).map((pr, i) => `<a class="proj-item${i === 0 ? ' proj-item--big' : ''}" href="${U.projects(lang)}"><img src="${img(pr.img)}" alt="${L ? 'Proyecto YRVIMAR' : 'YRVIMAR project'} ${i + 1}" loading="lazy"></a>`).join('\n      ')}
-    </div>
-  </div>
-</section>
-
-<section class="section--tight bg-soft">
-  <div class="container">
-    <div class="brands-head">
-      <span class="eyebrow eyebrow--plain" data-num="">${t.words.brands}</span>
-      <p>${L ? 'Trabajamos con marcas líderes de la industria' : 'We work with leading industry brands'}</p>
-    </div>
-    <div class="brands-row" data-reveal>
-      ${BRANDS.map((b) => `<div class="brand-logo"><img src="${img(b.img)}" alt="${esc(b.name)}" loading="lazy"></div>`).join('\n      ')}
+      ${PROJECTS.slice(0, 5).map((pr, i) => `<a class="proj-item${i === 0 ? ' proj-item--big' : ''}" href="${U.about(lang)}"><img src="${img(pr.img)}" alt="${L ? 'Proyecto YRVIMAR' : 'YRVIMAR project'} ${i + 1}" loading="lazy"></a>`).join('\n      ')}
     </div>
   </div>
 </section>
@@ -422,14 +422,17 @@ function pageProduct(p, lang) {
   const title = `${p.name[lang]} | YRVIMAR Panamá`;
   const desc = p.short[lang];
   const fichaBlock = p.ficha ? `
-        <div class="block-title" style="margin-top:38px"><span class="bar"></span><h2 style="font-size:1.1rem">${t.words.datasheet}</h2></div>
-        <a class="ficha-card" href="${img(p.ficha)}" target="_blank" rel="noopener" aria-label="${t.cta.viewDatasheet}">
-          <img src="${img(p.ficha)}" alt="${esc(L ? 'Ficha técnica' : 'Datasheet')} — ${esc(p.name[lang])}" loading="lazy">
-          <span class="ficha-overlay"><span class="fi">${I.zoom}</span><span>${t.cta.viewDatasheet}</span></span>
-        </a>
-        <div class="pd-actions" style="margin-top:14px">
-          <a class="btn btn--dark" href="${img(p.ficha)}" download target="_blank" rel="noopener">${I.download} ${t.cta.downloadDatasheet}</a>
+        <div class="pd-actions" style="margin-top:26px">
+          <button class="btn btn--dark btn--lg" type="button" id="open-ficha">${I.doc} ${t.cta.viewDatasheet}</button>
         </div>` : '';
+  const fichaModal = p.ficha ? `
+<div class="ficha-modal" id="ficha-modal" hidden>
+  <div class="ficha-modal__box" role="dialog" aria-modal="true" aria-label="${t.words.datasheet}">
+    <button class="ficha-modal__close" id="close-ficha" aria-label="${L ? 'Cerrar' : 'Close'}">${I.close}</button>
+    <div class="ficha-modal__scroll"><img src="${img(p.ficha)}" alt="${esc(L ? 'Ficha técnica' : 'Datasheet')} — ${esc(p.name[lang])}"></div>
+    <a class="btn btn--dark ficha-modal__dl" href="${img(p.ficha)}" download target="_blank" rel="noopener">${I.download} ${t.cta.downloadDatasheet}</a>
+  </div>
+</div>` : '';
 
   const main = `
 <section class="section" style="padding-top:120px">
@@ -440,7 +443,7 @@ function pageProduct(p, lang) {
       <a href="${U.category(lang, cat.slug[lang])}">${cat.name[lang]}</a><span class="sep">/</span><span>${p.name[lang]}</span>
     </nav>
     <div class="pd-grid">
-      <div class="pd-media ticked"><img src="${img(p.image)}" alt="${esc(p.name[lang])}" width="900" height="900"></div>
+      <div class="pd-media ticked${p.image ? '' : ' is-noimg'}">${p.image ? `<img src="${img(p.image)}" alt="${esc(p.name[lang])}" width="900" height="900">` : `<div class="noimg"><span class="noimg-ic">${catIcon[cat.icon] || I.box}</span><span class="noimg-t">${L ? 'Imagen próximamente' : 'Image coming soon'}</span></div>`}</div>
       <div class="pd-info">
         <a class="pd-cat" href="${U.category(lang, cat.slug[lang])}">${cat.name[lang]}</a>
         <h1>${p.name[lang]}</h1>
@@ -455,6 +458,7 @@ function pageProduct(p, lang) {
     </div>
   </div>
 </section>
+${fichaModal}
 <section class="section bg-soft">
   <div class="container">
     ${sectionHead({ num: '', eyebrow: t.words.products, title: t.words.relatedProducts, split: `<a class="btn btn--dark" href="${U.category(lang, cat.slug[lang])}">${cat.name[lang]} ${I.arrowR}</a>` })}
@@ -465,7 +469,7 @@ function pageProduct(p, lang) {
 </section>`;
   return shell({
     lang, active: 'products',
-    meta: { lang, title, desc, path: U.product(lang, p.slug[lang]), alternates: alts(U.product('es', p.slug.es), U.product('en', p.slug.en)), ogType: 'product', ogImage: img(p.image), jsonld: [ldProduct(p, lang), ldBreadcrumb(crumbs)] },
+    meta: { lang, title, desc, path: U.product(lang, p.slug[lang]), alternates: alts(U.product('es', p.slug.es), U.product('en', p.slug.en)), ogType: 'product', ogImage: img(p.image || 'og-image.jpg'), jsonld: [ldProduct(p, lang), ldBreadcrumb(crumbs)] },
     main,
   });
 }
@@ -545,6 +549,14 @@ function pageAbout(lang) {
   </div>
 </section>
 <section class="section">
+  <div class="container">
+    ${sectionHead({ num: '', eyebrow: L ? 'Proyectos' : 'Projects', title: L ? 'Nuestro trabajo en terreno' : 'Our work in the field', lead: L ? 'Instalaciones y proyectos reales que respaldan nuestra experiencia con la industria de Panamá.' : 'Real installations and projects backing our experience with Panamanian industry.' })}
+    <div class="proj-grid" data-reveal-stagger>
+      ${PROJECTS.map((pr, i) => `<a class="proj-item${i % 5 === 0 ? ' proj-item--big' : ''}" href="${img(pr.img)}" target="_blank" rel="noopener"><img src="${img(pr.img)}" alt="${L ? 'Proyecto YRVIMAR' : 'YRVIMAR project'} ${i + 1}" loading="lazy"></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+<section class="section bg-soft">
   <div class="container">
     ${sectionHead({ num: '', eyebrow: a.valuesEye, title: a.valuesTitle })}
     <div class="value-grid" data-reveal-stagger>
@@ -743,6 +755,19 @@ DirectoryIndex index.html
 # Página 404 personalizada
 ErrorDocument 404 /404.html
 
+# --- URLs limpias (sin .html) ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # Redirigir /ruta.html -> /ruta (301)
+  RewriteCond %{THE_REQUEST} \\s/+([^?\\s]+)\\.html[\\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+  # Servir archivo .html para la URL limpia
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\\.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
 # --- Cabeceras de seguridad ---
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
@@ -806,7 +831,6 @@ function sitemap() {
     add(U.about(lang), '0.6', 'monthly', U.about('es'), U.about('en'), today);
     add(U.contact(lang), '0.6', 'monthly', U.contact('es'), U.contact('en'), today);
     add(U.blog(lang), '0.8', 'weekly', U.blog('es'), U.blog('en'), today);
-    add(U.projects(lang), '0.6', 'monthly', U.projects('es'), U.projects('en'), today);
     for (const c of CATEGORIES) add(U.category(lang, c.slug[lang]), '0.8', 'monthly', U.category('es', c.slug.es), U.category('en', c.slug.en), today);
     for (const p of PRODUCTS) add(U.product(lang, p.slug[lang]), '0.7', 'monthly', U.product('es', p.slug.es), U.product('en', p.slug.en), today);
     for (const a of ARTICLES) add(U.article(lang, a.slug[lang]), '0.6', 'monthly', U.article('es', a.slug.es), U.article('en', a.slug.en), a.date);
@@ -896,7 +920,6 @@ function build() {
     write(`${lang}/${PATHS[lang].about}.html`, pageAbout(lang)); count++;
     write(`${lang}/${PATHS[lang].contact}.html`, pageContact(lang)); count++;
     write(`${lang}/${PATHS[lang].blog}.html`, pageBlog(lang)); count++;
-    write(`${lang}/${PATHS[lang].projects}.html`, pageProjects(lang)); count++;
     for (const c of CATEGORIES) { write(`${lang}/${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
     for (const p of PRODUCTS) { write(`${lang}/${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
     for (const a of ARTICLES) { write(`${lang}/${PATHS[lang].blog}/${a.slug[lang]}.html`, pageArticle(a, lang)); count++; }
