@@ -4,7 +4,7 @@
 // ============================================================================
 const fs = require('fs');
 const path = require('path');
-const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS } = require('./site');
+const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS, BRANDS, PROJECTS } = require('./site');
 const { ARTICLES } = require('./articles');
 const Tpl = require('./templates');
 const { I, catIcon, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, mainCatTile, postCard, fmtDate, sectionHead } = Tpl;
@@ -118,11 +118,11 @@ const HOME_COPY = {
     sub: 'Mangueras, conexiones, válvulas y accesorios de alta calidad, con asesoría técnica y existencias locales para mantener tu operación siempre en marcha.',
     chipA: 'En inventario local', chipAsub: 'Listo para despacho',
     chipB: 'Asesoría técnica', chipBsub: 'Te ayudamos a elegir',
-    catEye: 'Categorías', catTitle: 'Todo para tu línea, en un solo lugar', catLead: 'Cinco líneas de producto que cubren la conducción de fluidos de principio a fin.',
+    catEye: 'Categorías', catTitle: 'Todo para tu línea, en un solo lugar', catLead: 'Siete líneas de producto que cubren la conducción de fluidos de principio a fin.',
     prodEye: 'Destacados', prodTitle: 'Productos más solicitados', prodLead: 'Una selección de lo que más mueve la industria panameña.',
     whyEye: 'Por qué YRVIMAR', whyTitle: 'Confiabilidad que se nota en cada conexión',
     whyItems: ['Productos de alta calidad respaldados por marcas nacionales e internacionales.', 'Asesoría técnica real: te ayudamos a identificar medida, norma y compatibilidad.', 'Existencias locales que reducen tus tiempos de paro de días a horas.', 'Ensamblaje de mangueras hidráulicas a la medida de tu equipo.'],
-    stats: [['Desde', '2019', 'Sirviendo a la industria'], ['+', '500', 'Referencias en catálogo'], ['', '5', 'Líneas de producto'], ['', 'Nacional', 'Envíos a todo Panamá']],
+    stats: [['Desde', '2019', 'Sirviendo a la industria'], ['+', '500', 'Referencias en catálogo'], ['', '7', 'Líneas de producto'], ['', 'Nacional', 'Envíos a todo Panamá']],
     blogEye: 'Blog técnico', blogTitle: 'Guías y consejos de la industria', blogLead: 'Contenido práctico para elegir y mantener tus componentes.',
     ctaTitle: 'Cuéntanos qué necesitas y te cotizamos hoy', ctaP: 'Escríbenos por WhatsApp con la medida, norma o foto de tu componente. Nuestro equipo te responde con la solución correcta.',
   },
@@ -132,11 +132,11 @@ const HOME_COPY = {
     sub: 'High-quality hoses, fittings, valves and accessories, with technical advice and local stock to keep your operation always running.',
     chipA: 'In local stock', chipAsub: 'Ready to ship',
     chipB: 'Technical advice', chipBsub: 'We help you choose',
-    catEye: 'Categories', catTitle: 'Everything for your line, in one place', catLead: 'Five product lines covering fluid handling from end to end.',
+    catEye: 'Categories', catTitle: 'Everything for your line, in one place', catLead: 'Seven product lines covering fluid handling from end to end.',
     prodEye: 'Featured', prodTitle: 'Most requested products', prodLead: 'A selection of what moves Panamanian industry the most.',
     whyEye: 'Why YRVIMAR', whyTitle: 'Reliability you feel in every connection',
     whyItems: ['High-quality products backed by national and international brands.', 'Real technical advice: we help you identify size, standard and compatibility.', 'Local stock that cuts your downtime from days to hours.', 'Custom hydraulic hose assembly to fit your equipment.'],
-    stats: [['Since', '2019', 'Serving the industry'], ['+', '500', 'Catalog references'], ['', '5', 'Product lines'], ['', 'Nationwide', 'Shipping across Panama']],
+    stats: [['Since', '2019', 'Serving the industry'], ['+', '500', 'Catalog references'], ['', '7', 'Product lines'], ['', 'Nationwide', 'Shipping across Panama']],
     blogEye: 'Technical blog', blogTitle: 'Industry guides and tips', blogLead: 'Practical content to choose and maintain your components.',
     ctaTitle: 'Tell us what you need and we quote you today', ctaP: 'Message us on WhatsApp with the size, standard or a photo of your component. Our team replies with the right solution.',
   },
@@ -158,7 +158,7 @@ function pageHome(lang) {
     { img: 'banner-2.webp', eye: L ? 'Conexiones · Válvulas · Acoples' : 'Fittings · Valves · Couplings',
       h1: L ? `Conexiones y válvulas para <span class="gold">cada estándar</span>.` : `Fittings and valves for <span class="gold">every standard</span>.`,
       p: L ? 'Bronce, acero inoxidable y aluminio: Camlock, Chicago, JIC, NPT y válvulas de bola 1000 WOG.' : 'Brass, stainless steel and aluminum: Camlock, Chicago, JIC, NPT and 1000 WOG ball valves.',
-      c1: { href: U.category(lang, catBy('conexiones-acoples').slug[lang]), label: t.cta.explore, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },
+      c1: { href: U.category(lang, catBy('conexiones-industriales').slug[lang]), label: t.cta.explore, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },
     { img: 'banner-3.webp', eye: L ? 'Existencias locales · Panamá' : 'Local stock · Panama',
       h1: L ? `Tu operación, <span class="gold">siempre abastecida</span>.` : `Your operation, <span class="gold">always supplied</span>.`,
       p: L ? 'Inventario local y asesoría técnica para reducir tus tiempos de paro de días a horas.' : 'Local inventory and technical advice to cut your downtime from days to hours.',
@@ -244,9 +244,30 @@ function pageHome(lang) {
   </div>
 </section>
 
-<section class="section bg-carbon">
+<section class="section" id="proyectos">
   <div class="container">
-    ${sectionHead({ num: '04', eyebrow: c.blogEye, title: c.blogTitle, split: `<a class="btn btn--dark" href="${U.blog(lang)}">${t.cta.allArticles} ${I.arrowR}</a>` })}
+    ${sectionHead({ num: '04', eyebrow: t.words.projects, title: L ? 'Proyectos que respaldan nuestra experiencia' : 'Projects that back our experience', split: `<a class="btn btn--dark" href="${U.projects(lang)}">${t.cta.viewProjects} ${I.arrowR}</a>` })}
+    <div class="proj-grid proj-grid--preview" data-reveal-stagger>
+      ${PROJECTS.slice(0, 6).map((pr, i) => `<a class="proj-item${i === 0 ? ' proj-item--big' : ''}" href="${U.projects(lang)}"><img src="${img(pr.img)}" alt="${L ? 'Proyecto YRVIMAR' : 'YRVIMAR project'} ${i + 1}" loading="lazy"></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="section--tight bg-soft">
+  <div class="container">
+    <div class="brands-head">
+      <span class="eyebrow eyebrow--plain" data-num="">${t.words.brands}</span>
+      <p>${L ? 'Trabajamos con marcas líderes de la industria' : 'We work with leading industry brands'}</p>
+    </div>
+    <div class="brands-row" data-reveal>
+      ${BRANDS.map((b) => `<div class="brand-logo"><img src="${img(b.img)}" alt="${esc(b.name)}" loading="lazy"></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-soft">
+  <div class="container">
+    ${sectionHead({ num: '05', eyebrow: c.blogEye, title: c.blogTitle, split: `<a class="btn btn--dark" href="${U.blog(lang)}">${t.cta.allArticles} ${I.arrowR}</a>` })}
     <div class="blog-grid" data-reveal-stagger>
       ${latest.map((a) => postCard(a, lang)).join('\n      ')}
     </div>
@@ -394,14 +415,21 @@ function pageProduct(p, lang) {
     { name: cat.name[lang], url: U.category(lang, cat.slug[lang]) },
     { name: p.name[lang], url: U.product(lang, p.slug[lang]) },
   ];
-  const valOf = (v) => typeof v === 'object' ? v[lang] : v;
-  const specs = p.specs.map((s) => `<div class="row"><div class="k">${s.l[lang]}</div><div class="v">${valOf(s.v)}</div></div>`).join('');
-  const apps = p.apps[lang].map((a) => `<li>${a}</li>`).join('');
-  const waMsg = lang === 'es'
+  const L = lang === 'es';
+  const waMsg = L
     ? `Hola YRVIMAR, me interesa el producto "${p.name.es}". ¿Me pueden dar disponibilidad y cotización?`
     : `Hello YRVIMAR, I'm interested in "${p.name.en}". Could you share availability and a quote?`;
   const title = `${p.name[lang]} | YRVIMAR Panamá`;
   const desc = p.short[lang];
+  const fichaBlock = p.ficha ? `
+        <div class="block-title" style="margin-top:38px"><span class="bar"></span><h2 style="font-size:1.1rem">${t.words.datasheet}</h2></div>
+        <a class="ficha-card" href="${img(p.ficha)}" target="_blank" rel="noopener" aria-label="${t.cta.viewDatasheet}">
+          <img src="${img(p.ficha)}" alt="${esc(L ? 'Ficha técnica' : 'Datasheet')} — ${esc(p.name[lang])}" loading="lazy">
+          <span class="ficha-overlay"><span class="fi">${I.zoom}</span><span>${t.cta.viewDatasheet}</span></span>
+        </a>
+        <div class="pd-actions" style="margin-top:14px">
+          <a class="btn btn--dark" href="${img(p.ficha)}" download target="_blank" rel="noopener">${I.download} ${t.cta.downloadDatasheet}</a>
+        </div>` : '';
 
   const main = `
 <section class="section" style="padding-top:120px">
@@ -417,21 +445,17 @@ function pageProduct(p, lang) {
         <a class="pd-cat" href="${U.category(lang, cat.slug[lang])}">${cat.name[lang]}</a>
         <h1>${p.name[lang]}</h1>
         <p class="pd-short">${p.short[lang]}</p>
-        <p class="pd-long">${p.long[lang]}</p>
         <div class="pd-actions">
           <a class="btn btn--wa btn--lg" href="${wa(waMsg)}" target="_blank" rel="noopener">${I.wa} ${t.cta.askProduct}</a>
           <a class="btn btn--ghost" href="tel:${SITE.phoneRaw}">${I.phone} ${SITE.phone}</a>
         </div>
-        <p class="pd-note">${I.info}<span>${lang === 'es' ? 'Precio disponible bajo cotización. Especificaciones sujetas a disponibilidad.' : 'Price available upon request. Specifications subject to availability.'}</span></p>
-        <div class="block-title" style="margin-top:36px"><span class="bar"></span><h2 style="font-size:1.1rem">${t.words.specs}</h2></div>
-        <div class="spec-table">${specs}</div>
-        <div class="block-title" style="margin-top:30px"><span class="bar"></span><h2 style="font-size:1.1rem">${t.words.applications}</h2></div>
-        <ul class="apps-list">${apps}</ul>
+        <p class="pd-note">${I.info}<span>${L ? 'Precio disponible bajo cotización. Consulta medidas y disponibilidad por WhatsApp.' : 'Price available upon request. Ask sizes and availability on WhatsApp.'}</span></p>
+        ${fichaBlock}
       </div>
     </div>
   </div>
 </section>
-<section class="section bg-carbon">
+<section class="section bg-soft">
   <div class="container">
     ${sectionHead({ num: '', eyebrow: t.words.products, title: t.words.relatedProducts, split: `<a class="btn btn--dark" href="${U.category(lang, cat.slug[lang])}">${cat.name[lang]} ${I.arrowR}</a>` })}
     <div class="prod-grid" data-reveal-stagger>
@@ -782,6 +806,7 @@ function sitemap() {
     add(U.about(lang), '0.6', 'monthly', U.about('es'), U.about('en'), today);
     add(U.contact(lang), '0.6', 'monthly', U.contact('es'), U.contact('en'), today);
     add(U.blog(lang), '0.8', 'weekly', U.blog('es'), U.blog('en'), today);
+    add(U.projects(lang), '0.6', 'monthly', U.projects('es'), U.projects('en'), today);
     for (const c of CATEGORIES) add(U.category(lang, c.slug[lang]), '0.8', 'monthly', U.category('es', c.slug.es), U.category('en', c.slug.en), today);
     for (const p of PRODUCTS) add(U.product(lang, p.slug[lang]), '0.7', 'monthly', U.product('es', p.slug.es), U.product('en', p.slug.en), today);
     for (const a of ARTICLES) add(U.article(lang, a.slug[lang]), '0.6', 'monthly', U.article('es', a.slug.es), U.article('en', a.slug.en), a.date);
@@ -799,6 +824,40 @@ function sitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${body}
 </urlset>`;
+}
+
+// ============================================================================
+//  PÁGINA: PROYECTOS
+// ============================================================================
+function pageProjects(lang) {
+  const t = T[lang]; const L = lang === 'es';
+  const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: t.words.projects, url: U.projects(lang) }];
+  const title = L ? 'Proyectos | YRVIMAR Suministros Industriales Panamá' : 'Projects | YRVIMAR Industrial Supplies Panama';
+  const desc = L ? 'Proyectos e instalaciones reales de YRVIMAR en la industria panameña: mangueras, conexiones, válvulas y equipos en operación.' : 'Real YRVIMAR projects and installations in Panamanian industry: hoses, fittings, valves and equipment in operation.';
+  const main = `
+<section class="page-hero">
+  <div class="techgrid"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="breadcrumb"><a href="${U.home(lang)}">${t.words.home}</a><span class="sep">/</span><span>${t.words.projects}</span></nav>
+    <span class="eyebrow" data-num="" style="margin-top:22px;display:inline-flex"><span class="tick"></span>${t.words.projects}</span>
+    <h1>${L ? 'Nuestro trabajo en terreno' : 'Our work in the field'}</h1>
+    <p class="lead">${L ? 'Instalaciones y proyectos reales que respaldan la experiencia de YRVIMAR con la industria de Panamá.' : "Real installations and projects backing YRVIMAR's experience with Panama's industry."}</p>
+  </div>
+</section>
+<section class="section--tight">
+  <div class="container">
+    <div class="proj-grid" data-reveal-stagger>
+      ${PROJECTS.map((pr, i) => `<a class="proj-item${i % 5 === 0 ? ' proj-item--big' : ''}" href="${img(pr.img)}" target="_blank" rel="noopener"><img src="${img(pr.img)}" alt="${L ? 'Proyecto YRVIMAR' : 'YRVIMAR project'} ${i + 1}" loading="lazy"></a>`).join('\n      ')}
+    </div>
+    <div class="cta-band ticked" data-reveal style="margin-top:48px">
+      <div class="glow"></div>
+      <h2>${L ? '¿Tienes un proyecto en mente?' : 'Have a project in mind?'}</h2>
+      <p>${L ? 'Cuéntanos qué necesitas y te acompañamos con producto y asesoría técnica.' : 'Tell us what you need and we support you with products and technical advice.'}</p>
+      <div class="hero-cta"><a class="btn btn--wa btn--lg" href="${wa(L ? 'Hola YRVIMAR, tengo un proyecto y quisiera asesoría.' : 'Hello YRVIMAR, I have a project and would like advice.')}" target="_blank" rel="noopener">${I.wa} ${t.cta.quote}</a><a class="btn btn--ghost btn--lg" href="${U.contact(lang)}">${t.cta.contactUs} ${I.arrowR}</a></div>
+    </div>
+  </div>
+</section>`;
+  return shell({ lang, active: 'projects', meta: { lang, title, desc, path: U.projects(lang), alternates: alts(U.projects('es'), U.projects('en')), jsonld: [ldBreadcrumb(crumbs)] }, main });
 }
 
 function notFound() {
@@ -837,6 +896,7 @@ function build() {
     write(`${lang}/${PATHS[lang].about}.html`, pageAbout(lang)); count++;
     write(`${lang}/${PATHS[lang].contact}.html`, pageContact(lang)); count++;
     write(`${lang}/${PATHS[lang].blog}.html`, pageBlog(lang)); count++;
+    write(`${lang}/${PATHS[lang].projects}.html`, pageProjects(lang)); count++;
     for (const c of CATEGORIES) { write(`${lang}/${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
     for (const p of PRODUCTS) { write(`${lang}/${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
     for (const a of ARTICLES) { write(`${lang}/${PATHS[lang].blog}/${a.slug[lang]}.html`, pageArticle(a, lang)); count++; }

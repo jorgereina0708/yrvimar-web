@@ -73,7 +73,7 @@ const ARTICLES = [
     slug: { es: 'mangueras-succion-descarga-guia-completa', en: 'suction-discharge-hoses-complete-guide' },
     date: '2026-06-28',
     image: 'img-pvc.webp',
-    cat: 'mangueras-industriales',
+    cat: 'mangueras-pvc',
     readMin: 5,
     keywords: {
       es: 'manguera de succión y descarga, manguera espiralada PVC, bombeo de agua Panamá',
@@ -125,7 +125,7 @@ const ARTICLES = [
     slug: { es: 'acoples-camlock-vs-chicago-cual-elegir', en: 'camlock-vs-chicago-couplings-which-to-choose' },
     date: '2026-06-15',
     image: 'img-camlock.webp',
-    cat: 'conexiones-acoples',
+    cat: 'conexiones-industriales',
     readMin: 5,
     keywords: {
       es: 'acople camlock, acople chicago, conexiones rápidas Panamá, cam and groove',
@@ -177,7 +177,7 @@ const ARTICLES = [
     slug: { es: 'valvulas-bola-inoxidable-vs-bronce', en: 'ball-valves-stainless-vs-bronze' },
     date: '2026-05-30',
     image: 'img-valvula-inox.webp',
-    cat: 'valvulas',
+    cat: 'valvulas-equipos',
     readMin: 4,
     keywords: {
       es: 'válvula de bola, acero inoxidable 304, bronce, 1000 WOG, Panamá',
@@ -295,7 +295,7 @@ const ARTICLES = [
     slug: { es: 'whip-check-seguridad-lineas-aire-agua', en: 'whip-check-safety-air-water-lines' },
     date: '2026-05-05',
     image: 'img-cable.webp',
-    cat: 'accesorios-seguridad',
+    cat: 'valvulas-equipos',
     readMin: 4,
     keywords: {
       es: 'whip check, cable de seguridad manguera, seguridad aire comprimido, latigazo manguera',
@@ -343,7 +343,7 @@ const ARTICLES = [
     slug: { es: 'entender-presion-de-trabajo-wog-psi-sae', en: 'understanding-working-pressure-wog-psi-sae' },
     date: '2026-04-20',
     image: 'img-jic.webp',
-    cat: 'conexiones-acoples',
+    cat: 'conexiones-industriales',
     readMin: 5,
     keywords: {
       es: 'presión de trabajo, WOG, PSI, presión de ruptura, factor de seguridad manguera',
@@ -389,7 +389,7 @@ const ARTICLES = [
     slug: { es: 'manguera-layflat-construccion-mineria', en: 'layflat-hose-construction-mining' },
     date: '2026-04-08',
     image: 'img-layflat.webp',
-    cat: 'mangueras-industriales',
+    cat: 'mangueras-pvc',
     readMin: 4,
     keywords: {
       es: 'manguera layflat, achique de obra, minería Panamá, descarga de agua',
@@ -437,7 +437,7 @@ const ARTICLES = [
     slug: { es: 'reparar-fugas-tuberia-con-abrazaderas', en: 'repair-pipe-leaks-with-clamps' },
     date: '2026-03-22',
     image: 'img-reparacion.webp',
-    cat: 'accesorios-seguridad',
+    cat: 'valvulas-equipos',
     readMin: 4,
     keywords: {
       es: 'abrazadera de reparación, sellar fuga tubería, reparación de emergencia',
@@ -497,7 +497,7 @@ const ARTICLES = [
     slug: { es: 'guia-comprar-suministros-industriales-panama', en: 'guide-buying-industrial-supplies-panama' },
     date: '2026-03-05',
     image: 'team-field.webp',
-    cat: 'mangueras-industriales',
+    cat: 'mangueras-pvc',
     readMin: 5,
     keywords: {
       es: 'suministros industriales Panamá, proveedor mangueras conexiones, comprar industrial Panamá',

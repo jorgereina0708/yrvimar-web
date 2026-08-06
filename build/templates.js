@@ -33,8 +33,13 @@ const I = {
   chevLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
   chevRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>',
   box: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>',
+  belt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="14" r="4"/><circle cx="18" cy="14" r="4"/><path d="M6 10h12M6 18h12"/></svg>',
+  doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>',
+  zoom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>',
+  download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
 };
-const catIcon = { hose: I.hose, gauge: I.gauge, coupling: I.coupling, valve: I.valve, shield: I.shield };
+const catIcon = { hose: I.hose, gauge: I.gauge, coupling: I.coupling, valve: I.valve, shield: I.shield, belt: I.belt };
 
 // ---------- Helpers ----------
 const ASSET = '/assets';
@@ -51,6 +56,7 @@ const U = {
   contact: (l) => `/${l}/${PATHS[l].contact}.html`,
   blog: (l) => `/${l}/${PATHS[l].blog}.html`,
   article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}.html`,
+  projects: (l) => `/${l}/${PATHS[l].projects}.html`,
 };
 
 function wa(text) { return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`; }
@@ -180,6 +186,7 @@ function header(lang, active, alternates) {
         </div>
       </div>
       ${link(U.products(lang), n.products, 'products')}
+      ${link(U.projects(lang), n.projects, 'projects')}
       ${link(U.about(lang), n.about, 'about')}
       ${link(U.blog(lang), n.blog, 'blog')}
       ${link(U.contact(lang), n.contact, 'contact')}
@@ -197,6 +204,7 @@ function header(lang, active, alternates) {
       ${mCatLinks}
     </div>
     ${mlink(U.products(lang), n.products)}
+    ${mlink(U.projects(lang), n.projects)}
     ${mlink(U.about(lang), n.about)}
     ${mlink(U.blog(lang), n.blog)}
     ${mlink(U.contact(lang), n.contact)}
@@ -312,11 +320,13 @@ function categoryCard(c, lang, idx) {
 
 // ---------- Category tile (estilo genpar: foto + emblema circular) ----------
 const CAT_SEALS = {
-  'mangueras-industriales': { es: 'INDUSTRIALES', en: 'INDUSTRIAL' },
+  'mangueras-pvc': { es: 'PVC', en: 'PVC' },
+  'mangueras-goma': { es: 'GOMA', en: 'RUBBER' },
   'mangueras-hidraulicas': { es: 'HIDRÁULICAS', en: 'HYDRAULIC' },
-  'conexiones-acoples': { es: 'ACOPLES', en: 'COUPLINGS' },
-  'valvulas': { es: 'VÁLVULAS', en: 'VALVES' },
-  'accesorios-seguridad': { es: 'SEGURIDAD', en: 'SAFETY' },
+  'conexiones-hidraulicas': { es: 'CONEXIONES', en: 'FITTINGS' },
+  'conexiones-industriales': { es: 'ACOPLES', en: 'COUPLINGS' },
+  'valvulas-equipos': { es: 'VÁLVULAS', en: 'VALVES' },
+  'bandas-transportadoras': { es: 'BANDAS', en: 'BELTS' },
 };
 function mainCatTile(c, lang, idx, big) {
   const url = U.category(lang, c.slug[lang]);
