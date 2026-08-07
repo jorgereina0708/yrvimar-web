@@ -224,7 +224,7 @@ function footer(lang) {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="188" height="86">
+        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="157" height="72">
         <p>${f.tagline}</p>
         <ul class="footer-info">
           <li><span class="fi-ic">${I.pin}</span><a href="${SITE.mapUrl}" target="_blank" rel="noopener">${SITE.address}, ${SITE.city}</a></li>

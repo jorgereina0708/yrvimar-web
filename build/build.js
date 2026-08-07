@@ -283,7 +283,7 @@ function pageHome(lang) {
       <p>${c.ctaP}</p>
       <div class="hero-cta">
         <a class="btn btn--wa btn--lg" href="${wa(lang === 'es' ? 'Hola YRVIMAR, quisiera cotizar:' : 'Hello YRVIMAR, I would like to quote:')}" target="_blank" rel="noopener">${I.wa} ${t.cta.quote}</a>
-        <a class="btn btn--ghost btn--lg" href="${U.contact(lang)}">${t.cta.contactUs} ${I.arrowR}</a>
+        <a class="btn btn--ghost-light btn--lg" href="${U.contact(lang)}">${t.cta.contactUs} ${I.arrowR}</a>
       </div>
     </div>
   </div>
