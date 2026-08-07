@@ -919,7 +919,7 @@ function build() {
     write(`${lang}/${PATHS[lang].products}.html`, pageProducts(lang)); count++;
     write(`${lang}/${PATHS[lang].about}.html`, pageAbout(lang)); count++;
     write(`${lang}/${PATHS[lang].contact}.html`, pageContact(lang)); count++;
-    write(`${lang}/${PATHS[lang].blog}.html`, pageBlog(lang)); count++;
+    write(`${lang}/${PATHS[lang].blog}/index.html`, pageBlog(lang)); count++;
     for (const c of CATEGORIES) { write(`${lang}/${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
     for (const p of PRODUCTS) { write(`${lang}/${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
     for (const a of ARTICLES) { write(`${lang}/${PATHS[lang].blog}/${a.slug[lang]}.html`, pageArticle(a, lang)); count++; }

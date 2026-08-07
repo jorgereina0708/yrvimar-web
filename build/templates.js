@@ -55,7 +55,7 @@ const U = {
   product: (l, slug) => `/${l}/${PATHS[l].product}/${slug}`,
   about: (l) => `/${l}/${PATHS[l].about}`,
   contact: (l) => `/${l}/${PATHS[l].contact}`,
-  blog: (l) => `/${l}/${PATHS[l].blog}`,
+  blog: (l) => `/${l}/${PATHS[l].blog}/`,
   article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}`,
   projects: (l) => `/${l}/${PATHS[l].projects}`,
 };
@@ -219,13 +219,17 @@ function header(lang, active, alternates) {
 function footer(lang) {
   const t = T[lang];
   const f = t.footer;
-  const catLinks = CATEGORIES.map((c) => `<li><a href="${U.category(lang, c.slug[lang])}">${c.name[lang]}</a></li>`).join('\n        ');
+  const catLinks = CATEGORIES.map((c) => `<li><a href="${U.category(lang, c.slug[lang])}">${c.name[lang]}</a></li>`).join('\n          ');
   return `<footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="112" height="51">
+        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="188" height="86">
         <p>${f.tagline}</p>
+        <ul class="footer-info">
+          <li><span class="fi-ic">${I.pin}</span><a href="${SITE.mapUrl}" target="_blank" rel="noopener">${SITE.address}, ${SITE.city}</a></li>
+          <li><span class="fi-ic">${I.clock}</span><span>${SITE.hours[lang]}</span></li>
+        </ul>
         <div class="footer-social">
           <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
           <a href="${wa(lang === 'es' ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
@@ -235,28 +239,27 @@ function footer(lang) {
       <div class="footer-col">
         <h4>${f.catalog}</h4>
         <ul>
-        ${catLinks}
-        <li><a href="${U.products(lang)}">${t.cta.viewCatalog}</a></li>
+          ${catLinks}
         </ul>
       </div>
       <div class="footer-col">
         <h4>${f.company}</h4>
         <ul>
+          <li><a href="${U.products(lang)}">${t.nav.products}</a></li>
           <li><a href="${U.about(lang)}">${t.nav.about}</a></li>
           <li><a href="${U.blog(lang)}">${t.nav.blog}</a></li>
           <li><a href="${U.contact(lang)}">${t.nav.contact}</a></li>
           <li><a href="${SITE.instagram}" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col footer-contact">
         <h4>${f.contact}</h4>
         <ul>
-          <li><a href="tel:${SITE.phoneRaw}">${SITE.phone}</a></li>
-          <li><a href="${wa('')}" target="_blank" rel="noopener">${SITE.whatsappDisplay}</a></li>
-          <li><a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a></li>
-          <li class="muted">${SITE.address}, ${SITE.city}</li>
-          <li class="muted">${SITE.hours[lang]}</li>
+          <li><span class="fi-ic">${I.phone}</span><a href="tel:${SITE.phoneRaw}">${SITE.phone}</a></li>
+          <li><span class="fi-ic">${I.wa}</span><a href="${wa('')}" target="_blank" rel="noopener">${SITE.whatsappDisplay}</a></li>
+          <li><span class="fi-ic">${I.mail}</span><a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a></li>
         </ul>
+        <a class="footer-cta" href="${wa(lang === 'es' ? 'Hola YRVIMAR, tengo una consulta.' : 'Hello YRVIMAR, I have a question.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
       </div>
     </div>
     <div class="footer-bottom">
