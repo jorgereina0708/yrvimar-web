@@ -4,7 +4,7 @@
 // ============================================================================
 const fs = require('fs');
 const path = require('path');
-const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS, BRANDS, PROJECTS } = require('./site');
+const { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS, BRANDS, PROJECTS, NOINDEX } = require('./site');
 const { ARTICLES } = require('./articles');
 const Tpl = require('./templates');
 const { I, catIcon, img, logo, U, wa, esc, abs, head, header, footer, widgets, productCard, categoryCard, mainCatTile, postCard, fmtDate, sectionHead } = Tpl;
@@ -788,6 +788,7 @@ function rootIndex() {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>YRVIMAR Services & Supply — Suministros Industriales Panamá</title>
 <meta name="description" content="Suministros industriales en Panamá: mangueras, conexiones, válvulas y accesorios.">
+<meta name="robots" content="${NOINDEX ? 'noindex, nofollow' : 'index, follow'}">
 <link rel="canonical" href="${abs(U.home('es'))}">
 <link rel="alternate" hreflang="es" href="${abs(U.home('es'))}">
 <link rel="alternate" hreflang="en" href="${abs(U.home('en'))}">
@@ -805,6 +806,18 @@ function rootIndex() {
 }
 
 function robots() {
+  if (NOINDEX) {
+    // Se permite el rastreo A PROPÓSITO: si se bloqueara aquí, los buscadores
+    // no podrían leer la etiqueta noindex y no retirarían las páginas.
+    return `# Modo pre-lanzamiento: el sitio se sirve con noindex (meta + X-Robots-Tag).
+# El rastreo se permite para que los buscadores puedan LEER ese noindex.
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE.baseUrl}/sitemap.xml
+# LLM guidance
+# ${SITE.baseUrl}/llms.txt`;
+  }
   return `User-agent: *
 Allow: /
 
@@ -907,7 +920,9 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Opener-Policy "same-origin"${NOINDEX ? `
+  # Pre-lanzamiento: bloquea la indexación de TODO (incluye imágenes, fichas y llms.txt)
+  Header always set X-Robots-Tag "noindex, nofollow"` : ''}
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'"
 </IfModule>
 

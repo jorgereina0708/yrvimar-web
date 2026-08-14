@@ -1,3 +1,5 @@
+# Modo pre-lanzamiento: el sitio se sirve con noindex (meta + X-Robots-Tag).
+# El rastreo se permite para que los buscadores puedan LEER ese noindex.
 User-agent: *
 Allow: /
 

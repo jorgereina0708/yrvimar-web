@@ -1,7 +1,7 @@
 // ============================================================================
 //  YRVIMAR — Componentes/plantillas HTML compartidos
 // ============================================================================
-const { SITE, PATHS, T, CATEGORIES } = require('./site');
+const { SITE, PATHS, T, CATEGORIES, NOINDEX } = require('./site');
 
 // ---------- Iconos (Lucide-style, stroke) ----------
 const I = {
@@ -86,7 +86,8 @@ function head({ lang, title, desc, path, alternates, ogImage, ogType, jsonld, ro
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(desc)}">
-  <meta name="robots" content="${robots || 'index, follow, max-image-preview:large'}">
+  <meta name="robots" content="${NOINDEX ? 'noindex, nofollow' : (robots || 'index, follow, max-image-preview:large')}">
+  ${NOINDEX ? '<meta name="googlebot" content="noindex, nofollow">' : ''}
   <link rel="canonical" href="${canonical}">
   ${altLinks}
   <meta name="theme-color" content="#0a0a0b">

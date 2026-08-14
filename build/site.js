@@ -29,6 +29,13 @@ const SITE = {
   hours: { es: 'Lun–Vie 8:00–17:00 · Sáb 8:00–12:00', en: 'Mon–Fri 8:00–17:00 · Sat 8:00–12:00' },
 };
 
+// ---------------------------------------------------------------------------
+//  INTERRUPTOR DE INDEXACIÓN
+//  true  = toda la web con noindex (buscadores NO la indexan). Modo pre-lanzamiento.
+//  false = indexación normal. Cambiar a false el día del lanzamiento y republicar.
+// ---------------------------------------------------------------------------
+const NOINDEX = true;
+
 const LANGS = ['es', 'en'];
 const DEFAULT_LANG = 'es';
 
@@ -345,4 +352,4 @@ const BRANDS = [
 const PROJECTS = [];
 for (let i = 1; i <= 8; i++) PROJECTS.push({ img: 'proyecto/proj-' + i + '.webp' });
 
-module.exports = { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS, BRANDS, PROJECTS };
+module.exports = { SITE, LANGS, DEFAULT_LANG, PATHS, T, CATEGORIES, PRODUCTS, BRANDS, PROJECTS, NOINDEX };
