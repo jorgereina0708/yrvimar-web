@@ -202,7 +202,7 @@ function pageHome(lang) {
       h1: L ? `Tu operación, <span class="gold">siempre abastecida</span>.` : `Your operation, <span class="gold">always supplied</span>.`,
       p: L ? 'Inventario local y asesoría técnica para reducir tus tiempos de paro de días a horas.' : 'Local inventory and technical advice to cut your downtime from days to hours.',
       c1: { href: U.about(lang), label: t.nav.about, cls: 'btn--primary' }, c2: { href: U.contact(lang), label: t.cta.contactUs } },
-    { img: 'team-field.webp', pos: 'center 20%', eye: L ? 'Servicio en terreno' : 'Field service',
+    { img: 'hero-servicio.webp', pos: 'center 40%', eye: L ? 'Servicio en terreno' : 'Field service',
       h1: L ? `Un equipo que <span class="gold">conoce tu operación</span>.` : `A team that <span class="gold">knows your operation</span>.`,
       p: L ? 'Asesoría técnica y ensamblaje a la medida, respaldando tu producción día a día.' : 'Technical advice and custom assembly, backing your production day after day.',
       c1: { href: U.about(lang), label: t.nav.about, cls: 'btn--primary' }, c2: { wa: true, label: t.cta.quote } },

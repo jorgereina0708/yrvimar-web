@@ -147,6 +147,15 @@ strong { color: var(--ink); font-weight: 600; }
 .btn--ghost:hover { border-color: var(--gold); color: var(--gold-deep); transform: translateY(-2px); }
 .btn--ghost-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
 .btn--ghost-light:hover { border-color: #fff; background: rgba(255,255,255,.1); transform: translateY(-2px); }
+/* Sobre fondos oscuros el botón fantasma debe ir en claro (si no, texto oscuro sobre oscuro) */
+.cta-band .btn--ghost,
+.hero .btn--ghost,
+.bg-carbon .btn--ghost,
+.section--dark .btn--ghost { color: #fff; border-color: rgba(255,255,255,.4); background: transparent; }
+.cta-band .btn--ghost:hover,
+.hero .btn--ghost:hover,
+.bg-carbon .btn--ghost:hover,
+.section--dark .btn--ghost:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,.1); }
 .btn--dark { background: var(--navy); color: #fff; border: 1px solid var(--navy); }
 .btn--dark:hover { background: var(--navy-2); transform: translateY(-2px); }
 .btn--wa { background: #25d366; color: #04160a; }
@@ -299,28 +308,28 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 
 /* ---------- Categorías Principales (mosaico + emblema, estilo genpar) ---------- */
 .maincat-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; }
-.mc-tile { position: relative; overflow: hidden; border-radius: var(--radius-lg); min-height: 246px; display: block; background: var(--navy); box-shadow: var(--shadow-sm); transition: box-shadow .4s var(--ease), transform .4s var(--ease); }
+.mc-tile { position: relative; overflow: hidden; border-radius: var(--radius-lg); min-height: 246px; display: block; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: box-shadow .4s var(--ease), transform .4s var(--ease); }
 .mc-tile:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
 .mc-tile--big { grid-row: 1 / span 2; min-height: 508px; }
 .mc-bg { position: absolute; inset: 0; z-index: 0; }
 .mc-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .8s var(--ease); }
 .mc-tile:hover .mc-bg img { transform: scale(1.07); }
-.mc-tile::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(165deg, rgba(12,18,27,.55) 0%, rgba(12,18,27,.12) 40%, rgba(12,18,27,.60) 100%); }
+.mc-tile::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.80) 22%, rgba(255,255,255,0) 46%); }
 .mc-top { position: absolute; top: 20px; left: 22px; right: 22px; z-index: 3; }
-.mc-idx { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--gold-lite); letter-spacing: 0.1em; }
-.mc-name { display: block; font-family: var(--ff-display); font-size: 1.18rem; font-weight: 600; color: #fff; margin-top: 4px; letter-spacing: -0.01em; }
+.mc-idx { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--gold-deep); letter-spacing: 0.1em; }
+.mc-name { display: block; font-family: var(--ff-display); font-size: 1.18rem; font-weight: 700; color: var(--ink); margin-top: 4px; letter-spacing: -0.01em; }
 .mc-tile--big .mc-name { font-size: 1.6rem; }
-.mc-more { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: #fff; text-transform: uppercase; }
-.mc-more .arw { color: var(--gold-lite); transition: transform .3s var(--ease); }
+.mc-more { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--mute); text-transform: uppercase; }
+.mc-more .arw { color: var(--gold-deep); transition: transform .3s var(--ease); }
 .mc-tile:hover .mc-more .arw { transform: translateX(5px); }
-.mc-emblem { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); width: 128px; height: 128px; z-index: 2; transition: transform .5s var(--ease); }
-.mc-tile--big .mc-emblem { width: 172px; height: 172px; bottom: 40px; }
-.mc-tile:hover .mc-emblem { transform: translateX(-50%) scale(1.05); }
+.mc-emblem { position: absolute; right: 16px; bottom: 16px; width: 92px; height: 92px; z-index: 2; transition: transform .5s var(--ease); }
+.mc-tile--big .mc-emblem { width: 124px; height: 124px; right: 22px; bottom: 22px; }
+.mc-tile:hover .mc-emblem { transform: scale(1.06); }
 .mc-ring { width: 100%; height: 100%; overflow: visible; }
-.mc-ring circle { fill: rgba(10,15,22,.28); stroke: rgba(255,255,255,.9); stroke-width: 1.3; }
-.mc-arc-text { fill: #fff; font-family: var(--ff-mono); font-size: 10px; letter-spacing: 1.6px; font-weight: 500; }
+.mc-ring circle { fill: rgba(255,255,255,.62); stroke: rgba(19,32,49,.55); stroke-width: 1.3; }
+.mc-arc-text { fill: var(--ink); font-family: var(--ff-mono); font-size: 10px; letter-spacing: 1.6px; font-weight: 600; }
 .mc-tile--big .mc-arc-text { font-size: 11.5px; letter-spacing: 2.4px; }
-.mc-ic { position: absolute; top: 43%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; color: var(--gold-lite); }
+.mc-ic { position: absolute; top: 43%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; color: var(--gold-deep); }
 .mc-ic svg { width: 100%; height: 100%; }
 .mc-tile--big .mc-ic { width: 54px; height: 54px; }
 @media (max-width: 860px) {
