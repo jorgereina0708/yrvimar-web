@@ -59,7 +59,7 @@ function ldOrg() {
     name: SITE.name, alternateName: SITE.shortName, url: SITE.baseUrl,
     logo: abs(logo('icon-512.png')), image: abs(img('og-image.jpg')),
     email: SITE.emailSales, telephone: SITE.phone,
-    sameAs: [SITE.instagram],
+    sameAs: [SITE.instagram, SITE.facebook],
     address: { '@type': 'PostalAddress', streetAddress: SITE.address, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
   };
 }
@@ -101,7 +101,7 @@ function ldLocalBusiness(lang) {
     address: { '@type': 'PostalAddress', streetAddress: SITE.address, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
     geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
     openingHours: 'Mo-Fr 08:00-17:00, Sa 08:00-12:00',
-    sameAs: [SITE.instagram],
+    sameAs: [SITE.instagram, SITE.facebook],
   };
 }
 
@@ -611,6 +611,7 @@ function pageContact(lang) {
       ${row(I.pin, L ? 'Dirección' : 'Address', `${SITE.address}, ${SITE.city}, ${SITE.countryName[lang]}`)}
       ${row(I.clock, L ? 'Horario' : 'Hours', SITE.hours[lang])}
       ${row(I.ig, 'Instagram', `<a href="${SITE.instagram}" target="_blank" rel="noopener">${SITE.instagramHandle}</a>`)}
+      ${row(I.fb, 'Facebook', `<a href="${SITE.facebook}" target="_blank" rel="noopener">YRVIMAR Services & Supply</a>`)}
       <div style="margin-top:26px"><a class="btn btn--wa btn--lg btn--block" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa} ${t.cta.quote}</a></div>
     </div>
     <div class="contact-card">
@@ -634,7 +635,7 @@ function pageContact(lang) {
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="map-embed">
-      <iframe title="${L ? 'Ubicación YRVIMAR' : 'YRVIMAR location'}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Parque%20Lefevre%20Avenida%201B%20Sur%20Panama&output=embed"></iframe>
+      <iframe title="${L ? 'Ubicación YRVIMAR' : 'YRVIMAR location'}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${SITE.mapEmbed}"></iframe>
     </div>
   </div>
 </section>`;
@@ -742,7 +743,54 @@ function robots() {
   return `User-agent: *
 Allow: /
 
-Sitemap: ${SITE.baseUrl}/sitemap.xml`;
+Sitemap: ${SITE.baseUrl}/sitemap.xml
+# LLM guidance
+# ${SITE.baseUrl}/llms.txt`;
+}
+
+function llmsTxt() {
+  const catLine = (l) => CATEGORIES.map((c) => `- [${c.name[l]}](${abs(U.category(l, c.slug[l]))}): ${c.tagline[l]}`).join('\n');
+  const artLine = (l) => ARTICLES.map((a) => `- [${a.title[l]}](${abs(U.article(l, a.slug[l]))})`).join('\n');
+  return `# YRVIMAR Services & Supply
+
+> ${SITE.name} es un proveedor de suministros industriales en ${SITE.city}, ${SITE.region}: mangueras de PVC, goma e hidráulicas, conexiones, acoples (Camlock, Chicago), válvulas, equipos y bandas transportadoras de la marca PROFIX. Modo catálogo (sin precios en línea); las cotizaciones se gestionan por WhatsApp (${SITE.whatsappDisplay}) o correo (${SITE.emailSales}). Sitio bilingüe español/inglés. / ${SITE.name} is an industrial supplies provider in Panama City, Panama: PVC, rubber and hydraulic hoses, fittings, couplings (Camlock, Chicago), valves, equipment and conveyor belts (PROFIX brand). Catalog mode (no online prices); quotes handled via WhatsApp or email. Bilingual ES/EN site.
+
+## Empresa / Company
+- Nombre / Name: ${SITE.name}
+- Ubicación / Location: ${SITE.address}, ${SITE.city}, ${SITE.region}
+- WhatsApp: ${SITE.whatsappDisplay} · Tel: ${SITE.phone}
+- Email: ${SITE.emailSales}
+- Instagram: ${SITE.instagram}
+- Facebook: ${SITE.facebook}
+
+## Español
+- [Inicio](${abs(U.home('es'))})
+- [Catálogo de productos](${abs(U.products('es'))})
+- [Nosotros](${abs(U.about('es'))})
+- [Contacto](${abs(U.contact('es'))})
+- [Blog](${abs(U.blog('es'))})
+- [Política de Privacidad](${abs(U.privacy('es'))})
+
+### Categorías
+${catLine('es')}
+
+### Artículos del blog
+${artLine('es')}
+
+## English
+- [Home](${abs(U.home('en'))})
+- [Product catalog](${abs(U.products('en'))})
+- [About](${abs(U.about('en'))})
+- [Contact](${abs(U.contact('en'))})
+- [Blog](${abs(U.blog('en'))})
+- [Privacy Policy](${abs(U.privacy('en'))})
+
+### Categories
+${catLine('en')}
+
+### Blog articles
+${artLine('en')}
+`;
 }
 
 function htaccess() {
@@ -776,6 +824,7 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'"
 </IfModule>
 
 # --- Bloquear archivos ocultos y sensibles ---
@@ -830,6 +879,7 @@ function sitemap() {
     add(U.products(lang), '0.9', 'weekly', U.products('es'), U.products('en'), today);
     add(U.about(lang), '0.6', 'monthly', U.about('es'), U.about('en'), today);
     add(U.contact(lang), '0.6', 'monthly', U.contact('es'), U.contact('en'), today);
+    add(U.privacy(lang), '0.3', 'yearly', U.privacy('es'), U.privacy('en'), today);
     add(U.blog(lang), '0.8', 'weekly', U.blog('es'), U.blog('en'), today);
     for (const c of CATEGORIES) add(U.category(lang, c.slug[lang]), '0.8', 'monthly', U.category('es', c.slug.es), U.category('en', c.slug.en), today);
     for (const p of PRODUCTS) add(U.product(lang, p.slug[lang]), '0.7', 'monthly', U.product('es', p.slug.es), U.product('en', p.slug.en), today);
@@ -884,6 +934,57 @@ function pageProjects(lang) {
   return shell({ lang, active: 'projects', meta: { lang, title, desc, path: U.projects(lang), alternates: alts(U.projects('es'), U.projects('en')), jsonld: [ldBreadcrumb(crumbs)] }, main });
 }
 
+// ============================================================================
+//  PÁGINA: POLÍTICA DE PRIVACIDAD
+// ============================================================================
+function pagePrivacy(lang) {
+  const t = T[lang]; const L = lang === 'es';
+  const label = L ? 'Política de Privacidad' : 'Privacy Policy';
+  const updated = L ? 'Última actualización: agosto de 2026' : 'Last updated: August 2026';
+  const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: label, url: U.privacy(lang) }];
+  const title = L ? 'Política de Privacidad | YRVIMAR Panamá' : 'Privacy Policy | YRVIMAR Panama';
+  const desc = L
+    ? 'Política de privacidad de YRVIMAR Services & Supply: qué datos tratamos, cómo los usamos y tus derechos.'
+    : 'Privacy policy of YRVIMAR Services & Supply: what data we process, how we use it and your rights.';
+  const S = (h, body) => `<h2>${h}</h2>${body}`;
+  const es = `
+    ${S('1. Responsable del tratamiento', `<p>${SITE.name}, con domicilio en ${SITE.address}, ${SITE.city}, ${SITE.region}. Correo de contacto: <a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a> · Teléfono: ${SITE.phone}.</p>`)}
+    ${S('2. Alcance de este sitio', `<p>Este sitio es un <strong>catálogo informativo</strong>. No vende en línea, no procesa pagos ni requiere que crees una cuenta. No se muestran precios: las cotizaciones se gestionan por WhatsApp o correo.</p>`)}
+    ${S('3. Qué datos tratamos', `<ul><li><strong>Datos que nos envías voluntariamente</strong> a través del formulario de contacto o de WhatsApp: nombre, producto de interés y el mensaje que redactes.</li><li><strong>Datos técnicos básicos</strong> del servidor (dirección IP, tipo de navegador) generados de forma estándar al visitar cualquier web.</li></ul>`)}
+    ${S('4. Para qué los usamos', `<ul><li>Responder tus consultas y elaborar cotizaciones.</li><li>Dar seguimiento comercial a tu solicitud.</li><li>Mejorar el contenido y funcionamiento del sitio.</li></ul><p>No vendemos ni cedemos tus datos a terceros para fines publicitarios.</p>`)}
+    ${S('5. El formulario y WhatsApp', `<p>Al enviar el formulario, tu mensaje se abre en <strong>WhatsApp</strong> para que lo envíes a nuestro número. Esa comunicación se rige además por la política de privacidad de WhatsApp (Meta).</p>`)}
+    ${S('6. Servicios de terceros', `<ul><li><strong>Google Maps</strong>: mostramos un mapa de nuestra ubicación; Google puede recopilar datos de uso.</li><li><strong>Hostinger</strong>: alojamiento del sitio.</li><li><strong>WhatsApp / Meta</strong>: canal de contacto.</li></ul>`)}
+    ${S('7. Cookies', `<p>Este sitio no utiliza cookies publicitarias ni de seguimiento propias. Los servicios embebidos (Google Maps) pueden usar sus propias cookies. Si en el futuro se incorporan herramientas de analítica, se informará en esta misma política.</p>`)}
+    ${S('8. Conservación', `<p>Conservamos tus datos de contacto solo el tiempo necesario para atender tu solicitud y el seguimiento comercial asociado.</p>`)}
+    ${S('9. Tus derechos', `<p>Puedes solicitar el acceso, la rectificación o la eliminación de tus datos escribiéndonos a <a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a>.</p>`)}
+    ${S('10. Cambios', `<p>Podemos actualizar esta política. La versión vigente estará siempre disponible en esta página.</p>`)}`;
+  const en = `
+    ${S('1. Data controller', `<p>${SITE.name}, located at ${SITE.address}, ${SITE.city}, ${SITE.region}. Contact email: <a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a> · Phone: ${SITE.phone}.</p>`)}
+    ${S('2. Scope of this website', `<p>This site is an <strong>informational catalog</strong>. It does not sell online, process payments or require you to create an account. No prices are shown: quotes are handled via WhatsApp or email.</p>`)}
+    ${S('3. What data we process', `<ul><li><strong>Data you send voluntarily</strong> through the contact form or WhatsApp: name, product of interest and the message you write.</li><li><strong>Basic technical data</strong> from the server (IP address, browser type) generated as standard when visiting any website.</li></ul>`)}
+    ${S('4. How we use it', `<ul><li>To answer your inquiries and prepare quotes.</li><li>To follow up on your request commercially.</li><li>To improve the site content and performance.</li></ul><p>We do not sell or share your data with third parties for advertising purposes.</p>`)}
+    ${S('5. The form and WhatsApp', `<p>When you submit the form, your message opens in <strong>WhatsApp</strong> for you to send it to our number. That communication is also governed by WhatsApp's (Meta) privacy policy.</p>`)}
+    ${S('6. Third-party services', `<ul><li><strong>Google Maps</strong>: we show a map of our location; Google may collect usage data.</li><li><strong>Hostinger</strong>: website hosting.</li><li><strong>WhatsApp / Meta</strong>: contact channel.</li></ul>`)}
+    ${S('7. Cookies', `<p>This site does not use its own advertising or tracking cookies. Embedded services (Google Maps) may use their own cookies. If analytics tools are added in the future, this policy will be updated accordingly.</p>`)}
+    ${S('8. Retention', `<p>We keep your contact data only as long as necessary to handle your request and the related commercial follow-up.</p>`)}
+    ${S('9. Your rights', `<p>You may request access, correction or deletion of your data by writing to <a href="mailto:${SITE.emailSales}">${SITE.emailSales}</a>.</p>`)}
+    ${S('10. Changes', `<p>We may update this policy. The current version will always be available on this page.</p>`)}`;
+  const main = `
+<section class="page-hero">
+  <div class="techgrid"></div>
+  <div class="container">
+    <nav class="crumbs" aria-label="breadcrumb"><a href="${U.home(lang)}">${t.words.home}</a><span class="sep">/</span><span>${label}</span></nav>
+    <span class="eyebrow" data-num="" style="margin-top:22px;display:inline-flex"><span class="tick"></span>${L ? 'Legal' : 'Legal'}</span>
+    <h1>${label}</h1>
+    <p class="lead">${updated}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container"><div class="legal-doc">${L ? es : en}</div></div>
+</section>`;
+  return shell({ lang, active: '', meta: { lang, title, desc, path: U.privacy(lang), alternates: alts(U.privacy('es'), U.privacy('en')), robots: 'index, follow', jsonld: [ldBreadcrumb(crumbs)] }, main });
+}
+
 function notFound() {
   const lang = 'es';
   const main = `<section class="section" style="padding-top:160px;text-align:center;min-height:70vh;display:flex;align-items:center;justify-content:center">
@@ -919,6 +1020,7 @@ function build() {
     write(`${lang}/${PATHS[lang].products}.html`, pageProducts(lang)); count++;
     write(`${lang}/${PATHS[lang].about}.html`, pageAbout(lang)); count++;
     write(`${lang}/${PATHS[lang].contact}.html`, pageContact(lang)); count++;
+    write(`${lang}/${PATHS[lang].privacy}.html`, pagePrivacy(lang)); count++;
     write(`${lang}/${PATHS[lang].blog}/index.html`, pageBlog(lang)); count++;
     for (const c of CATEGORIES) { write(`${lang}/${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
     for (const p of PRODUCTS) { write(`${lang}/${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
@@ -928,6 +1030,7 @@ function build() {
   write('index.html', rootIndex());
   write('404.html', notFound());
   write('robots.txt', robots());
+  write('llms.txt', llmsTxt());
   write('sitemap.xml', sitemap());
   write('site.webmanifest', manifest());
   write('.htaccess', htaccess());

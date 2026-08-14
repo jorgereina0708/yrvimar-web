@@ -19,10 +19,12 @@ const SITE = {
   region: 'Panamá',
   country: 'PA',
   countryName: { es: 'Panamá', en: 'Panama' },
-  geo: { lat: 9.0009, lng: -79.4859 },
+  geo: { lat: 9.0195613, lng: -79.4912284 },
   instagram: 'https://www.instagram.com/yrvimar_inc/',
   instagramHandle: '@yrvimar_inc',
-  mapUrl: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Parque Lefevre, Av. 1B Sur, Edificio Joritza, Local 1, Ciudad de Panamá'),
+  facebook: 'https://www.facebook.com/p/Yrvimar-Service-Supply-inc-100063764845113/',
+  mapUrl: 'https://maps.app.goo.gl/Gfi2x9aqc6hK9WtZ9',
+  mapEmbed: 'https://www.google.com/maps?q=9.0195613,-79.4912284&z=16&hl=es&output=embed',
   founded: '2019',
   hours: { es: 'Lun–Vie 8:00–17:00 · Sáb 8:00–12:00', en: 'Mon–Fri 8:00–17:00 · Sat 8:00–12:00' },
 };
@@ -31,8 +33,8 @@ const LANGS = ['es', 'en'];
 const DEFAULT_LANG = 'es';
 
 const PATHS = {
-  es: { products: 'productos', category: 'categoria', product: 'producto', about: 'nosotros', contact: 'contacto', blog: 'blog', projects: 'proyectos' },
-  en: { products: 'products', category: 'category', product: 'product', about: 'about', contact: 'contact', blog: 'blog', projects: 'projects' },
+  es: { products: 'productos', category: 'categoria', product: 'producto', about: 'nosotros', contact: 'contacto', blog: 'blog', projects: 'proyectos', privacy: 'privacidad' },
+  en: { products: 'products', category: 'category', product: 'product', about: 'about', contact: 'contact', blog: 'blog', projects: 'projects', privacy: 'privacy' },
 };
 
 const T = {

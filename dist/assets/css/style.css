@@ -592,6 +592,14 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .footer-bottom .disc { max-width: 60ch; }
 .footer-bottom .disc a { color: var(--gold); font-weight: 600; transition: color .2s; }
 .footer-bottom .disc a:hover { color: var(--gold-lite); text-decoration: underline; }
+.footer-legal { color: #8a94a1; margin-left: 8px; transition: color .2s; }
+.footer-legal:hover { color: var(--gold); }
+.legal-doc { max-width: 780px; }
+.legal-doc h2 { font-size: 1.18rem; margin-top: 34px; margin-bottom: 10px; color: var(--ink); }
+.legal-doc h2:first-child { margin-top: 0; }
+.legal-doc p, .legal-doc li { color: var(--mute); line-height: 1.7; }
+.legal-doc ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; list-style: disc; }
+.legal-doc a { color: var(--gold-deep); text-decoration: underline; }
 
 /* ---------- Floating widgets ---------- */
 .fab-wa { position: fixed; right: 22px; bottom: 22px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px -8px rgba(37,211,102,.55); transition: transform .3s var(--ease); }

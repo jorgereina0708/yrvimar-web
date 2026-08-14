@@ -14,6 +14,7 @@ const I = {
   pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
   clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
   ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1112.6 8 4 4 0 0116 11.4z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>',
+  fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>',
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
   star: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>',
   shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
@@ -58,6 +59,7 @@ const U = {
   blog: (l) => `/${l}/${PATHS[l].blog}/`,
   article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}`,
   projects: (l) => `/${l}/${PATHS[l].projects}`,
+  privacy: (l) => `/${l}/${PATHS[l].privacy}`,
 };
 
 function wa(text) { return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`; }
@@ -150,6 +152,7 @@ function header(lang, active, alternates) {
     <div class="topbar-right">
       <div class="topbar-social">
         <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+        <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.fb}</a>
         <a href="${wa(L ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
       </div>
       <span class="sep"></span>
@@ -162,6 +165,7 @@ function header(lang, active, alternates) {
     <a class="mti-loc" href="${SITE.mapUrl}" target="_blank" rel="noopener">${I.pin}<span>Parque Lefevre, ${SITE.countryName[lang]}</span></a>
     <div class="mti-social">
       <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+      <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.fb}</a>
       <a href="${wa(L ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
       <a href="mailto:${SITE.emailSales}" aria-label="Email">${I.mail}</a>
     </div>
@@ -232,6 +236,7 @@ function footer(lang) {
         </ul>
         <div class="footer-social">
           <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+          <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.fb}</a>
           <a href="${wa(lang === 'es' ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
           <a href="mailto:${SITE.emailSales}" aria-label="Email">${I.mail}</a>
         </div>
@@ -250,6 +255,7 @@ function footer(lang) {
           <li><a href="${U.blog(lang)}">${t.nav.blog}</a></li>
           <li><a href="${U.contact(lang)}">${t.nav.contact}</a></li>
           <li><a href="${SITE.instagram}" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="${SITE.facebook}" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
       <div class="footer-col footer-contact">
@@ -263,7 +269,7 @@ function footer(lang) {
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© ${'2026'} ${esc(SITE.name)}. ${f.rights}</p>
+      <p>© ${'2026'} ${esc(SITE.name)}. ${f.rights} <a class="footer-legal" href="${U.privacy(lang)}">${lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}</a></p>
       <p class="disc">${lang === 'es' ? 'Desarrollado por' : 'Developed by'}: <a href="https://nayitapubmark.com/" target="_blank" rel="noopener">Nayitapubmark</a></p>
     </div>
   </div>

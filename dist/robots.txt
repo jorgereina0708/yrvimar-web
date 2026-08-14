@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://seashell-dove-613694.hostingersite.com/sitemap.xml
+# LLM guidance
+# https://seashell-dove-613694.hostingersite.com/llms.txt
