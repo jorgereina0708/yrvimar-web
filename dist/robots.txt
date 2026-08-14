@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seashell-dove-613694.hostingersite.com/sitemap.xml
+Sitemap: https://yrvimar.com/sitemap.xml
 # LLM guidance
-# https://seashell-dove-613694.hostingersite.com/llms.txt
+# https://yrvimar.com/llms.txt
