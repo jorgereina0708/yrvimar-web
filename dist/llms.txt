@@ -20,19 +20,21 @@
 
 ## Español
 - [Inicio](https://seashell-dove-613694.hostingersite.com/es/): suministros industriales en Panamá.
-- [Catálogo de productos](https://seashell-dove-613694.hostingersite.com/es/productos): 54 productos en 7 líneas.
+- [Catálogo de productos](https://seashell-dove-613694.hostingersite.com/es/productos): 56 productos en 7 líneas.
 - [Nosotros](https://seashell-dove-613694.hostingersite.com/es/nosotros): historia, equipo y proyectos de YRVIMAR.
 - [Contacto](https://seashell-dove-613694.hostingersite.com/es/contacto): dirección, horario, mapa y formulario.
 - [Blog](https://seashell-dove-613694.hostingersite.com/es/blog/): guías técnicas de mangueras, conexiones y válvulas.
 - [Política de Privacidad](https://seashell-dove-613694.hostingersite.com/es/privacidad)
 
 ### Categorías y productos
-- [Mangueras de PVC](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-pvc): Succión, descarga y layflat — 7 productos
+- [Mangueras de PVC](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-pvc): Succión, descarga y layflat — 9 productos
   - [Manguera de Succión y Descarga de Agua Liviana (PAI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-descarga-liviana)
   - [Manguera Chata Layflat Liviana (PCI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-layflat-liviana)
   - [Manguera Chata Layflat Trabajo Pesado (PHI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-layflat-pesada)
   - [Manguera de Succión y Descarga de Agua Pesada (PNI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-descarga-pesada)
   - [Manguera No Tóxica con Refuerzo de Acero (PSI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-no-toxica-acero)
+  - [Manguera No Tóxica con Refuerzo Textil (ARI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-no-toxica-textil)
+  - [Manguera No Tóxica sin Refuerzo (ASI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-no-toxica-sin-refuerzo)
   - [Manguera de Succión y Descarga Reforzada (PGI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-reforzada-pgi)
   - [Manguera de Succión de Polvo](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-polvo)
 - [Mangueras de Goma](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-de-goma): Aire, agua, combustible y químicos — 8 productos
@@ -54,7 +56,7 @@
   - [Manguera Hidráulica SAE 100 R15](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r15)
   - [Manguera Hidráulica 4SP](https://seashell-dove-613694.hostingersite.com/es/producto/hid-4sp)
   - [Manguera Hidráulica 4SH](https://seashell-dove-613694.hostingersite.com/es/producto/hid-4sh)
-  - [Manguera Hidráulica SAE 14](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-14)
+  - [Manguera Hidráulica SAE 100 R14 (PTFE)](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-14)
 - [Conexiones Hidráulicas](https://seashell-dove-613694.hostingersite.com/es/categoria/conexiones-hidraulicas): JIC, NPT, BSP, M22, casquillos — 9 productos
   - [Acople Hidráulico AHA](https://seashell-dove-613694.hostingersite.com/es/producto/chid-acople-aha)
   - [Acople Hidráulico AHB](https://seashell-dove-613694.hostingersite.com/es/producto/chid-acople-ahb)
@@ -103,19 +105,21 @@
 
 ## English
 - [Home](https://seashell-dove-613694.hostingersite.com/en/): industrial supplies in Panama.
-- [Product catalog](https://seashell-dove-613694.hostingersite.com/en/products): 54 products across 7 lines.
+- [Product catalog](https://seashell-dove-613694.hostingersite.com/en/products): 56 products across 7 lines.
 - [About](https://seashell-dove-613694.hostingersite.com/en/about): YRVIMAR history, team and projects.
 - [Contact](https://seashell-dove-613694.hostingersite.com/en/contact): address, hours, map and contact form.
 - [Blog](https://seashell-dove-613694.hostingersite.com/en/blog/): technical guides on hoses, fittings and valves.
 - [Privacy Policy](https://seashell-dove-613694.hostingersite.com/en/privacy)
 
 ### Categories and products
-- [PVC Hoses](https://seashell-dove-613694.hostingersite.com/en/category/pvc-hoses): Suction, discharge & layflat — 7 products
+- [PVC Hoses](https://seashell-dove-613694.hostingersite.com/en/category/pvc-hoses): Suction, discharge & layflat — 9 products
   - [Light Water Suction & Discharge Hose (PAI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-descarga-liviana)
   - [Light Layflat Hose (PCI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-layflat-liviana)
   - [Heavy-Duty Layflat Hose (PHI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-layflat-pesada)
   - [Heavy Water Suction & Discharge Hose (PNI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-descarga-pesada)
   - [Non-Toxic Steel-Reinforced Hose (PSI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-no-toxica-acero)
+  - [Non-Toxic Textile-Reinforced Hose (ARI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-no-toxica-textil)
+  - [Non-Toxic Unreinforced Hose (ASI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-no-toxica-sin-refuerzo)
   - [Reinforced Suction & Discharge Hose (PGI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-reforzada-pgi)
   - [Dust Suction Hose](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-polvo)
 - [Rubber Hoses](https://seashell-dove-613694.hostingersite.com/en/category/rubber-hoses): Air, water, fuel & chemicals — 8 products
@@ -137,7 +141,7 @@
   - [SAE 100 R15 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r15)
   - [4SP Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-4sp)
   - [4SH Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-4sh)
-  - [SAE 14 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-14)
+  - [SAE 100 R14 Hydraulic Hose (PTFE)](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-14)
 - [Hydraulic Fittings](https://seashell-dove-613694.hostingersite.com/en/category/hydraulic-fittings): JIC, NPT, BSP, M22, ferrules — 9 products
   - [Hydraulic Fitting AHA](https://seashell-dove-613694.hostingersite.com/en/product/chid-acople-aha)
   - [Hydraulic Fitting AHB](https://seashell-dove-613694.hostingersite.com/en/product/chid-acople-ahb)
