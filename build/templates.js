@@ -174,7 +174,7 @@ function header(lang, active, alternates) {
 <header class="site-header" id="site-header">
   <div class="container nav">
     <a class="brand" href="${U.home(lang)}" aria-label="${esc(SITE.name)}">
-      <img src="${logo('yrvimar-dark.png')}" alt="${esc(SITE.name)}" width="90" height="41">
+      <img src="${logo('yrvimar-dark.webp')}" alt="${esc(SITE.name)}" width="135" height="62" fetchpriority="high">
     </a>
     <nav class="nav-links" aria-label="${L ? 'Principal' : 'Main'}">
       ${link(U.home(lang), n.home, 'home')}
@@ -228,7 +228,7 @@ function footer(lang) {
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="${logo('yrvimar-white.png')}" alt="${esc(SITE.name)}" width="157" height="72">
+        <img src="${logo('yrvimar-white.webp')}" alt="${esc(SITE.name)}" width="157" height="72" loading="lazy">
         <p>${f.tagline}</p>
         <ul class="footer-info">
           <li><span class="fi-ic">${I.pin}</span><a href="${SITE.mapUrl}" target="_blank" rel="noopener">${SITE.address}, ${SITE.city}</a></li>
