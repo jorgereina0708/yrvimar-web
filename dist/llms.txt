@@ -1,69 +1,189 @@
 # YRVIMAR Services & Supply
 
-> YRVIMAR Services & Supply, INC es un proveedor de suministros industriales en Ciudad de Panamá, Panamá: mangueras de PVC, goma e hidráulicas, conexiones, acoples (Camlock, Chicago), válvulas, equipos y bandas transportadoras de la marca PROFIX. Modo catálogo (sin precios en línea); las cotizaciones se gestionan por WhatsApp (+507 6855-0933) o correo (ventas@yrvimar.com). Sitio bilingüe español/inglés. / YRVIMAR Services & Supply, INC is an industrial supplies provider in Panama City, Panama: PVC, rubber and hydraulic hoses, fittings, couplings (Camlock, Chicago), valves, equipment and conveyor belts (PROFIX brand). Catalog mode (no online prices); quotes handled via WhatsApp or email. Bilingual ES/EN site.
+> YRVIMAR Services & Supply, INC is an industrial supplies distributor in Ciudad de Panamá, Panamá, serving Panamanian industry since 2019. Product lines (PROFIX brand): PVC hoses (suction, discharge, layflat, food grade), rubber hoses (air, water, fuel, chemicals, welding), hydraulic hoses (SAE 100 R1, R2, R4, R7, R8, R13, R15, 4SP, 4SH), hydraulic fittings and ferrules (JIC 37°, NPT, BSP, M22), industrial couplings (Camlock types A/B/C/D/DC/DP/E/F, Chicago, combination nipples, suction strainers), valves and equipment (stainless steel ball valves, wafer butterfly valves, strapping tools), and conveyor belts. Custom hose assembly available. Catalog mode: no online prices — quotes are handled via WhatsApp (+507 6855-0933) or email (ventas@yrvimar.com). Bilingual site (Spanish/English).
 
-## Empresa / Company
-- Nombre / Name: YRVIMAR Services & Supply, INC
-- Ubicación / Location: Parque Lefevre, Av. 1B Sur, Edificio Joritza, Local 1, Ciudad de Panamá, Panamá
-- WhatsApp: +507 6855-0933 · Tel: +507 308-8843
+> YRVIMAR Services & Supply, INC es un distribuidor de suministros industriales en Ciudad de Panamá, Panamá, al servicio de la industria panameña desde 2019. Líneas de producto (marca PROFIX): mangueras de PVC (succión, descarga, layflat, grado alimenticio), mangueras de goma (aire, agua, combustible, químicos, soldadura), mangueras hidráulicas (SAE 100 R1, R2, R4, R7, R8, R13, R15, 4SP, 4SH), conexiones y casquillos hidráulicos (JIC 37°, NPT, BSP, M22), conexiones industriales (acoples Camlock tipos A/B/C/D/DC/DP/E/F, Chicago, niples combinados, filtros de succión), válvulas y equipos (válvulas de bola inoxidable, mariposa wafer, flejadoras) y bandas transportadoras. Ensamblaje de mangueras a la medida. Modo catálogo: sin precios en línea — las cotizaciones se gestionan por WhatsApp o correo.
+
+## Company / Empresa
+- Name: YRVIMAR Services & Supply, INC (YRVIMAR)
+- Location: Parque Lefevre, Av. 1B Sur, Edificio Joritza, Local 1, Ciudad de Panamá, Panamá (PA)
+- Coordinates: 9.0195613, -79.4912284
+- Hours: Mon–Fri 8:00–17:00 · Sat 8:00–12:00
+- WhatsApp: +507 6855-0933 · Phone: +507 308-8843
 - Email: ventas@yrvimar.com
 - Instagram: https://www.instagram.com/yrvimar_inc/
 - Facebook: https://www.facebook.com/p/Yrvimar-Service-Supply-inc-100063764845113/
+- Map: https://maps.app.goo.gl/Gfi2x9aqc6hK9WtZ9
+- Sitemap: https://seashell-dove-613694.hostingersite.com/sitemap.xml
+- Brand distributed: PROFIX
+- Area served: Panama (nationwide shipping)
 
 ## Español
-- [Inicio](https://seashell-dove-613694.hostingersite.com/es/)
-- [Catálogo de productos](https://seashell-dove-613694.hostingersite.com/es/productos)
-- [Nosotros](https://seashell-dove-613694.hostingersite.com/es/nosotros)
-- [Contacto](https://seashell-dove-613694.hostingersite.com/es/contacto)
-- [Blog](https://seashell-dove-613694.hostingersite.com/es/blog/)
+- [Inicio](https://seashell-dove-613694.hostingersite.com/es/): suministros industriales en Panamá.
+- [Catálogo de productos](https://seashell-dove-613694.hostingersite.com/es/productos): 54 productos en 7 líneas.
+- [Nosotros](https://seashell-dove-613694.hostingersite.com/es/nosotros): historia, equipo y proyectos de YRVIMAR.
+- [Contacto](https://seashell-dove-613694.hostingersite.com/es/contacto): dirección, horario, mapa y formulario.
+- [Blog](https://seashell-dove-613694.hostingersite.com/es/blog/): guías técnicas de mangueras, conexiones y válvulas.
 - [Política de Privacidad](https://seashell-dove-613694.hostingersite.com/es/privacidad)
 
-### Categorías
-- [Mangueras de PVC](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-pvc): Succión, descarga y layflat
-- [Mangueras de Goma](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-de-goma): Aire, agua, combustible y químicos
-- [Mangueras Hidráulicas](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-hidraulicas): SAE 100 R1 · R2 · 4SP · 4SH
-- [Conexiones Hidráulicas](https://seashell-dove-613694.hostingersite.com/es/categoria/conexiones-hidraulicas): JIC, NPT, BSP, M22, casquillos
-- [Conexiones Industriales](https://seashell-dove-613694.hostingersite.com/es/categoria/conexiones-industriales): Camlock, Chicago, niples, filtros
-- [Válvulas y Equipos](https://seashell-dove-613694.hostingersite.com/es/categoria/valvulas-y-equipos): Bola, mariposa, flejes, antilátigo
-- [Bandas Transportadoras](https://seashell-dove-613694.hostingersite.com/es/categoria/bandas-transportadoras): Servicio pesado para minería e industria
+### Categorías y productos
+- [Mangueras de PVC](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-pvc): Succión, descarga y layflat — 7 productos
+  - [Manguera de Succión y Descarga de Agua Liviana (PAI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-descarga-liviana)
+  - [Manguera Chata Layflat Liviana (PCI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-layflat-liviana)
+  - [Manguera Chata Layflat Trabajo Pesado (PHI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-layflat-pesada)
+  - [Manguera de Succión y Descarga de Agua Pesada (PNI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-descarga-pesada)
+  - [Manguera No Tóxica con Refuerzo de Acero (PSI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-no-toxica-acero)
+  - [Manguera de Succión y Descarga Reforzada (PGI)](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-reforzada-pgi)
+  - [Manguera de Succión de Polvo](https://seashell-dove-613694.hostingersite.com/es/producto/pvc-succion-polvo)
+- [Mangueras de Goma](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-de-goma): Aire, agua, combustible y químicos — 8 productos
+  - [Manguera de Goma Servicios Generales — Aire y Agua (ATI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-servicios-generales)
+  - [Manguera Gasolina Estación de Servicio (GEI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-gasolina-estacion)
+  - [Manguera Aceite y Gasolina — Nitrilo (GNI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-aceite-gasolina-nitrilo)
+  - [Manguera Succión de Agua Cubierta Envuelta (SAI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-succion-agua)
+  - [Manguera Succión de Gasolina "Vacuum Truck" (SGI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-succion-gasolina)
+  - [Manguera Succión de Químicos — XLPE (SQI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-succion-quimicos)
+  - [Manguera para Soldar Morocha (SUI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-soldar)
+  - [Manguera Multiuso Trabajo Pesado — Aceite y Gasolina (UMI)](https://seashell-dove-613694.hostingersite.com/es/producto/goma-multiuso)
+- [Mangueras Hidráulicas](https://seashell-dove-613694.hostingersite.com/es/categoria/mangueras-hidraulicas): SAE 100 R1 · R2 · 4SP · 4SH — 10 productos
+  - [Manguera Hidráulica SAE 100 R1](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r1)
+  - [Manguera Hidráulica SAE 100 R2](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r2)
+  - [Manguera Hidráulica SAE 100 R4](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r4)
+  - [Manguera Hidráulica SAE 100 R7](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r7)
+  - [Manguera Hidráulica SAE 100 R8](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r8)
+  - [Manguera Hidráulica SAE 100 R13](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r13)
+  - [Manguera Hidráulica SAE 100 R15](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-100-r15)
+  - [Manguera Hidráulica 4SP](https://seashell-dove-613694.hostingersite.com/es/producto/hid-4sp)
+  - [Manguera Hidráulica 4SH](https://seashell-dove-613694.hostingersite.com/es/producto/hid-4sh)
+  - [Manguera Hidráulica SAE 14](https://seashell-dove-613694.hostingersite.com/es/producto/hid-sae-14)
+- [Conexiones Hidráulicas](https://seashell-dove-613694.hostingersite.com/es/categoria/conexiones-hidraulicas): JIC, NPT, BSP, M22, casquillos — 9 productos
+  - [Acople Hidráulico AHA](https://seashell-dove-613694.hostingersite.com/es/producto/chid-acople-aha)
+  - [Acople Hidráulico AHB](https://seashell-dove-613694.hostingersite.com/es/producto/chid-acople-ahb)
+  - [Casquillo Ferrule F12](https://seashell-dove-613694.hostingersite.com/es/producto/chid-ferrule-f12)
+  - [Casquillo Ferrule F2](https://seashell-dove-613694.hostingersite.com/es/producto/chid-ferrule-f2)
+  - [Conexión Hembra BSP](https://seashell-dove-613694.hostingersite.com/es/producto/chid-hembra-bsp)
+  - [Conexión JIC 37°](https://seashell-dove-613694.hostingersite.com/es/producto/chid-jic)
+  - [Conexión M22](https://seashell-dove-613694.hostingersite.com/es/producto/chid-m22)
+  - [Conexión Macho JIC](https://seashell-dove-613694.hostingersite.com/es/producto/chid-macho-jic)
+  - [Conexión NPT](https://seashell-dove-613694.hostingersite.com/es/producto/chid-npt)
+- [Conexiones Industriales](https://seashell-dove-613694.hostingersite.com/es/categoria/conexiones-industriales): Camlock, Chicago, niples, filtros — 14 productos
+  - [Acople Camlock Tipo A](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-a)
+  - [Acople Camlock Tipo B](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-b)
+  - [Acople Camlock Tipo C](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-c)
+  - [Acople Camlock Tipo D](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-d)
+  - [Acople Camlock Tipo DC](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-dc)
+  - [Acople Camlock Tipo DP](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-dp)
+  - [Acople Camlock Tipo E](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-e)
+  - [Acople Camlock Tipo F](https://seashell-dove-613694.hostingersite.com/es/producto/camlock-tipo-f)
+  - [Acople Chicago Macho (MRI)](https://seashell-dove-613694.hostingersite.com/es/producto/chicago-macho)
+  - [Acople Chicago Hembra (HRI)](https://seashell-dove-613694.hostingersite.com/es/producto/chicago-hembra)
+  - [Acople Chicago para Manguera (TRI)](https://seashell-dove-613694.hostingersite.com/es/producto/chicago-manguera)
+  - [Niple Combinado (NCI)](https://seashell-dove-613694.hostingersite.com/es/producto/niple-combinado)
+  - [Sello / Empaque para Camlock (QGI)](https://seashell-dove-613694.hostingersite.com/es/producto/sello-camlock)
+  - [Filtro / Canastilla de Succión (SVI)](https://seashell-dove-613694.hostingersite.com/es/producto/filtro-succion)
+- [Válvulas y Equipos](https://seashell-dove-613694.hostingersite.com/es/categoria/valvulas-y-equipos): Bola, mariposa, flejes, antilátigo — 5 productos
+  - [Válvula de Bola Acero Inoxidable 304 (VX)](https://seashell-dove-613694.hostingersite.com/es/producto/valvula-bola-inox)
+  - [Válvula Mariposa Tipo Wafer](https://seashell-dove-613694.hostingersite.com/es/producto/valvula-mariposa-wafer)
+  - [Cable de Seguridad Antilátigo (Whip Check)](https://seashell-dove-613694.hostingersite.com/es/producto/antilatigo)
+  - [Fleje de Acero Inoxidable 304 (BAI)](https://seashell-dove-613694.hostingersite.com/es/producto/fleje-inox)
+  - [Flejadora Manual (SMI-00)](https://seashell-dove-613694.hostingersite.com/es/producto/flejadora)
+- [Bandas Transportadoras](https://seashell-dove-613694.hostingersite.com/es/categoria/bandas-transportadoras): Servicio pesado para minería e industria — 1 productos
+  - [Banda Transportadora PROFIX](https://seashell-dove-613694.hostingersite.com/es/producto/banda-transportadora)
 
 ### Artículos del blog
-- [Cómo elegir la manguera hidráulica correcta para tu maquinaria](https://seashell-dove-613694.hostingersite.com/es/blog/como-elegir-manguera-hidraulica-correcta)
-- [Mangueras de succión y descarga: guía completa](https://seashell-dove-613694.hostingersite.com/es/blog/mangueras-succion-descarga-guia-completa)
-- [Acoples Camlock vs Chicago: cuál elegir](https://seashell-dove-613694.hostingersite.com/es/blog/acoples-camlock-vs-chicago-cual-elegir)
-- [Válvulas de bola: acero inoxidable vs bronce](https://seashell-dove-613694.hostingersite.com/es/blog/valvulas-bola-inoxidable-vs-bronce)
-- [Mantenimiento preventivo de mangueras industriales](https://seashell-dove-613694.hostingersite.com/es/blog/mantenimiento-preventivo-mangueras-industriales)
-- [Whip check: por qué es esencial en líneas de aire y agua](https://seashell-dove-613694.hostingersite.com/es/blog/whip-check-seguridad-lineas-aire-agua)
-- [Cómo entender la presión de trabajo: WOG, PSI y SAE](https://seashell-dove-613694.hostingersite.com/es/blog/entender-presion-de-trabajo-wog-psi-sae)
-- [Manguera layflat: aplicaciones en construcción y minería](https://seashell-dove-613694.hostingersite.com/es/blog/manguera-layflat-construccion-mineria)
-- [Reparación de fugas con abrazaderas: guía rápida](https://seashell-dove-613694.hostingersite.com/es/blog/reparar-fugas-tuberia-con-abrazaderas)
-- [Guía para comprar suministros industriales en Panamá](https://seashell-dove-613694.hostingersite.com/es/blog/guia-comprar-suministros-industriales-panama)
+- [Cómo elegir la manguera hidráulica correcta para tu maquinaria](https://seashell-dove-613694.hostingersite.com/es/blog/como-elegir-manguera-hidraulica-correcta): Diámetro, presión, temperatura y conexiones: la guía práctica para seleccionar la manguera hidráulica adecuada y evitar fallas costosas.
+- [Mangueras de succión y descarga: guía completa](https://seashell-dove-613694.hostingersite.com/es/blog/mangueras-succion-descarga-guia-completa): Qué distingue a una manguera de succión de una de descarga, cómo evitar el colapso por vacío y cuándo usar refuerzo helicoidal.
+- [Acoples Camlock vs Chicago: cuál elegir](https://seashell-dove-613694.hostingersite.com/es/blog/acoples-camlock-vs-chicago-cual-elegir): Dos de los acoples rápidos más usados en la industria. Te explicamos para qué sirve cada uno y cómo no confundirlos.
+- [Válvulas de bola: acero inoxidable vs bronce](https://seashell-dove-613694.hostingersite.com/es/blog/valvulas-bola-inoxidable-vs-bronce): Ambas dicen "1000 WOG", pero la elección correcta depende del fluido, el ambiente y el presupuesto. Comparativa clara.
+- [Mantenimiento preventivo de mangueras industriales](https://seashell-dove-613694.hostingersite.com/es/blog/mantenimiento-preventivo-mangueras-industriales): Una manguera que falla puede costar más que el equipo. Rutina de inspección para anticipar fallas y alargar la vida útil.
+- [Whip check: por qué es esencial en líneas de aire y agua](https://seashell-dove-613694.hostingersite.com/es/blog/whip-check-seguridad-lineas-aire-agua): Un accesorio pequeño y económico que previene accidentes graves. Cómo funciona y dónde instalarlo.
+- [Cómo entender la presión de trabajo: WOG, PSI y SAE](https://seashell-dove-613694.hostingersite.com/es/blog/entender-presion-de-trabajo-wog-psi-sae): WOG, presión de trabajo, presión de ruptura y factor de seguridad explicados sin tecnicismos, con ejemplos reales.
+- [Manguera layflat: aplicaciones en construcción y minería](https://seashell-dove-613694.hostingersite.com/es/blog/manguera-layflat-construccion-mineria): Ligera, enrollable y de alto caudal. Por qué la layflat es la favorita para descarga temporal de agua.
+- [Reparación de fugas con abrazaderas: guía rápida](https://seashell-dove-613694.hostingersite.com/es/blog/reparar-fugas-tuberia-con-abrazaderas): Cómo detener una fuga en minutos con una abrazadera de reparación mientras planificas la solución definitiva.
+- [Guía para comprar suministros industriales en Panamá](https://seashell-dove-613694.hostingersite.com/es/blog/guia-comprar-suministros-industriales-panama): Cómo elegir proveedor, qué preguntar y cómo reducir tiempos de paro. Claves para compras industriales inteligentes.
 
 ## English
-- [Home](https://seashell-dove-613694.hostingersite.com/en/)
-- [Product catalog](https://seashell-dove-613694.hostingersite.com/en/products)
-- [About](https://seashell-dove-613694.hostingersite.com/en/about)
-- [Contact](https://seashell-dove-613694.hostingersite.com/en/contact)
-- [Blog](https://seashell-dove-613694.hostingersite.com/en/blog/)
+- [Home](https://seashell-dove-613694.hostingersite.com/en/): industrial supplies in Panama.
+- [Product catalog](https://seashell-dove-613694.hostingersite.com/en/products): 54 products across 7 lines.
+- [About](https://seashell-dove-613694.hostingersite.com/en/about): YRVIMAR history, team and projects.
+- [Contact](https://seashell-dove-613694.hostingersite.com/en/contact): address, hours, map and contact form.
+- [Blog](https://seashell-dove-613694.hostingersite.com/en/blog/): technical guides on hoses, fittings and valves.
 - [Privacy Policy](https://seashell-dove-613694.hostingersite.com/en/privacy)
 
-### Categories
-- [PVC Hoses](https://seashell-dove-613694.hostingersite.com/en/category/pvc-hoses): Suction, discharge & layflat
-- [Rubber Hoses](https://seashell-dove-613694.hostingersite.com/en/category/rubber-hoses): Air, water, fuel & chemicals
-- [Hydraulic Hoses](https://seashell-dove-613694.hostingersite.com/en/category/hydraulic-hoses): SAE 100 R1 · R2 · 4SP · 4SH
-- [Hydraulic Fittings](https://seashell-dove-613694.hostingersite.com/en/category/hydraulic-fittings): JIC, NPT, BSP, M22, ferrules
-- [Industrial Couplings](https://seashell-dove-613694.hostingersite.com/en/category/industrial-couplings): Camlock, Chicago, nipples, strainers
-- [Valves & Equipment](https://seashell-dove-613694.hostingersite.com/en/category/valves-equipment): Ball, butterfly, banding, whip check
-- [Conveyor Belts](https://seashell-dove-613694.hostingersite.com/en/category/conveyor-belts): Heavy-duty for mining & industry
+### Categories and products
+- [PVC Hoses](https://seashell-dove-613694.hostingersite.com/en/category/pvc-hoses): Suction, discharge & layflat — 7 products
+  - [Light Water Suction & Discharge Hose (PAI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-descarga-liviana)
+  - [Light Layflat Hose (PCI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-layflat-liviana)
+  - [Heavy-Duty Layflat Hose (PHI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-layflat-pesada)
+  - [Heavy Water Suction & Discharge Hose (PNI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-descarga-pesada)
+  - [Non-Toxic Steel-Reinforced Hose (PSI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-no-toxica-acero)
+  - [Reinforced Suction & Discharge Hose (PGI)](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-reforzada-pgi)
+  - [Dust Suction Hose](https://seashell-dove-613694.hostingersite.com/en/product/pvc-succion-polvo)
+- [Rubber Hoses](https://seashell-dove-613694.hostingersite.com/en/category/rubber-hoses): Air, water, fuel & chemicals — 8 products
+  - [General Service Rubber Hose — Air & Water (ATI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-servicios-generales)
+  - [Fuel Dispensing Hose (GEI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-gasolina-estacion)
+  - [Oil & Gasoline Hose — Nitrile (GNI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-aceite-gasolina-nitrilo)
+  - [Wrapped-Cover Water Suction Hose (SAI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-succion-agua)
+  - [Gasoline Suction Hose "Vacuum Truck" (SGI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-succion-gasolina)
+  - [Chemical Suction Hose — XLPE (SQI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-succion-quimicos)
+  - [Twin Welding Hose (SUI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-soldar)
+  - [Heavy-Duty Multipurpose Hose — Oil & Gasoline (UMI)](https://seashell-dove-613694.hostingersite.com/en/product/goma-multiuso)
+- [Hydraulic Hoses](https://seashell-dove-613694.hostingersite.com/en/category/hydraulic-hoses): SAE 100 R1 · R2 · 4SP · 4SH — 10 products
+  - [SAE 100 R1 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r1)
+  - [SAE 100 R2 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r2)
+  - [SAE 100 R4 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r4)
+  - [SAE 100 R7 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r7)
+  - [SAE 100 R8 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r8)
+  - [SAE 100 R13 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r13)
+  - [SAE 100 R15 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-100-r15)
+  - [4SP Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-4sp)
+  - [4SH Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-4sh)
+  - [SAE 14 Hydraulic Hose](https://seashell-dove-613694.hostingersite.com/en/product/hid-sae-14)
+- [Hydraulic Fittings](https://seashell-dove-613694.hostingersite.com/en/category/hydraulic-fittings): JIC, NPT, BSP, M22, ferrules — 9 products
+  - [Hydraulic Fitting AHA](https://seashell-dove-613694.hostingersite.com/en/product/chid-acople-aha)
+  - [Hydraulic Fitting AHB](https://seashell-dove-613694.hostingersite.com/en/product/chid-acople-ahb)
+  - [Ferrule F12](https://seashell-dove-613694.hostingersite.com/en/product/chid-ferrule-f12)
+  - [Ferrule F2](https://seashell-dove-613694.hostingersite.com/en/product/chid-ferrule-f2)
+  - [BSP Female Fitting](https://seashell-dove-613694.hostingersite.com/en/product/chid-hembra-bsp)
+  - [JIC 37° Fitting](https://seashell-dove-613694.hostingersite.com/en/product/chid-jic)
+  - [M22 Fitting](https://seashell-dove-613694.hostingersite.com/en/product/chid-m22)
+  - [JIC Male Fitting](https://seashell-dove-613694.hostingersite.com/en/product/chid-macho-jic)
+  - [NPT Fitting](https://seashell-dove-613694.hostingersite.com/en/product/chid-npt)
+- [Industrial Couplings](https://seashell-dove-613694.hostingersite.com/en/category/industrial-couplings): Camlock, Chicago, nipples, strainers — 14 products
+  - [Camlock Coupling Type A](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-a)
+  - [Camlock Coupling Type B](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-b)
+  - [Camlock Coupling Type C](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-c)
+  - [Camlock Coupling Type D](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-d)
+  - [Camlock Coupling Type DC](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-dc)
+  - [Camlock Coupling Type DP](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-dp)
+  - [Camlock Coupling Type E](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-e)
+  - [Camlock Coupling Type F](https://seashell-dove-613694.hostingersite.com/en/product/camlock-tipo-f)
+  - [Chicago Coupling Male (MRI)](https://seashell-dove-613694.hostingersite.com/en/product/chicago-macho)
+  - [Chicago Coupling Female (HRI)](https://seashell-dove-613694.hostingersite.com/en/product/chicago-hembra)
+  - [Chicago Hose Coupling (TRI)](https://seashell-dove-613694.hostingersite.com/en/product/chicago-manguera)
+  - [Combined Nipple (NCI)](https://seashell-dove-613694.hostingersite.com/en/product/niple-combinado)
+  - [Camlock Gasket / Seal (QGI)](https://seashell-dove-613694.hostingersite.com/en/product/sello-camlock)
+  - [Suction Strainer (SVI)](https://seashell-dove-613694.hostingersite.com/en/product/filtro-succion)
+- [Valves & Equipment](https://seashell-dove-613694.hostingersite.com/en/category/valves-equipment): Ball, butterfly, banding, whip check — 5 products
+  - [Stainless Steel 304 Ball Valve (VX)](https://seashell-dove-613694.hostingersite.com/en/product/valvula-bola-inox)
+  - [Wafer Butterfly Valve](https://seashell-dove-613694.hostingersite.com/en/product/valvula-mariposa-wafer)
+  - [Whip Check Safety Cable](https://seashell-dove-613694.hostingersite.com/en/product/antilatigo)
+  - [Stainless Steel 304 Banding (BAI)](https://seashell-dove-613694.hostingersite.com/en/product/fleje-inox)
+  - [Manual Banding Tool (SMI-00)](https://seashell-dove-613694.hostingersite.com/en/product/flejadora)
+- [Conveyor Belts](https://seashell-dove-613694.hostingersite.com/en/category/conveyor-belts): Heavy-duty for mining & industry — 1 products
+  - [PROFIX Conveyor Belt](https://seashell-dove-613694.hostingersite.com/en/product/banda-transportadora)
 
 ### Blog articles
-- [How to choose the right hydraulic hose for your machinery](https://seashell-dove-613694.hostingersite.com/en/blog/how-to-choose-the-right-hydraulic-hose)
-- [Suction and discharge hoses: the complete guide](https://seashell-dove-613694.hostingersite.com/en/blog/suction-discharge-hoses-complete-guide)
-- [Camlock vs Chicago couplings: which to choose](https://seashell-dove-613694.hostingersite.com/en/blog/camlock-vs-chicago-couplings-which-to-choose)
-- [Ball valves: stainless steel vs bronze](https://seashell-dove-613694.hostingersite.com/en/blog/ball-valves-stainless-vs-bronze)
-- [Preventive maintenance of industrial hoses](https://seashell-dove-613694.hostingersite.com/en/blog/preventive-maintenance-industrial-hoses)
-- [Whip check: why it is essential on air and water lines](https://seashell-dove-613694.hostingersite.com/en/blog/whip-check-safety-air-water-lines)
-- [How to understand working pressure: WOG, PSI and SAE](https://seashell-dove-613694.hostingersite.com/en/blog/understanding-working-pressure-wog-psi-sae)
-- [Layflat hose: applications in construction and mining](https://seashell-dove-613694.hostingersite.com/en/blog/layflat-hose-construction-mining)
-- [Repairing leaks with clamps: a quick guide](https://seashell-dove-613694.hostingersite.com/en/blog/repair-pipe-leaks-with-clamps)
-- [A guide to buying industrial supplies in Panama](https://seashell-dove-613694.hostingersite.com/en/blog/guide-buying-industrial-supplies-panama)
+- [How to choose the right hydraulic hose for your machinery](https://seashell-dove-613694.hostingersite.com/en/blog/how-to-choose-the-right-hydraulic-hose): Diameter, pressure, temperature and fittings: the practical guide to selecting the right hydraulic hose and avoiding costly failures.
+- [Suction and discharge hoses: the complete guide](https://seashell-dove-613694.hostingersite.com/en/blog/suction-discharge-hoses-complete-guide): What sets a suction hose apart from a discharge hose, how to avoid vacuum collapse, and when to use a helical reinforcement.
+- [Camlock vs Chicago couplings: which to choose](https://seashell-dove-613694.hostingersite.com/en/blog/camlock-vs-chicago-couplings-which-to-choose): Two of the most used quick couplings in industry. We explain what each is for and how not to confuse them.
+- [Ball valves: stainless steel vs bronze](https://seashell-dove-613694.hostingersite.com/en/blog/ball-valves-stainless-vs-bronze): Both say "1000 WOG", but the right choice depends on the fluid, the environment and the budget. A clear comparison.
+- [Preventive maintenance of industrial hoses](https://seashell-dove-613694.hostingersite.com/en/blog/preventive-maintenance-industrial-hoses): A hose that fails can cost more than the equipment. An inspection routine to anticipate failures and extend service life.
+- [Whip check: why it is essential on air and water lines](https://seashell-dove-613694.hostingersite.com/en/blog/whip-check-safety-air-water-lines): A small, inexpensive accessory that prevents serious accidents. How it works and where to install it.
+- [How to understand working pressure: WOG, PSI and SAE](https://seashell-dove-613694.hostingersite.com/en/blog/understanding-working-pressure-wog-psi-sae): WOG, working pressure, burst pressure and safety factor explained without jargon, with real examples.
+- [Layflat hose: applications in construction and mining](https://seashell-dove-613694.hostingersite.com/en/blog/layflat-hose-construction-mining): Lightweight, rollable and high-flow. Why layflat is the favorite for temporary water discharge.
+- [Repairing leaks with clamps: a quick guide](https://seashell-dove-613694.hostingersite.com/en/blog/repair-pipe-leaks-with-clamps): How to stop a leak in minutes with a repair clamp while you plan the permanent fix.
+- [A guide to buying industrial supplies in Panama](https://seashell-dove-613694.hostingersite.com/en/blog/guide-buying-industrial-supplies-panama): How to choose a supplier, what to ask and how to reduce downtime. Keys to smart industrial purchasing.
+
+## Usage
+Content may be cited with attribution to YRVIMAR Services & Supply, INC (https://seashell-dove-613694.hostingersite.com).
+Last-Updated: 2026-08-14

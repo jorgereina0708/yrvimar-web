@@ -53,12 +53,46 @@ ${widgets(lang)}
 }
 
 // ---------- JSON-LD ----------
+// ---------- Meta description: corta por palabra, nunca a media palabra ----------
+function clampDesc(text, max = 158) {
+  const s = String(text).replace(/\s+/g, ' ').trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 60 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\s]+$/, '') + '…';
+}
+
+// Añade el sufijo de marca solo si el título no se pasa del límite de SERP
+function clampTitle(base, suffix = ' | YRVIMAR', max = 60) {
+  const b = String(base).trim();
+  if (b.length + suffix.length <= max) return b + suffix;
+  if (b.length <= max) return b;
+  const cut = b.slice(0, max - 1);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > 30 ? cut.slice(0, sp) : cut) + '…';
+}
+
+// Fecha real de build (para lastmod del sitemap y llms.txt)
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+
+const ORG_ID = `${SITE.baseUrl}/#organization`;
+const AREA_SERVED = { '@type': 'Country', name: SITE.countryName.es };
+const OPENING_HOURS = [
+  { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' },
+  { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '08:00', closes: '12:00' },
+];
+const CONTACT_POINTS = [
+  { '@type': 'ContactPoint', telephone: SITE.phone, contactType: 'sales', areaServed: SITE.country, availableLanguage: ['es', 'en'] },
+  { '@type': 'ContactPoint', telephone: `+${SITE.whatsapp}`, contactType: 'customer support', contactOption: 'TollFree', areaServed: SITE.country, availableLanguage: ['es', 'en'] },
+];
 function ldOrg() {
   return {
-    '@context': 'https://schema.org', '@type': 'Organization',
+    '@context': 'https://schema.org', '@type': 'Organization', '@id': ORG_ID,
     name: SITE.name, alternateName: SITE.shortName, url: SITE.baseUrl,
-    logo: abs(logo('icon-512.png')), image: abs(img('og-image.jpg')),
+    logo: { '@type': 'ImageObject', url: abs(logo('icon-512.png')), width: 512, height: 512 },
+    image: abs(img('og-image.jpg')),
     email: SITE.emailSales, telephone: SITE.phone,
+    areaServed: AREA_SERVED, contactPoint: CONTACT_POINTS,
     sameAs: [SITE.instagram, SITE.facebook],
     address: { '@type': 'PostalAddress', streetAddress: SITE.address, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
   };
@@ -85,22 +119,27 @@ function ldProduct(p, lang) {
 function ldArticle(a, lang) {
   return {
     '@context': 'https://schema.org', '@type': 'BlogPosting',
-    headline: a.title[lang], description: a.excerpt[lang], image: abs(img(a.image)),
+    headline: a.title[lang], description: a.excerpt[lang], image: [abs(img(a.image))],
     datePublished: a.date, dateModified: a.date, inLanguage: lang,
-    author: { '@type': 'Organization', name: SITE.name },
-    publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: abs(logo('icon-512.png')) } },
+    author: { '@type': 'Organization', '@id': ORG_ID, name: lang === 'es' ? 'Equipo Técnico YRVIMAR' : 'YRVIMAR Technical Team', url: abs(U.about(lang)) },
+    publisher: { '@type': 'Organization', '@id': ORG_ID, name: SITE.name, logo: { '@type': 'ImageObject', url: abs(logo('icon-512.png')) } },
     mainEntityOfPage: abs(U.article(lang, a.slug[lang])),
     keywords: a.keywords[lang],
   };
 }
 function ldLocalBusiness(lang) {
   return {
-    '@context': 'https://schema.org', '@type': 'Store',
-    name: SITE.name, image: abs(img('about-warehouse.webp')), url: SITE.baseUrl,
+    '@context': 'https://schema.org', '@type': 'Store', '@id': ORG_ID,
+    name: SITE.name, alternateName: SITE.shortName,
+    image: abs(img('about-warehouse.webp')), url: SITE.baseUrl,
+    logo: abs(logo('icon-512.png')),
     telephone: SITE.phone, email: SITE.emailSales, priceRange: '$$',
     address: { '@type': 'PostalAddress', streetAddress: SITE.address, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
     geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
-    openingHours: 'Mo-Fr 08:00-17:00, Sa 08:00-12:00',
+    hasMap: SITE.mapUrl,
+    areaServed: AREA_SERVED,
+    contactPoint: CONTACT_POINTS,
+    openingHoursSpecification: OPENING_HOURS,
     sameAs: [SITE.instagram, SITE.facebook],
   };
 }
@@ -173,7 +212,7 @@ function pageHome(lang) {
       <div class="slide__img"><img src="${img(s.img)}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}${s.pos ? ` style="object-position:${s.pos}"` : ''} width="1600" height="900"></div>
       <div class="container"><div class="slide__content">
         <span class="eyebrow" data-num=""><span class="tick"></span>${s.eye}</span>
-        <h1>${s.h1}</h1>
+        ${i === 0 ? `<h1>${s.h1}</h1>` : `<h2 class="slide-title">${s.h1}</h2>`}
         <p>${s.p}</p>
         <div class="slide__cta">
           <a class="btn ${s.c1.cls} btn--lg" href="${s.c1.href}">${s.c1.label} ${I.arrowR}</a>
@@ -290,11 +329,11 @@ function pageHome(lang) {
 </section>`;
 
   const title = lang === 'es'
-    ? 'YRVIMAR | Mangueras, Conexiones y Válvulas Industriales en Panamá'
-    : 'YRVIMAR | Industrial Hoses, Fittings & Valves in Panama';
+    ? 'Suministros Industriales en Panamá | YRVIMAR'
+    : 'Industrial Supplies in Panama | YRVIMAR';
   const desc = lang === 'es'
-    ? 'Suministros industriales en Panamá: mangueras industriales e hidráulicas, conexiones, acoples Camlock y Chicago, válvulas y accesorios. Asesoría técnica y envíos a todo el país.'
-    : 'Industrial supplies in Panama: industrial and hydraulic hoses, fittings, Camlock and Chicago couplings, valves and accessories. Technical advice and nationwide shipping.';
+    ? 'Mangueras hidráulicas, conexiones Camlock y Chicago, válvulas y accesorios industriales en Panamá. Asesoría técnica y envíos a todo el país.'
+    : 'Hydraulic hoses, Camlock and Chicago couplings, valves and industrial accessories in Panama. Technical advice and nationwide shipping.';
 
   return shell({
     lang, active: 'home',
@@ -353,8 +392,9 @@ function pageCategory(cat, lang) {
   const items = PRODUCTS.filter((p) => p.cat === cat.id);
   const others = CATEGORIES.filter((c) => c.id !== cat.id);
   const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: t.words.catalog, url: U.products(lang) }, { name: cat.name[lang], url: U.category(lang, cat.slug[lang]) }];
-  const title = `${cat.name[lang]} en Panamá | YRVIMAR`;
-  const desc = cat.desc[lang].slice(0, 160);
+  const title = lang === 'es' ? `${cat.name[lang]} en Panamá | YRVIMAR` : `${cat.name[lang]} in Panama | YRVIMAR`;
+  const desc = clampDesc(cat.desc[lang]);
+  const catArticles = ARTICLES.filter((a) => a.cat === cat.id).slice(0, 3);
 
   const main = `
 <section class="page-hero" style="padding-bottom:0">
@@ -385,6 +425,14 @@ function pageCategory(cat, lang) {
     </div>
   </div>
 </section>
+${catArticles.length ? `<section class="section">
+  <div class="container">
+    ${sectionHead({ num: '', eyebrow: t.words.blog || t.nav.blog, title: lang === 'es' ? 'Guías relacionadas' : 'Related guides', lead: lang === 'es' ? `Aprende a elegir y mantener tu línea de ${cat.name.es.toLowerCase()}.` : `Learn how to choose and maintain your ${cat.name.en.toLowerCase()}.` })}
+    <div class="blog-grid" data-reveal-stagger>
+      ${catArticles.map((a) => postCard(a, lang)).join('\n      ')}
+    </div>
+  </div>
+</section>` : ''}
 <section class="section">
   <div class="container">
     ${sectionHead({ num: '', eyebrow: t.words.categories, title: lang === 'es' ? 'Otras líneas de producto' : 'Other product lines' })}
@@ -393,9 +441,19 @@ function pageCategory(cat, lang) {
     </div>
   </div>
 </section>`;
+  const ldCollection = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: cat.name[lang], description: cat.desc[lang], inLanguage: lang,
+    url: abs(U.category(lang, cat.slug[lang])),
+    isPartOf: { '@id': ORG_ID },
+    mainEntity: {
+      '@type': 'ItemList', numberOfItems: items.length,
+      itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name[lang], url: abs(U.product(lang, p.slug[lang])) })),
+    },
+  };
   return shell({
     lang, active: 'products',
-    meta: { lang, title, desc, path: U.category(lang, cat.slug[lang]), alternates: alts(U.category('es', cat.slug.es), U.category('en', cat.slug.en)), jsonld: [ldBreadcrumb(crumbs)] },
+    meta: { lang, title, desc, path: U.category(lang, cat.slug[lang]), alternates: alts(U.category('es', cat.slug.es), U.category('en', cat.slug.en)), jsonld: [ldCollection, ldBreadcrumb(crumbs)] },
     main,
   });
 }
@@ -419,8 +477,10 @@ function pageProduct(p, lang) {
   const waMsg = L
     ? `Hola YRVIMAR, me interesa el producto "${p.name.es}". ¿Me pueden dar disponibilidad y cotización?`
     : `Hello YRVIMAR, I'm interested in "${p.name.en}". Could you share availability and a quote?`;
-  const title = `${p.name[lang]} | YRVIMAR Panamá`;
-  const desc = p.short[lang];
+  const title = clampTitle(p.name[lang], L ? ' | YRVIMAR Panamá' : ' | YRVIMAR Panama');
+  const desc = clampDesc(L
+    ? `${p.name.es} en Panamá. ${p.short.es} Disponible en YRVIMAR: cotiza por WhatsApp con envío a todo el país.`
+    : `${p.name.en} in Panama. ${p.short.en} Available at YRVIMAR: request a quote on WhatsApp, nationwide shipping.`);
   const fichaBlock = p.ficha ? `
         <div class="pd-actions" style="margin-top:26px">
           <button class="btn btn--dark btn--lg" type="button" id="open-ficha">${I.doc} ${t.cta.viewDatasheet}</button>
@@ -479,7 +539,7 @@ ${fichaModal}
 // ============================================================================
 const ABOUT = {
   es: {
-    title: 'Nosotros | YRVIMAR Services & Supply — Suministros Industriales Panamá',
+    title: 'Nosotros | YRVIMAR Suministros Industriales Panamá',
     desc: 'Conoce a YRVIMAR: historia, misión y visión. Soluciones industriales confiables en mangueras, conexiones, válvulas y accesorios para Panamá y la región.',
     h1: 'Aliados de la industria panameña',
     lead: 'Nacimos con un compromiso simple: que tu operación nunca se detenga por falta del componente correcto.',
@@ -496,7 +556,7 @@ const ABOUT = {
     ctaTitle: '¿Listo para trabajar con un aliado que entiende tu operación?',
   },
   en: {
-    title: 'About | YRVIMAR Services & Supply — Industrial Supplies Panama',
+    title: 'About Us | YRVIMAR Industrial Supplies Panama',
     desc: "Meet YRVIMAR: history, mission and vision. Reliable industrial solutions in hoses, fittings, valves and accessories for Panama and the region.",
     h1: 'Allies of Panamanian industry',
     lead: 'We were born with a simple commitment: that your operation never stops for lack of the right component.',
@@ -649,7 +709,7 @@ function pageBlog(lang) {
   const t = T[lang];
   const [first, ...rest] = ARTICLES;
   const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: t.nav.blog, url: U.blog(lang) }];
-  const title = lang === 'es' ? 'Blog Técnico Industrial | Guías de Mangueras y Conexiones | YRVIMAR' : 'Industrial Technical Blog | Hose & Fitting Guides | YRVIMAR';
+  const title = lang === 'es' ? 'Blog Técnico: Mangueras y Conexiones | YRVIMAR' : 'Technical Blog: Hoses & Fittings | YRVIMAR';
   const desc = lang === 'es' ? 'Guías técnicas sobre mangueras hidráulicas e industriales, conexiones, válvulas y seguridad. Consejos prácticos para la industria en Panamá.' : 'Technical guides on hydraulic and industrial hoses, fittings, valves and safety. Practical tips for industry in Panama.';
   const main = `
 <section class="page-hero">
@@ -680,7 +740,7 @@ function pageArticle(a, lang) {
   const cat = CATEGORIES.find((c) => c.id === a.cat);
   const related = ARTICLES.filter((x) => x.id !== a.id).slice(0, 3);
   const crumbs = [{ name: t.words.home, url: U.home(lang) }, { name: t.nav.blog, url: U.blog(lang) }, { name: a.title[lang], url: U.article(lang, a.slug[lang]) }];
-  const title = `${a.title[lang]} | YRVIMAR`;
+  const title = clampTitle(a.title[lang]);
   const shareMsg = lang === 'es' ? `Te comparto este artículo de YRVIMAR: ${a.title.es}` : `Sharing this YRVIMAR article: ${a.title.en}`;
   const main = `
 <article class="section" style="padding-top:120px">
@@ -688,12 +748,17 @@ function pageArticle(a, lang) {
     <nav class="crumbs" aria-label="breadcrumb" style="justify-content:center;margin-bottom:26px"><a href="${U.home(lang)}">${t.words.home}</a><span class="sep">/</span><a href="${U.blog(lang)}">${t.nav.blog}</a><span class="sep">/</span><span>${cat ? cat.name[lang] : ''}</span></nav>
     <div class="article-hero">
       <div class="post-meta" style="justify-content:center"><span class="cat">${cat ? cat.name[lang] : ''}</span><span>${fmtDate(a.date, lang)}</span><span>${a.readMin} ${t.words.min}</span></div>
+      <p class="byline">${lang === 'es' ? 'Por' : 'By'} <a href="${U.about(lang)}">${lang === 'es' ? 'Equipo Técnico YRVIMAR' : 'YRVIMAR Technical Team'}</a></p>
       <h1>${a.title[lang]}</h1>
       <p class="lead" style="margin-top:18px">${a.excerpt[lang]}</p>
     </div>
     <div class="article-cover ticked"><img src="${img(a.image)}" alt="${esc(a.title[lang])}" width="980" height="500"></div>
     <div class="article">
       <div class="article-body">${a.body[lang]}</div>
+      ${cat ? `<div class="article-related-cat">
+        <span class="arc-eye">${lang === 'es' ? 'Ver en el catálogo' : 'See in the catalog'}</span>
+        <a class="arc-link" href="${U.category(lang, cat.slug[lang])}">${catIcon[cat.icon] || I.box}<span><strong>${cat.name[lang]}</strong><em>${cat.tagline[lang]}</em></span>${I.arrowR}</a>
+      </div>` : ''}
       <div class="article-cta">
         <p>${lang === 'es' ? '¿Necesitas este producto o asesoría?' : 'Need this product or advice?'}</p>
         <a class="btn btn--wa" href="${wa(lang === 'es' ? 'Hola YRVIMAR, leí un artículo del blog y tengo una consulta.' : 'Hello YRVIMAR, I read a blog article and have a question.')}" target="_blank" rel="noopener">${I.wa} ${t.cta.quote}</a>
@@ -749,47 +814,63 @@ Sitemap: ${SITE.baseUrl}/sitemap.xml
 }
 
 function llmsTxt() {
-  const catLine = (l) => CATEGORIES.map((c) => `- [${c.name[l]}](${abs(U.category(l, c.slug[l]))}): ${c.tagline[l]}`).join('\n');
-  const artLine = (l) => ARTICLES.map((a) => `- [${a.title[l]}](${abs(U.article(l, a.slug[l]))})`).join('\n');
+  const catBlock = (l) => CATEGORIES.map((c) => {
+    const prods = PRODUCTS.filter((p) => p.cat === c.id);
+    const list = prods.map((p) => `  - [${p.name[l]}](${abs(U.product(l, p.slug[l]))})`).join('\n');
+    return `- [${c.name[l]}](${abs(U.category(l, c.slug[l]))}): ${c.tagline[l]} — ${prods.length} ${l === 'es' ? 'productos' : 'products'}\n${list}`;
+  }).join('\n');
+  const artLine = (l) => ARTICLES.map((a) => `- [${a.title[l]}](${abs(U.article(l, a.slug[l]))}): ${a.excerpt[l]}`).join('\n');
   return `# YRVIMAR Services & Supply
 
-> ${SITE.name} es un proveedor de suministros industriales en ${SITE.city}, ${SITE.region}: mangueras de PVC, goma e hidráulicas, conexiones, acoples (Camlock, Chicago), válvulas, equipos y bandas transportadoras de la marca PROFIX. Modo catálogo (sin precios en línea); las cotizaciones se gestionan por WhatsApp (${SITE.whatsappDisplay}) o correo (${SITE.emailSales}). Sitio bilingüe español/inglés. / ${SITE.name} is an industrial supplies provider in Panama City, Panama: PVC, rubber and hydraulic hoses, fittings, couplings (Camlock, Chicago), valves, equipment and conveyor belts (PROFIX brand). Catalog mode (no online prices); quotes handled via WhatsApp or email. Bilingual ES/EN site.
+> ${SITE.name} is an industrial supplies distributor in ${SITE.city}, ${SITE.region}, serving Panamanian industry since ${SITE.founded}. Product lines (PROFIX brand): PVC hoses (suction, discharge, layflat, food grade), rubber hoses (air, water, fuel, chemicals, welding), hydraulic hoses (SAE 100 R1, R2, R4, R7, R8, R13, R15, 4SP, 4SH), hydraulic fittings and ferrules (JIC 37°, NPT, BSP, M22), industrial couplings (Camlock types A/B/C/D/DC/DP/E/F, Chicago, combination nipples, suction strainers), valves and equipment (stainless steel ball valves, wafer butterfly valves, strapping tools), and conveyor belts. Custom hose assembly available. Catalog mode: no online prices — quotes are handled via WhatsApp (${SITE.whatsappDisplay}) or email (${SITE.emailSales}). Bilingual site (Spanish/English).
 
-## Empresa / Company
-- Nombre / Name: ${SITE.name}
-- Ubicación / Location: ${SITE.address}, ${SITE.city}, ${SITE.region}
-- WhatsApp: ${SITE.whatsappDisplay} · Tel: ${SITE.phone}
+> ${SITE.name} es un distribuidor de suministros industriales en ${SITE.city}, ${SITE.region}, al servicio de la industria panameña desde ${SITE.founded}. Líneas de producto (marca PROFIX): mangueras de PVC (succión, descarga, layflat, grado alimenticio), mangueras de goma (aire, agua, combustible, químicos, soldadura), mangueras hidráulicas (SAE 100 R1, R2, R4, R7, R8, R13, R15, 4SP, 4SH), conexiones y casquillos hidráulicos (JIC 37°, NPT, BSP, M22), conexiones industriales (acoples Camlock tipos A/B/C/D/DC/DP/E/F, Chicago, niples combinados, filtros de succión), válvulas y equipos (válvulas de bola inoxidable, mariposa wafer, flejadoras) y bandas transportadoras. Ensamblaje de mangueras a la medida. Modo catálogo: sin precios en línea — las cotizaciones se gestionan por WhatsApp o correo.
+
+## Company / Empresa
+- Name: ${SITE.name} (${SITE.shortName})
+- Location: ${SITE.address}, ${SITE.city}, ${SITE.region} (${SITE.country})
+- Coordinates: ${SITE.geo.lat}, ${SITE.geo.lng}
+- Hours: ${SITE.hours.en}
+- WhatsApp: ${SITE.whatsappDisplay} · Phone: ${SITE.phone}
 - Email: ${SITE.emailSales}
 - Instagram: ${SITE.instagram}
 - Facebook: ${SITE.facebook}
+- Map: ${SITE.mapUrl}
+- Sitemap: ${SITE.baseUrl}/sitemap.xml
+- Brand distributed: PROFIX
+- Area served: ${SITE.countryName.en} (nationwide shipping)
 
 ## Español
-- [Inicio](${abs(U.home('es'))})
-- [Catálogo de productos](${abs(U.products('es'))})
-- [Nosotros](${abs(U.about('es'))})
-- [Contacto](${abs(U.contact('es'))})
-- [Blog](${abs(U.blog('es'))})
+- [Inicio](${abs(U.home('es'))}): suministros industriales en Panamá.
+- [Catálogo de productos](${abs(U.products('es'))}): ${PRODUCTS.length} productos en ${CATEGORIES.length} líneas.
+- [Nosotros](${abs(U.about('es'))}): historia, equipo y proyectos de YRVIMAR.
+- [Contacto](${abs(U.contact('es'))}): dirección, horario, mapa y formulario.
+- [Blog](${abs(U.blog('es'))}): guías técnicas de mangueras, conexiones y válvulas.
 - [Política de Privacidad](${abs(U.privacy('es'))})
 
-### Categorías
-${catLine('es')}
+### Categorías y productos
+${catBlock('es')}
 
 ### Artículos del blog
 ${artLine('es')}
 
 ## English
-- [Home](${abs(U.home('en'))})
-- [Product catalog](${abs(U.products('en'))})
-- [About](${abs(U.about('en'))})
-- [Contact](${abs(U.contact('en'))})
-- [Blog](${abs(U.blog('en'))})
+- [Home](${abs(U.home('en'))}): industrial supplies in Panama.
+- [Product catalog](${abs(U.products('en'))}): ${PRODUCTS.length} products across ${CATEGORIES.length} lines.
+- [About](${abs(U.about('en'))}): YRVIMAR history, team and projects.
+- [Contact](${abs(U.contact('en'))}): address, hours, map and contact form.
+- [Blog](${abs(U.blog('en'))}): technical guides on hoses, fittings and valves.
 - [Privacy Policy](${abs(U.privacy('en'))})
 
-### Categories
-${catLine('en')}
+### Categories and products
+${catBlock('en')}
 
 ### Blog articles
 ${artLine('en')}
+
+## Usage
+Content may be cited with attribution to ${SITE.name} (${SITE.baseUrl}).
+Last-Updated: ${BUILD_DATE}
 `;
 }
 
@@ -873,7 +954,7 @@ function sitemap() {
   const add = (loc, priority, changefreq, altEs, altEn, lastmod) => {
     urls.push({ loc: abs(loc), priority, changefreq, altEs: abs(altEs), altEn: abs(altEn), lastmod });
   };
-  const today = '2026-07-24';
+  const today = BUILD_DATE;
   for (const lang of LANGS) {
     add(U.home(lang), '1.0', 'weekly', U.home('es'), U.home('en'), today);
     add(U.products(lang), '0.9', 'weekly', U.products('es'), U.products('en'), today);

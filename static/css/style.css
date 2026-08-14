@@ -250,7 +250,7 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .slide__content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; max-width: 620px; }
 .slide__content .eyebrow { color: var(--gold-lite); }
 .slide__content .eyebrow .tick { background: var(--gold); }
-.slide h1, .slide__content h1 { color: #fff; font-size: clamp(2.1rem, 5vw, 3.7rem); line-height: 1.03; margin-top: 18px; letter-spacing: -0.03em; }
+.slide h1, .slide__content h1, .slide__content .slide-title { color: #fff; font-size: clamp(2.1rem, 5vw, 3.7rem); line-height: 1.03; margin-top: 18px; letter-spacing: -0.03em; font-weight: 700; }
 .slide h1 .gold { color: var(--gold-lite); }
 .slide__content p { color: #d7dde5; margin-top: 18px; font-size: clamp(1rem, 1.6vw, 1.18rem); max-width: 44ch; }
 .slide__cta { margin-top: 30px; display: flex; gap: 13px; flex-wrap: wrap; }
@@ -600,6 +600,18 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .legal-doc p, .legal-doc li { color: var(--mute); line-height: 1.7; }
 .legal-doc ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; list-style: disc; }
 .legal-doc a { color: var(--gold-deep); text-decoration: underline; }
+.byline { text-align: center; margin-top: 12px; font-size: 0.9rem; color: var(--mute); }
+.byline a { color: var(--gold-deep); font-weight: 600; }
+.byline a:hover { text-decoration: underline; }
+.article-related-cat { margin-top: 34px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--soft); }
+.arc-eye { font-family: var(--ff-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mute); }
+.arc-link { display: flex; align-items: center; gap: 14px; margin-top: 10px; color: var(--ink); transition: color .2s; }
+.arc-link:hover { color: var(--gold-deep); }
+.arc-link > svg:first-child { width: 30px; height: 30px; color: var(--gold-deep); flex: 0 0 auto; }
+.arc-link span { display: grid; gap: 2px; flex: 1; }
+.arc-link strong { font-size: 1.02rem; }
+.arc-link em { font-style: normal; font-size: 0.86rem; color: var(--mute); }
+.arc-link > svg:last-child { width: 18px; height: 18px; flex: 0 0 auto; }
 
 /* ---------- Floating widgets ---------- */
 .fab-wa { position: fixed; right: 22px; bottom: 22px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px -8px rgba(37,211,102,.55); transition: transform .3s var(--ease); }
