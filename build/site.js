@@ -213,7 +213,7 @@ const PRODUCTS = [
   P('hid-sae-100-r4', 'mangueras-hidraulicas', 'prod/hid-r4.webp', 'ficha/f-sae-r4.webp',
     'Manguera Hidráulica SAE 100 R4', 'SAE 100 R4 Hydraulic Hose',
     'Succión y retorno de baja presión con refuerzo espiralado.', 'Low-pressure suction and return with spiral reinforcement.'),
-  P('hid-sae-100-r5', 'mangueras-hidraulicas', 'prod/hid-r5.webp', null,
+  P('hid-sae-100-r5', 'mangueras-hidraulicas', 'prod/hid-r5.webp', 'ficha/f-sae-r5.webp',
     'Manguera Hidráulica SAE 100 R5', 'SAE 100 R5 Hydraulic Hose',
     'Trenza de acero con cubierta textil trenzada para líneas de presión media.', 'Steel wire braid with textile braid cover for medium-pressure lines.'),
   P('hid-sae-100-r7', 'mangueras-hidraulicas', 'prod/hid-r7.webp', 'ficha/f-sae-r7.webp',
