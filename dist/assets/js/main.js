@@ -129,7 +129,11 @@
       var text = lang === 'es'
         ? 'Hola YRVIMAR, soy ' + name + '.\n' + (topic ? 'Producto de interés: ' + topic + '.\n' : '') + 'Mensaje: ' + msg
         : 'Hello YRVIMAR, I am ' + name + '.\n' + (topic ? 'Product of interest: ' + topic + '.\n' : '') + 'Message: ' + msg;
-      var url = 'https://wa.me/50768550933?text=' + encodeURIComponent(text);
+      // El numero viene del HTML (que lo toma de site.js): no se escribe aqui,
+      // para que cambiarlo en un sitio no deje el formulario apuntando al viejo.
+      var num = form.getAttribute('data-wa');
+      if (!num) return;
+      var url = 'https://wa.me/' + num + '?text=' + encodeURIComponent(text);
       window.open(url, '_blank', 'noopener');
     });
   }

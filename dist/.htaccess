@@ -4,6 +4,10 @@
 Options -Indexes
 DirectoryIndex index.html
 
+# Charset a nivel de servidor: sin esto los crawlers simples (varios bots de IA)
+# decodifican mal tildes y enie, presentes en casi todas las keywords en espanol.
+AddDefaultCharset UTF-8
+
 # Página 404 personalizada
 ErrorDocument 404 /404.html
 

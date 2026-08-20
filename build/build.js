@@ -98,7 +98,12 @@ function ldOrg() {
   };
 }
 function ldWebsite(lang) {
-  return { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.baseUrl, inLanguage: lang };
+  // @id POR IDIOMA: compartirlo hace que un idioma sobreescriba url/inLanguage del otro.
+  return {
+    '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE.baseUrl}/#sitio-${lang}`,
+    name: SITE.name, url: abs(U.home(lang)), inLanguage: lang,
+    publisher: { '@id': ORG_ID },
+  };
 }
 function ldBreadcrumb(items) {
   return {
@@ -677,7 +682,7 @@ function pageContact(lang) {
     <div class="contact-card">
       <h2 style="font-size:1.4rem">${L ? 'Envíanos un mensaje' : 'Send us a message'}</h2>
       <p style="color:var(--mute);margin:10px 0 24px;font-size:.95rem">${L ? 'Completa el formulario y te contactamos. Se abrirá WhatsApp con tu mensaje listo.' : 'Fill out the form and we\'ll contact you. WhatsApp will open with your message ready.'}</p>
-      <form id="contact-form" data-lang="${lang}">
+      <form id="contact-form" data-lang="${lang}" data-wa="${SITE.whatsapp}">
         <div class="form-row"><label for="cf-name">${L ? 'Nombre' : 'Name'}</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
         <div class="form-row"><label for="cf-topic">${L ? 'Producto de interés' : 'Product of interest'}</label>
           <select id="cf-topic" name="topic">
@@ -893,6 +898,10 @@ function htaccess() {
 # ============================================================
 Options -Indexes
 DirectoryIndex index.html
+
+# Charset a nivel de servidor: sin esto los crawlers simples (varios bots de IA)
+# decodifican mal tildes y enie, presentes en casi todas las keywords en espanol.
+AddDefaultCharset UTF-8
 
 # Página 404 personalizada
 ErrorDocument 404 /404.html
