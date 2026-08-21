@@ -669,8 +669,9 @@ body.nav-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 }
 @media (max-width: 940px) {
   .topbar { display: none; }
-  /* En movil el cambio de idioma vive dentro del menu lateral */
-  .nav-links, .nav-actions .lang-desktop, .nav-actions .lang-switch { display: none; }
+  .nav-links, .nav-actions .lang-desktop { display: none; }
+  /* El cambio de idioma se queda en la cabecera, junto al hamburguesa */
+  .nav-actions .lang-switch { height: 44px; padding: 0 12px; gap: 6px; }
   .nav-toggle { display: flex; }
   .topbar-left .hide-sm { display: none; }
   /* Logo más grande en móvil; el header no encoge (lo hace la barra de info al desplazarse) */

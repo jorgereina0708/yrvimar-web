@@ -215,7 +215,6 @@ function header(lang, active, alternates) {
     ${mlink(U.contact(lang), n.contact)}
     <div class="nav-mobile-cta">
       <a class="btn btn--primary btn--block" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
-      <a class="btn btn--ghost btn--block" href="${alternates[other]}" hreflang="${other}">${I.globe}<span>${t.langSwitch}</span></a>
     </div>
   </div>
 </header>
