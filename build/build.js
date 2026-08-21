@@ -785,31 +785,6 @@ function pageArticle(a, lang) {
 // ============================================================================
 //  ROOT redirect + robots + sitemap + manifest
 // ============================================================================
-function rootIndex() {
-  return `<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YRVIMAR Services & Supply — Suministros Industriales Panamá</title>
-<meta name="description" content="Suministros industriales en Panamá: mangueras, conexiones, válvulas y accesorios.">
-<meta name="robots" content="${NOINDEX ? 'noindex, nofollow' : 'index, follow'}">
-<link rel="canonical" href="${abs(U.home('es'))}">
-<link rel="alternate" hreflang="es" href="${abs(U.home('es'))}">
-<link rel="alternate" hreflang="en" href="${abs(U.home('en'))}">
-<link rel="alternate" hreflang="x-default" href="${abs(U.home('es'))}">
-<link rel="icon" type="image/png" sizes="32x32" href="${logo('favicon-32.png')}">
-<script>
-(function(){try{var l=(navigator.language||'es').toLowerCase();var t=l.indexOf('en')===0?'/en/':'/es/';location.replace(t);}catch(e){location.replace('/es/');}})();
-</script>
-<meta http-equiv="refresh" content="0; url=/es/">
-</head>
-<body style="background:#0a0a0b;color:#f6f6f4;font-family:system-ui;display:flex;min-height:100vh;align-items:center;justify-content:center">
-<p>Redirigiendo… <a href="/es/" style="color:#f5b301">YRVIMAR</a></p>
-</body>
-</html>`;
-}
-
 function robots() {
   if (NOINDEX) {
     // Se permite el rastreo A PROPÓSITO: si se bloqueara aquí, los buscadores
@@ -913,6 +888,9 @@ ErrorDocument 404 /404.html
   # Dominio canónico: www -> sin www (evita contenido duplicado)
   RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+  # El espanol se mudo de /es/... a la raiz: las URLs antiguas redirigen permanentemente
+  RewriteRule ^es/?$ / [R=301,L]
+  RewriteRule ^es/(.*)$ /$1 [R=301,L]
   # Redirigir /ruta.html -> /ruta (301)
   RewriteCond %{THE_REQUEST} \\s/+([^?\\s]+)\\.html[\\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
@@ -967,7 +945,7 @@ ErrorDocument 404 /404.html
 
 function manifest() {
   return JSON.stringify({
-    name: SITE.name, short_name: SITE.shortName, start_url: '/es/', display: 'standalone',
+    name: SITE.name, short_name: SITE.shortName, start_url: '/', display: 'standalone',
     background_color: '#0a0a0b', theme_color: '#0a0a0b',
     icons: [
       { src: logo('icon-192.png'), sizes: '192x192', type: 'image/png' },
@@ -1101,12 +1079,12 @@ function notFound() {
     <h1 style="font-size:clamp(3rem,10vw,6rem);margin-top:16px">404</h1>
     <p class="lead" style="max-width:44ch;margin:14px auto 0">La página que buscas no existe o fue movida. / The page you're looking for doesn't exist.</p>
     <div class="hero-cta" style="justify-content:center;margin-top:32px">
-      <a class="btn btn--primary btn--lg" href="/es/">Inicio</a>
+      <a class="btn btn--primary btn--lg" href="/">Inicio</a>
       <a class="btn btn--ghost btn--lg" href="/en/">Home (EN)</a>
     </div>
   </div>
 </section>`;
-  return shell({ lang, active: '', meta: { lang, title: '404 — YRVIMAR', desc: 'Página no encontrada', path: '/404.html', alternates: alts('/es/', '/en/'), robots: 'noindex, follow' }, main });
+  return shell({ lang, active: '', meta: { lang, title: '404 — YRVIMAR', desc: 'Página no encontrada', path: '/404.html', alternates: alts('/', '/en/'), robots: 'noindex, follow' }, main });
 }
 
 // ============================================================================
@@ -1124,18 +1102,19 @@ function build() {
 
   let count = 0;
   for (const lang of LANGS) {
-    write(`${lang}/index.html`, pageHome(lang)); count++;
-    write(`${lang}/${PATHS[lang].products}.html`, pageProducts(lang)); count++;
-    write(`${lang}/${PATHS[lang].about}.html`, pageAbout(lang)); count++;
-    write(`${lang}/${PATHS[lang].contact}.html`, pageContact(lang)); count++;
-    write(`${lang}/${PATHS[lang].privacy}.html`, pagePrivacy(lang)); count++;
-    write(`${lang}/${PATHS[lang].blog}/index.html`, pageBlog(lang)); count++;
-    for (const c of CATEGORIES) { write(`${lang}/${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
-    for (const p of PRODUCTS) { write(`${lang}/${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
-    for (const a of ARTICLES) { write(`${lang}/${PATHS[lang].blog}/${a.slug[lang]}.html`, pageArticle(a, lang)); count++; }
+    // El idioma por defecto se sirve desde la raiz; el resto bajo su prefijo.
+    const d = lang === DEFAULT_LANG ? '' : `${lang}/`;
+    write(`${d}index.html`, pageHome(lang)); count++;
+    write(`${d}${PATHS[lang].products}.html`, pageProducts(lang)); count++;
+    write(`${d}${PATHS[lang].about}.html`, pageAbout(lang)); count++;
+    write(`${d}${PATHS[lang].contact}.html`, pageContact(lang)); count++;
+    write(`${d}${PATHS[lang].privacy}.html`, pagePrivacy(lang)); count++;
+    write(`${d}${PATHS[lang].blog}/index.html`, pageBlog(lang)); count++;
+    for (const c of CATEGORIES) { write(`${d}${PATHS[lang].category}/${c.slug[lang]}.html`, pageCategory(c, lang)); count++; }
+    for (const p of PRODUCTS) { write(`${d}${PATHS[lang].product}/${p.slug[lang]}.html`, pageProduct(p, lang)); count++; }
+    for (const a of ARTICLES) { write(`${d}${PATHS[lang].blog}/${a.slug[lang]}.html`, pageArticle(a, lang)); count++; }
   }
 
-  write('index.html', rootIndex());
   write('404.html', notFound());
   write('robots.txt', robots());
   write('llms.txt', llmsTxt());

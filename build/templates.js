@@ -1,7 +1,7 @@
 // ============================================================================
 //  YRVIMAR — Componentes/plantillas HTML compartidos
 // ============================================================================
-const { SITE, PATHS, T, CATEGORIES, NOINDEX } = require('./site');
+const { SITE, PATHS, T, CATEGORIES, NOINDEX, DEFAULT_LANG } = require('./site');
 
 // ---------- Iconos (Lucide-style, stroke) ----------
 const I = {
@@ -49,17 +49,20 @@ function logo(name) { return `${ASSET}/logo/${name}`; }
 
 // URL builders (absolutas desde raíz)
 // URLs limpias (sin .html). El .htaccess sirve el archivo .html correspondiente.
+// El idioma por defecto vive en la raiz (/, /productos); el resto lleva prefijo (/en/...).
+// Todas las URLs del sitio nacen aqui: canonical, hreflang, sitemap y llms.txt incluidos.
+const LP = (l) => (l === DEFAULT_LANG ? '' : `/${l}`);
 const U = {
-  home: (l) => `/${l}/`,
-  products: (l) => `/${l}/${PATHS[l].products}`,
-  category: (l, slug) => `/${l}/${PATHS[l].category}/${slug}`,
-  product: (l, slug) => `/${l}/${PATHS[l].product}/${slug}`,
-  about: (l) => `/${l}/${PATHS[l].about}`,
-  contact: (l) => `/${l}/${PATHS[l].contact}`,
-  blog: (l) => `/${l}/${PATHS[l].blog}/`,
-  article: (l, slug) => `/${l}/${PATHS[l].blog}/${slug}`,
-  projects: (l) => `/${l}/${PATHS[l].projects}`,
-  privacy: (l) => `/${l}/${PATHS[l].privacy}`,
+  home: (l) => `${LP(l)}/`,
+  products: (l) => `${LP(l)}/${PATHS[l].products}`,
+  category: (l, slug) => `${LP(l)}/${PATHS[l].category}/${slug}`,
+  product: (l, slug) => `${LP(l)}/${PATHS[l].product}/${slug}`,
+  about: (l) => `${LP(l)}/${PATHS[l].about}`,
+  contact: (l) => `${LP(l)}/${PATHS[l].contact}`,
+  blog: (l) => `${LP(l)}/${PATHS[l].blog}/`,
+  article: (l, slug) => `${LP(l)}/${PATHS[l].blog}/${slug}`,
+  projects: (l) => `${LP(l)}/${PATHS[l].projects}`,
+  privacy: (l) => `${LP(l)}/${PATHS[l].privacy}`,
 };
 
 function wa(text) { return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`; }

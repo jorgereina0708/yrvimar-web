@@ -19,91 +19,91 @@
 - Area served: Panama (nationwide shipping)
 
 ## Español
-- [Inicio](https://yrvimar.com/es/): suministros industriales en Panamá.
-- [Catálogo de productos](https://yrvimar.com/es/productos): 58 productos en 7 líneas.
-- [Nosotros](https://yrvimar.com/es/nosotros): historia, equipo y proyectos de YRVIMAR.
-- [Contacto](https://yrvimar.com/es/contacto): dirección, horario, mapa y formulario.
-- [Blog](https://yrvimar.com/es/blog/): guías técnicas de mangueras, conexiones y válvulas.
-- [Política de Privacidad](https://yrvimar.com/es/privacidad)
+- [Inicio](https://yrvimar.com/): suministros industriales en Panamá.
+- [Catálogo de productos](https://yrvimar.com/productos): 58 productos en 7 líneas.
+- [Nosotros](https://yrvimar.com/nosotros): historia, equipo y proyectos de YRVIMAR.
+- [Contacto](https://yrvimar.com/contacto): dirección, horario, mapa y formulario.
+- [Blog](https://yrvimar.com/blog/): guías técnicas de mangueras, conexiones y válvulas.
+- [Política de Privacidad](https://yrvimar.com/privacidad)
 
 ### Categorías y productos
-- [Mangueras de PVC](https://yrvimar.com/es/categoria/mangueras-pvc): Succión, descarga y layflat — 9 productos
-  - [Manguera de Succión y Descarga de Agua Liviana (PAI)](https://yrvimar.com/es/producto/pvc-succion-descarga-liviana)
-  - [Manguera Chata Layflat Liviana (PCI)](https://yrvimar.com/es/producto/pvc-layflat-liviana)
-  - [Manguera Chata Layflat Trabajo Pesado (PHI)](https://yrvimar.com/es/producto/pvc-layflat-pesada)
-  - [Manguera de Succión y Descarga de Agua Pesada (PNI)](https://yrvimar.com/es/producto/pvc-succion-descarga-pesada)
-  - [Manguera No Tóxica con Refuerzo de Acero (PSI)](https://yrvimar.com/es/producto/pvc-no-toxica-acero)
-  - [Manguera No Tóxica con Refuerzo Textil (ARI)](https://yrvimar.com/es/producto/pvc-no-toxica-textil)
-  - [Manguera No Tóxica sin Refuerzo (ASI)](https://yrvimar.com/es/producto/pvc-no-toxica-sin-refuerzo)
-  - [Manguera de Succión y Descarga Reforzada (PGI)](https://yrvimar.com/es/producto/pvc-succion-reforzada-pgi)
-  - [Manguera de Succión de Polvo](https://yrvimar.com/es/producto/pvc-succion-polvo)
-- [Mangueras de Goma](https://yrvimar.com/es/categoria/mangueras-de-goma): Aire, agua, combustible y químicos — 8 productos
-  - [Manguera de Goma Servicios Generales — Aire y Agua (ATI)](https://yrvimar.com/es/producto/goma-servicios-generales)
-  - [Manguera Gasolina Estación de Servicio (GEI)](https://yrvimar.com/es/producto/goma-gasolina-estacion)
-  - [Manguera Aceite y Gasolina — Nitrilo (GNI)](https://yrvimar.com/es/producto/goma-aceite-gasolina-nitrilo)
-  - [Manguera Succión de Agua Cubierta Envuelta (SAI)](https://yrvimar.com/es/producto/goma-succion-agua)
-  - [Manguera Succión de Gasolina "Vacuum Truck" (SGI)](https://yrvimar.com/es/producto/goma-succion-gasolina)
-  - [Manguera Succión de Químicos — XLPE (SQI)](https://yrvimar.com/es/producto/goma-succion-quimicos)
-  - [Manguera para Soldar Morocha (SUI)](https://yrvimar.com/es/producto/goma-soldar)
-  - [Manguera Multiuso Trabajo Pesado — Aceite y Gasolina (UMI)](https://yrvimar.com/es/producto/goma-multiuso)
-- [Mangueras Hidráulicas](https://yrvimar.com/es/categoria/mangueras-hidraulicas): SAE 100 R1 · R2 · 4SP · 4SH — 12 productos
-  - [Manguera Hidráulica SAE 100 R1](https://yrvimar.com/es/producto/hid-sae-100-r1)
-  - [Manguera Hidráulica SAE 100 R2](https://yrvimar.com/es/producto/hid-sae-100-r2)
-  - [Manguera Hidráulica SAE 100 R4](https://yrvimar.com/es/producto/hid-sae-100-r4)
-  - [Manguera Hidráulica SAE 100 R5](https://yrvimar.com/es/producto/hid-sae-100-r5)
-  - [Manguera Hidráulica SAE 100 R7](https://yrvimar.com/es/producto/hid-sae-100-r7)
-  - [Manguera Hidráulica SAE 100 R7 Twin (Doble Línea)](https://yrvimar.com/es/producto/hid-sae-100-r7-twin)
-  - [Manguera Hidráulica SAE 100 R8](https://yrvimar.com/es/producto/hid-sae-100-r8)
-  - [Manguera Hidráulica SAE 100 R13](https://yrvimar.com/es/producto/hid-sae-100-r13)
-  - [Manguera Hidráulica SAE 100 R15](https://yrvimar.com/es/producto/hid-sae-100-r15)
-  - [Manguera Hidráulica 4SP](https://yrvimar.com/es/producto/hid-4sp)
-  - [Manguera Hidráulica 4SH](https://yrvimar.com/es/producto/hid-4sh)
-  - [Manguera Hidráulica SAE 100 R14 (PTFE)](https://yrvimar.com/es/producto/hid-sae-14)
-- [Conexiones Hidráulicas](https://yrvimar.com/es/categoria/conexiones-hidraulicas): JIC, NPT, BSP, M22, casquillos — 9 productos
-  - [Acople Hidráulico AHA](https://yrvimar.com/es/producto/chid-acople-aha)
-  - [Acople Hidráulico AHB](https://yrvimar.com/es/producto/chid-acople-ahb)
-  - [Casquillo Ferrule F12](https://yrvimar.com/es/producto/chid-ferrule-f12)
-  - [Casquillo Ferrule F2](https://yrvimar.com/es/producto/chid-ferrule-f2)
-  - [Conexión Hembra BSP](https://yrvimar.com/es/producto/chid-hembra-bsp)
-  - [Conexión JIC 37°](https://yrvimar.com/es/producto/chid-jic)
-  - [Conexión M22](https://yrvimar.com/es/producto/chid-m22)
-  - [Conexión Macho JIC](https://yrvimar.com/es/producto/chid-macho-jic)
-  - [Conexión NPT](https://yrvimar.com/es/producto/chid-npt)
-- [Conexiones Industriales](https://yrvimar.com/es/categoria/conexiones-industriales): Camlock, Chicago, niples, filtros — 14 productos
-  - [Acople Camlock Tipo A](https://yrvimar.com/es/producto/camlock-tipo-a)
-  - [Acople Camlock Tipo B](https://yrvimar.com/es/producto/camlock-tipo-b)
-  - [Acople Camlock Tipo C](https://yrvimar.com/es/producto/camlock-tipo-c)
-  - [Acople Camlock Tipo D](https://yrvimar.com/es/producto/camlock-tipo-d)
-  - [Acople Camlock Tipo DC](https://yrvimar.com/es/producto/camlock-tipo-dc)
-  - [Acople Camlock Tipo DP](https://yrvimar.com/es/producto/camlock-tipo-dp)
-  - [Acople Camlock Tipo E](https://yrvimar.com/es/producto/camlock-tipo-e)
-  - [Acople Camlock Tipo F](https://yrvimar.com/es/producto/camlock-tipo-f)
-  - [Acople Chicago Macho (MRI)](https://yrvimar.com/es/producto/chicago-macho)
-  - [Acople Chicago Hembra (HRI)](https://yrvimar.com/es/producto/chicago-hembra)
-  - [Acople Chicago para Manguera (TRI)](https://yrvimar.com/es/producto/chicago-manguera)
-  - [Niple Combinado (NCI)](https://yrvimar.com/es/producto/niple-combinado)
-  - [Sello / Empaque para Camlock (QGI)](https://yrvimar.com/es/producto/sello-camlock)
-  - [Filtro / Canastilla de Succión (SVI)](https://yrvimar.com/es/producto/filtro-succion)
-- [Válvulas y Equipos](https://yrvimar.com/es/categoria/valvulas-y-equipos): Bola, mariposa, flejes, antilátigo — 5 productos
-  - [Válvula de Bola Acero Inoxidable 304 (VX)](https://yrvimar.com/es/producto/valvula-bola-inox)
-  - [Válvula Mariposa Tipo Wafer](https://yrvimar.com/es/producto/valvula-mariposa-wafer)
-  - [Cable de Seguridad Antilátigo (Whip Check)](https://yrvimar.com/es/producto/antilatigo)
-  - [Fleje de Acero Inoxidable 304 (BAI)](https://yrvimar.com/es/producto/fleje-inox)
-  - [Flejadora Manual (SMI-00)](https://yrvimar.com/es/producto/flejadora)
-- [Bandas Transportadoras](https://yrvimar.com/es/categoria/bandas-transportadoras): Servicio pesado para minería e industria — 1 productos
-  - [Banda Transportadora PROFIX](https://yrvimar.com/es/producto/banda-transportadora)
+- [Mangueras de PVC](https://yrvimar.com/categoria/mangueras-pvc): Succión, descarga y layflat — 9 productos
+  - [Manguera de Succión y Descarga de Agua Liviana (PAI)](https://yrvimar.com/producto/pvc-succion-descarga-liviana)
+  - [Manguera Chata Layflat Liviana (PCI)](https://yrvimar.com/producto/pvc-layflat-liviana)
+  - [Manguera Chata Layflat Trabajo Pesado (PHI)](https://yrvimar.com/producto/pvc-layflat-pesada)
+  - [Manguera de Succión y Descarga de Agua Pesada (PNI)](https://yrvimar.com/producto/pvc-succion-descarga-pesada)
+  - [Manguera No Tóxica con Refuerzo de Acero (PSI)](https://yrvimar.com/producto/pvc-no-toxica-acero)
+  - [Manguera No Tóxica con Refuerzo Textil (ARI)](https://yrvimar.com/producto/pvc-no-toxica-textil)
+  - [Manguera No Tóxica sin Refuerzo (ASI)](https://yrvimar.com/producto/pvc-no-toxica-sin-refuerzo)
+  - [Manguera de Succión y Descarga Reforzada (PGI)](https://yrvimar.com/producto/pvc-succion-reforzada-pgi)
+  - [Manguera de Succión de Polvo](https://yrvimar.com/producto/pvc-succion-polvo)
+- [Mangueras de Goma](https://yrvimar.com/categoria/mangueras-de-goma): Aire, agua, combustible y químicos — 8 productos
+  - [Manguera de Goma Servicios Generales — Aire y Agua (ATI)](https://yrvimar.com/producto/goma-servicios-generales)
+  - [Manguera Gasolina Estación de Servicio (GEI)](https://yrvimar.com/producto/goma-gasolina-estacion)
+  - [Manguera Aceite y Gasolina — Nitrilo (GNI)](https://yrvimar.com/producto/goma-aceite-gasolina-nitrilo)
+  - [Manguera Succión de Agua Cubierta Envuelta (SAI)](https://yrvimar.com/producto/goma-succion-agua)
+  - [Manguera Succión de Gasolina "Vacuum Truck" (SGI)](https://yrvimar.com/producto/goma-succion-gasolina)
+  - [Manguera Succión de Químicos — XLPE (SQI)](https://yrvimar.com/producto/goma-succion-quimicos)
+  - [Manguera para Soldar Morocha (SUI)](https://yrvimar.com/producto/goma-soldar)
+  - [Manguera Multiuso Trabajo Pesado — Aceite y Gasolina (UMI)](https://yrvimar.com/producto/goma-multiuso)
+- [Mangueras Hidráulicas](https://yrvimar.com/categoria/mangueras-hidraulicas): SAE 100 R1 · R2 · 4SP · 4SH — 12 productos
+  - [Manguera Hidráulica SAE 100 R1](https://yrvimar.com/producto/hid-sae-100-r1)
+  - [Manguera Hidráulica SAE 100 R2](https://yrvimar.com/producto/hid-sae-100-r2)
+  - [Manguera Hidráulica SAE 100 R4](https://yrvimar.com/producto/hid-sae-100-r4)
+  - [Manguera Hidráulica SAE 100 R5](https://yrvimar.com/producto/hid-sae-100-r5)
+  - [Manguera Hidráulica SAE 100 R7](https://yrvimar.com/producto/hid-sae-100-r7)
+  - [Manguera Hidráulica SAE 100 R7 Twin (Doble Línea)](https://yrvimar.com/producto/hid-sae-100-r7-twin)
+  - [Manguera Hidráulica SAE 100 R8](https://yrvimar.com/producto/hid-sae-100-r8)
+  - [Manguera Hidráulica SAE 100 R13](https://yrvimar.com/producto/hid-sae-100-r13)
+  - [Manguera Hidráulica SAE 100 R15](https://yrvimar.com/producto/hid-sae-100-r15)
+  - [Manguera Hidráulica 4SP](https://yrvimar.com/producto/hid-4sp)
+  - [Manguera Hidráulica 4SH](https://yrvimar.com/producto/hid-4sh)
+  - [Manguera Hidráulica SAE 100 R14 (PTFE)](https://yrvimar.com/producto/hid-sae-14)
+- [Conexiones Hidráulicas](https://yrvimar.com/categoria/conexiones-hidraulicas): JIC, NPT, BSP, M22, casquillos — 9 productos
+  - [Acople Hidráulico AHA](https://yrvimar.com/producto/chid-acople-aha)
+  - [Acople Hidráulico AHB](https://yrvimar.com/producto/chid-acople-ahb)
+  - [Casquillo Ferrule F12](https://yrvimar.com/producto/chid-ferrule-f12)
+  - [Casquillo Ferrule F2](https://yrvimar.com/producto/chid-ferrule-f2)
+  - [Conexión Hembra BSP](https://yrvimar.com/producto/chid-hembra-bsp)
+  - [Conexión JIC 37°](https://yrvimar.com/producto/chid-jic)
+  - [Conexión M22](https://yrvimar.com/producto/chid-m22)
+  - [Conexión Macho JIC](https://yrvimar.com/producto/chid-macho-jic)
+  - [Conexión NPT](https://yrvimar.com/producto/chid-npt)
+- [Conexiones Industriales](https://yrvimar.com/categoria/conexiones-industriales): Camlock, Chicago, niples, filtros — 14 productos
+  - [Acople Camlock Tipo A](https://yrvimar.com/producto/camlock-tipo-a)
+  - [Acople Camlock Tipo B](https://yrvimar.com/producto/camlock-tipo-b)
+  - [Acople Camlock Tipo C](https://yrvimar.com/producto/camlock-tipo-c)
+  - [Acople Camlock Tipo D](https://yrvimar.com/producto/camlock-tipo-d)
+  - [Acople Camlock Tipo DC](https://yrvimar.com/producto/camlock-tipo-dc)
+  - [Acople Camlock Tipo DP](https://yrvimar.com/producto/camlock-tipo-dp)
+  - [Acople Camlock Tipo E](https://yrvimar.com/producto/camlock-tipo-e)
+  - [Acople Camlock Tipo F](https://yrvimar.com/producto/camlock-tipo-f)
+  - [Acople Chicago Macho (MRI)](https://yrvimar.com/producto/chicago-macho)
+  - [Acople Chicago Hembra (HRI)](https://yrvimar.com/producto/chicago-hembra)
+  - [Acople Chicago para Manguera (TRI)](https://yrvimar.com/producto/chicago-manguera)
+  - [Niple Combinado (NCI)](https://yrvimar.com/producto/niple-combinado)
+  - [Sello / Empaque para Camlock (QGI)](https://yrvimar.com/producto/sello-camlock)
+  - [Filtro / Canastilla de Succión (SVI)](https://yrvimar.com/producto/filtro-succion)
+- [Válvulas y Equipos](https://yrvimar.com/categoria/valvulas-y-equipos): Bola, mariposa, flejes, antilátigo — 5 productos
+  - [Válvula de Bola Acero Inoxidable 304 (VX)](https://yrvimar.com/producto/valvula-bola-inox)
+  - [Válvula Mariposa Tipo Wafer](https://yrvimar.com/producto/valvula-mariposa-wafer)
+  - [Cable de Seguridad Antilátigo (Whip Check)](https://yrvimar.com/producto/antilatigo)
+  - [Fleje de Acero Inoxidable 304 (BAI)](https://yrvimar.com/producto/fleje-inox)
+  - [Flejadora Manual (SMI-00)](https://yrvimar.com/producto/flejadora)
+- [Bandas Transportadoras](https://yrvimar.com/categoria/bandas-transportadoras): Servicio pesado para minería e industria — 1 productos
+  - [Banda Transportadora PROFIX](https://yrvimar.com/producto/banda-transportadora)
 
 ### Artículos del blog
-- [Cómo elegir la manguera hidráulica correcta para tu maquinaria](https://yrvimar.com/es/blog/como-elegir-manguera-hidraulica-correcta): Diámetro, presión, temperatura y conexiones: la guía práctica para seleccionar la manguera hidráulica adecuada y evitar fallas costosas.
-- [Mangueras de succión y descarga: guía completa](https://yrvimar.com/es/blog/mangueras-succion-descarga-guia-completa): Qué distingue a una manguera de succión de una de descarga, cómo evitar el colapso por vacío y cuándo usar refuerzo helicoidal.
-- [Acoples Camlock vs Chicago: cuál elegir](https://yrvimar.com/es/blog/acoples-camlock-vs-chicago-cual-elegir): Dos de los acoples rápidos más usados en la industria. Te explicamos para qué sirve cada uno y cómo no confundirlos.
-- [Válvulas de bola: acero inoxidable vs bronce](https://yrvimar.com/es/blog/valvulas-bola-inoxidable-vs-bronce): Ambas dicen "1000 WOG", pero la elección correcta depende del fluido, el ambiente y el presupuesto. Comparativa clara.
-- [Mantenimiento preventivo de mangueras industriales](https://yrvimar.com/es/blog/mantenimiento-preventivo-mangueras-industriales): Una manguera que falla puede costar más que el equipo. Rutina de inspección para anticipar fallas y alargar la vida útil.
-- [Whip check: por qué es esencial en líneas de aire y agua](https://yrvimar.com/es/blog/whip-check-seguridad-lineas-aire-agua): Un accesorio pequeño y económico que previene accidentes graves. Cómo funciona y dónde instalarlo.
-- [Cómo entender la presión de trabajo: WOG, PSI y SAE](https://yrvimar.com/es/blog/entender-presion-de-trabajo-wog-psi-sae): WOG, presión de trabajo, presión de ruptura y factor de seguridad explicados sin tecnicismos, con ejemplos reales.
-- [Manguera layflat: aplicaciones en construcción y minería](https://yrvimar.com/es/blog/manguera-layflat-construccion-mineria): Ligera, enrollable y de alto caudal. Por qué la layflat es la favorita para descarga temporal de agua.
-- [Reparación de fugas con abrazaderas: guía rápida](https://yrvimar.com/es/blog/reparar-fugas-tuberia-con-abrazaderas): Cómo detener una fuga en minutos con una abrazadera de reparación mientras planificas la solución definitiva.
-- [Guía para comprar suministros industriales en Panamá](https://yrvimar.com/es/blog/guia-comprar-suministros-industriales-panama): Cómo elegir proveedor, qué preguntar y cómo reducir tiempos de paro. Claves para compras industriales inteligentes.
+- [Cómo elegir la manguera hidráulica correcta para tu maquinaria](https://yrvimar.com/blog/como-elegir-manguera-hidraulica-correcta): Diámetro, presión, temperatura y conexiones: la guía práctica para seleccionar la manguera hidráulica adecuada y evitar fallas costosas.
+- [Mangueras de succión y descarga: guía completa](https://yrvimar.com/blog/mangueras-succion-descarga-guia-completa): Qué distingue a una manguera de succión de una de descarga, cómo evitar el colapso por vacío y cuándo usar refuerzo helicoidal.
+- [Acoples Camlock vs Chicago: cuál elegir](https://yrvimar.com/blog/acoples-camlock-vs-chicago-cual-elegir): Dos de los acoples rápidos más usados en la industria. Te explicamos para qué sirve cada uno y cómo no confundirlos.
+- [Válvulas de bola: acero inoxidable vs bronce](https://yrvimar.com/blog/valvulas-bola-inoxidable-vs-bronce): Ambas dicen "1000 WOG", pero la elección correcta depende del fluido, el ambiente y el presupuesto. Comparativa clara.
+- [Mantenimiento preventivo de mangueras industriales](https://yrvimar.com/blog/mantenimiento-preventivo-mangueras-industriales): Una manguera que falla puede costar más que el equipo. Rutina de inspección para anticipar fallas y alargar la vida útil.
+- [Whip check: por qué es esencial en líneas de aire y agua](https://yrvimar.com/blog/whip-check-seguridad-lineas-aire-agua): Un accesorio pequeño y económico que previene accidentes graves. Cómo funciona y dónde instalarlo.
+- [Cómo entender la presión de trabajo: WOG, PSI y SAE](https://yrvimar.com/blog/entender-presion-de-trabajo-wog-psi-sae): WOG, presión de trabajo, presión de ruptura y factor de seguridad explicados sin tecnicismos, con ejemplos reales.
+- [Manguera layflat: aplicaciones en construcción y minería](https://yrvimar.com/blog/manguera-layflat-construccion-mineria): Ligera, enrollable y de alto caudal. Por qué la layflat es la favorita para descarga temporal de agua.
+- [Reparación de fugas con abrazaderas: guía rápida](https://yrvimar.com/blog/reparar-fugas-tuberia-con-abrazaderas): Cómo detener una fuga en minutos con una abrazadera de reparación mientras planificas la solución definitiva.
+- [Guía para comprar suministros industriales en Panamá](https://yrvimar.com/blog/guia-comprar-suministros-industriales-panama): Cómo elegir proveedor, qué preguntar y cómo reducir tiempos de paro. Claves para compras industriales inteligentes.
 
 ## English
 - [Home](https://yrvimar.com/en/): industrial supplies in Panama.
@@ -194,4 +194,4 @@
 
 ## Usage
 Content may be cited with attribution to YRVIMAR Services & Supply, INC (https://yrvimar.com).
-Last-Updated: 2026-08-20
+Last-Updated: 2026-08-21
