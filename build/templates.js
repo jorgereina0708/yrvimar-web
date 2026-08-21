@@ -159,8 +159,6 @@ function header(lang, active, alternates) {
         <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${I.fb}</a>
         <a href="${wa(L ? 'Hola YRVIMAR' : 'Hello YRVIMAR')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
       </div>
-      <span class="sep"></span>
-      <a href="${alternates[other]}" hreflang="${other}">${I.globe}<span>${t.langSwitchShort}</span></a>
     </div>
   </div>
 </div>
@@ -200,6 +198,7 @@ function header(lang, active, alternates) {
       ${link(U.contact(lang), n.contact, 'contact')}
     </nav>
     <div class="nav-actions">
+      <a class="lang-switch" href="${alternates[other]}" hreflang="${other}" aria-label="${L ? 'Ver en ingles' : 'View in Spanish'}">${I.globe}<span>${t.langSwitchShort}</span></a>
       <a class="btn btn--primary lang-desktop" href="${wa(L ? 'Hola YRVIMAR, quisiera cotizar productos.' : 'Hello YRVIMAR, I would like a quote.')}" target="_blank" rel="noopener">${I.wa}<span>${t.cta.quote}</span></a>
       <button class="nav-toggle" id="nav-toggle" aria-label="${L ? 'Abrir menú' : 'Open menu'}" aria-expanded="false" aria-controls="nav-mobile"><span></span></button>
     </div>
